@@ -6,6 +6,7 @@ export interface SiteContent {
   hero: HeroContent;
   about: AboutContent;
   team: TeamContent;
+  servicesSection: ServicesSectionContent;
   services: Service[];
   modalities: Modality[];
   whyUs: WhyUsContent;
@@ -113,12 +114,23 @@ export interface ServiceGroup {
   items: string[];
 }
 
+export interface ServicesSectionContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  viewMoreLabel: string;
+  closeLabel: string;
+  ctaLabel: string;
+  whatsappMessage: string; // "{servicio}" se reemplaza por el nombre del servicio
+}
+
 export interface Service {
   id: string;
   icon: IconName;
+  image: MediaAsset;
   name: string; // nombre corto de la tarjeta
   title: string; // título completo del detalle
-  summary?: string;
+  summary: string; // línea de la tarjeta (y entrada del detalle)
   groups: ServiceGroup[];
   note?: string;
   closingLine?: string;

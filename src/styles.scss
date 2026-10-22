@@ -157,6 +157,11 @@ button {
   font-weight: 500;
 }
 
+// Diálogo abierto: la página de fondo no se desplaza.
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 // Párrafos largos justificados (pedido del usuario, 23 oct 2026). Solo desde 600px: en
 // columnas de celular el justificado abre huecos grandes entre palabras. hyphens usa lang="es".
 .justify {

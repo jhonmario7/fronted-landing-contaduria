@@ -1,4 +1,4 @@
-import { SiteContent } from './site-content.model';
+import { MediaAsset, SiteContent } from './site-content.model';
 
 // Fuente: portafolio de la cliente (public/portafolio/, diapositivas 01–19), transcrito literal.
 // Todo lo marcado [PENDIENTE] espera el material del Anexo 1 del contrato (ver documentacion/PLAN.md).
@@ -6,6 +6,16 @@ import { SiteContent } from './site-content.model';
 // para que la cliente lo apruebe en las rondas de ajustes.
 
 const SITE_URL = 'https://iuscounterconsulting.com';
+
+// Imágenes de servicio: bodegones generados con IA (1024×572). Decorativas (alt vacío):
+// el nombre del servicio ya va en el título de la tarjeta.
+const img = (name: string): MediaAsset => ({
+  src: `/images/ia/${name}.webp`,
+  alt: '',
+  width: 1024,
+  height: 572,
+  aiGenerated: true,
+});
 
 export const SITE_CONTENT: SiteContent = {
   identity: {
@@ -214,11 +224,23 @@ export const SITE_CONTENT: SiteContent = {
     ],
   },
 
+  // Diapositiva 05: "Soluciones integrales para tus necesidades" / "Tu negocio en manos de expertos".
+  servicesSection: {
+    eyebrow: 'Servicios',
+    title: 'Soluciones integrales para tus necesidades',
+    subtitle: 'Tu negocio en manos de expertos',
+    viewMoreLabel: 'Ver detalle', // BORRADOR
+    closeLabel: 'Cerrar',
+    ctaLabel: 'Consultar por WhatsApp', // BORRADOR
+    whatsappMessage: 'Hola, quisiera información sobre el servicio: {servicio}.', // BORRADOR
+  },
+
   // Orden y agrupación según la diapositiva 05 "Nuestros servicios" (11 tarjetas).
   services: [
     {
       id: 'contable-financiero',
       icon: 'calculator',
+      image: img('contable'),
       name: 'Contable y financiero',
       title: 'Servicios contables y financieros',
       summary:
@@ -248,8 +270,12 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'tributario',
       icon: 'receipt',
+      image: img('tributario'),
       name: 'Tributario',
       title: 'Asesoría, consultoría, defensa y representación tributaria',
+      // BORRADOR: el portafolio no trae una línea de resumen para este servicio.
+      summary:
+        'Cumplimiento de tus obligaciones tributarias nacionales y territoriales, y defensa ante la DIAN y demás autoridades.',
       groups: [
         {
           title: 'Impuestos nacionales',
@@ -307,8 +333,12 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'juridico',
       icon: 'scale',
+      image: img('juridico'),
       name: 'Jurídico',
       title: 'Servicios jurídicos',
+      // BORRADOR: el portafolio no trae una línea de resumen para este servicio.
+      summary:
+        'Asesoría y representación en derecho empresarial y comercial, laboral y de seguridad social, de familia y administrativo.',
       groups: [
         {
           title: 'Derecho empresarial y comercial',
@@ -365,8 +395,12 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'auditoria-revisoria-fiscal',
       icon: 'search',
+      image: img('auditoria-y-revision-fiscal'),
       name: 'Auditoría y revisoría fiscal',
       title: 'Auditoría y revisoría fiscal',
+      // BORRADOR: el portafolio no trae una línea de resumen para este servicio.
+      summary:
+        'Revisoría fiscal y auditorías financieras, tributarias y de cumplimiento para dar confianza a tus decisiones.',
       groups: [
         {
           items: [
@@ -388,6 +422,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'creacion-empresas',
       icon: 'building',
+      image: img('creacion-y-formalizacion-de-empresas'),
       name: 'Creación y formalización de empresas',
       title: 'Creación y formalización de empresas',
       summary:
@@ -415,6 +450,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'fundaciones-esal',
       icon: 'heart',
+      image: img('fundaciones-esal'),
       name: 'Fundaciones y entidades sin ánimo de lucro',
       title: 'Fundaciones y entidades sin ánimo de lucro',
       summary:
@@ -441,6 +477,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'gestion-operativa',
       icon: 'briefcase',
+      image: img('gestion-operativa-administrativa'),
       name: 'Gestión operativa y administrativa',
       title: 'Gestión operativa y administrativa',
       summary:
@@ -472,6 +509,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'software-contable',
       icon: 'laptop',
+      image: img('software-contable-transformacion-digital'),
       name: 'Software contable y transformación digital',
       title: 'Software contable y transformación digital',
       summary:
@@ -497,6 +535,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'comerciantes-negocios',
       icon: 'store',
+      image: img('consultoria-para-comerciantes'),
       name: 'Consultoría para comerciantes y negocios',
       title: 'Consultoría para comerciantes y negocios',
       summary:
@@ -526,6 +565,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'cartera-cobranza',
       icon: 'money',
+      image: img('cartera-cobranzas-acuerdos-de-pagos'),
       name: 'Cartera, cobranza y acuerdos de pago',
       title: 'Cartera, cobranza y acuerdos de pago',
       summary:
@@ -549,6 +589,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       id: 'capacitacion',
       icon: 'graduation',
+      image: img('capacitacion-empresarial-servicios'),
       name: 'Capacitación y acompañamiento empresarial',
       title: 'Capacitación y acompañamiento empresarial',
       summary:

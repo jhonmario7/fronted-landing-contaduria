@@ -1,0 +1,307 @@
+.services__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// ---------- Tarjeta ----------
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-border-gold);
+    box-shadow: var(--shadow-card);
+  }
+
+  &:focus-within {
+    border-color: var(--color-gold);
+  }
+}
+
+.card__media {
+  position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: left center; // los bodegones dejan el objeto a la izquierda
+  }
+}
+
+// Icono en círculo navy con aro dorado, montado sobre el borde de la imagen.
+.card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-gold-light);
+  box-shadow:
+    0 0 0 2px var(--color-gold),
+    0 8px 18px -8px rgba(6, 31, 59, 0.6);
+}
+
+.card__media .card__icon {
+  position: absolute;
+  left: var(--space-4);
+  bottom: -26px;
+}
+
+.card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: calc(var(--space-4) + 26px) var(--space-4) var(--space-4);
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    flex: 1;
+    color: var(--color-text-soft);
+    font-size: 0.95rem;
+  }
+}
+
+.card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  min-height: 44px;
+  margin-top: var(--space-2);
+  padding: 0;
+  background: none;
+  border: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  cursor: pointer;
+
+  app-icon {
+    color: var(--color-gold-text);
+    transition: transform var(--transition-fast);
+  }
+
+  // Toda la tarjeta es clicable.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  .card:hover & app-icon {
+    transform: translateX(4px);
+  }
+}
+
+// ---------- Detalle (<dialog> nativo) ----------
+
+.detail {
+  width: min(760px, calc(100% - 24px));
+  max-height: calc(100dvh - 24px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-card);
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+
+  // Entrada suave (se anula con prefers-reduced-motion en styles.scss).
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    overlay 0.2s allow-discrete,
+    display 0.2s allow-discrete;
+
+  &[open] {
+    opacity: 1;
+    transform: none;
+
+    @starting-style {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+
+  &::backdrop {
+    background: rgba(6, 31, 59, 0.7);
+    backdrop-filter: blur(3px);
+  }
+}
+
+.detail__panel {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 24px);
+}
+
+.detail__header {
+  position: relative;
+  flex: none;
+  color: var(--color-text-on-dark);
+  background: var(--color-navy);
+
+  // La imagen queda de fondo, oscurecida para que el texto blanco tenga contraste.
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    opacity: 0.28;
+  }
+}
+
+.detail__heading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-5) var(--space-4) var(--space-4);
+
+  h3 {
+    margin-top: var(--space-2);
+    font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);
+  }
+
+  p {
+    color: var(--color-text-soft-on-dark);
+  }
+}
+
+.detail__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-gold);
+  background: rgba(6, 31, 59, 0.6);
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--color-gold);
+  }
+}
+
+.detail__body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.detail__group h4 {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.detail__intro {
+  margin-bottom: var(--space-2);
+  color: var(--color-text-soft);
+}
+
+.detail__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2) var(--space-4);
+
+  @media (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  li {
+    display: flex;
+    gap: var(--space-2);
+    font-size: 0.94rem;
+    color: var(--color-text-soft);
+  }
+
+  app-icon {
+    flex: none;
+    margin-top: 4px;
+    color: var(--color-gold-text);
+  }
+}
+
+.detail__note {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: 12px;
+  background: var(--color-cream);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-text-soft);
+
+  app-icon {
+    flex: none;
+    color: var(--color-gold-text);
+  }
+}
+
+.detail__footer {
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-cream);
+
+  .tagline {
+    font-size: 1.2rem;
+    color: var(--color-navy);
+  }
+}
