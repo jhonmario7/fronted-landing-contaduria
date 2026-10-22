@@ -218,14 +218,29 @@ export interface LegalPolicySection {
   paragraphs: string[];
 }
 
+export interface NewsletterContent {
+  title: string;
+  placeholder: string;
+  emailLabel: string; // etiqueta accesible del campo
+  submitLabel: string;
+  consentBefore: string;
+  consentLink: string;
+  mailSubject: string;
+  mailBody: string; // "{correo}" se reemplaza por el correo del visitante
+  successTitle: string;
+  successText: string;
+  backLabel: string;
+  errors: { email: string; emailInvalid: string; consent: string };
+}
+
 export interface FooterContent {
   portfolioLabel: string;
   portfolioPath: string;
   policyLabel: string;
-  navTitle: string;
   servicesTitle: string;
   contactTitle: string;
-  rights: string; // "Todos los derechos reservados."
+  socialLabel: string; // aria-label del grupo de redes
+  newsletter: NewsletterContent;
 }
 
 export interface PolicyPageContent {

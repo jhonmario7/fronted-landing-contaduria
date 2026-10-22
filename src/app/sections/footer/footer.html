@@ -7,12 +7,11 @@
         }
         <p class="footer__name">{{ identity.businessName }}</p>
         <p class="tagline">{{ identity.tagline }}</p>
-        <p class="footer__about">{{ identity.subtitle }}</p>
 
-        @if (socials.length) {
-          <ul class="footer__socials">
-            @for (social of socials; track social.label) {
-              <li>
+        <ul class="footer__socials" [attr.aria-label]="text.socialLabel">
+          @for (social of socials; track social.label) {
+            <li>
+              @if (social.url) {
                 <a
                   [href]="social.url"
                   target="_blank"
@@ -21,29 +20,20 @@
                 >
                   <app-icon [name]="social.icon" [size]="18" />
                 </a>
-              </li>
-            }
-          </ul>
-        }
-      </div>
-
-      <nav [attr.aria-label]="legal.footer.navTitle">
-        <h2>{{ legal.footer.navTitle }}</h2>
-        <ul class="footer__links">
-          @for (link of nav.links; track link.fragment) {
-            <li>
-              <a [href]="'/#' + link.fragment">{{ link.label }}</a>
+              } @else {
+                <!-- Sin enlace hasta que la cliente confirme la red. -->
+                <span class="is-pending" role="img" [attr.aria-label]="social.label">
+                  <app-icon [name]="social.icon" [size]="18" />
+                </span>
+              }
             </li>
           }
-          <li>
-            <a [href]="legal.footer.portfolioPath">{{ legal.footer.portfolioLabel }}</a>
-          </li>
         </ul>
-      </nav>
+      </div>
 
-      <nav [attr.aria-label]="legal.footer.servicesTitle">
-        <h2>{{ legal.footer.servicesTitle }}</h2>
-        <ul class="footer__links footer__links--compact">
+      <nav [attr.aria-label]="text.servicesTitle">
+        <h2>{{ text.servicesTitle }}</h2>
+        <ul class="footer__links">
           @for (name of serviceNames; track name) {
             <li>
               <a href="/#servicios">{{ name }}</a>
@@ -52,33 +42,82 @@
         </ul>
       </nav>
 
-      <div>
-        <h2>{{ legal.footer.contactTitle }}</h2>
-        <ul class="footer__contact">
-          @for (line of contact.whatsapp; track line.phoneE164) {
+      <div class="footer__side">
+        <div>
+          <h2>{{ text.contactTitle }}</h2>
+          <ul class="footer__contact">
+            @for (line of contact.whatsapp; track line.phoneE164) {
+              <li>
+                <app-icon name="whatsapp" [size]="20" />
+                <a [href]="'https://wa.me/' + line.phoneE164" target="_blank" rel="noopener">
+                  {{ line.display }}
+                </a>
+              </li>
+            }
             <li>
-              <app-icon name="whatsapp" [size]="20" />
-              <a [href]="'https://wa.me/' + line.phoneE164" target="_blank" rel="noopener">
-                {{ line.display }}
-              </a>
+              <app-icon name="mail" [size]="20" />
+              <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
             </li>
+          </ul>
+        </div>
+
+        <div class="news">
+          <h2>{{ news.title }}</h2>
+          @if (sentUrl(); as url) {
+            <div class="news__done" role="status">
+              <p>
+                <strong>{{ news.successTitle }}</strong> {{ news.successText }}
+              </p>
+              <button type="button" class="news__back" (click)="reset()">
+                {{ news.backLabel }}
+              </button>
+            </div>
+          } @else {
+            <form (submit)="subscribe($event)" novalidate>
+              <div class="news__row">
+                <input
+                  type="email"
+                  autocomplete="email"
+                  [placeholder]="news.placeholder"
+                  [attr.aria-label]="news.emailLabel"
+                  [formField]="newsletterForm.email"
+                />
+                <app-button type="submit" variant="gold" size="sm">
+                  {{ news.submitLabel }}
+                  <app-icon name="arrow-right" [size]="16" />
+                </app-button>
+              </div>
+              @if (newsletterForm.email().touched() && newsletterForm.email().invalid()) {
+                <p class="news__error" role="alert">
+                  {{ newsletterForm.email().errors()[0]?.message }}
+                </p>
+              }
+
+              <label class="news__consent">
+                <input type="checkbox" [formField]="newsletterForm.consent" />
+                <span>
+                  {{ news.consentBefore }}
+                  <a routerLink="/politica-de-tratamiento-de-datos">{{ news.consentLink }}</a
+                  >.
+                </span>
+              </label>
+              @if (newsletterForm.consent().touched() && newsletterForm.consent().invalid()) {
+                <p class="news__error" role="alert">
+                  {{ newsletterForm.consent().errors()[0]?.message }}
+                </p>
+              }
+            </form>
           }
-          <li>
-            <app-icon name="mail" [size]="20" />
-            <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
-          </li>
-        </ul>
+        </div>
       </div>
     </div>
 
-    <p class="footer__notice">{{ legalNotice }}</p>
-
     <div class="footer__bottom">
-      <p>
-        © {{ year }} {{ identity.legalName }} · NIT {{ identity.nit }} · {{ identity.city }}.
-        {{ legal.footer.rights }}
+      <p>© {{ year }} {{ identity.legalName }} · NIT {{ identity.nit }}</p>
+      <p class="footer__legal">
+        <a [href]="text.portfolioPath">{{ text.portfolioLabel }}</a>
+        <a routerLink="/politica-de-tratamiento-de-datos">{{ text.policyLabel }}</a>
       </p>
-      <a routerLink="/politica-de-tratamiento-de-datos">{{ legal.footer.policyLabel }}</a>
     </div>
   </div>
 </footer>

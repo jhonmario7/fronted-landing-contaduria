@@ -777,10 +777,31 @@ export const SITE_CONTENT: SiteContent = {
       portfolioLabel: 'Portafolio de servicios',
       portfolioPath: '/portafolio/',
       policyLabel: 'Política de tratamiento de datos',
-      navTitle: 'Navegación',
       servicesTitle: 'Servicios',
       contactTitle: 'Contacto',
-      rights: 'Todos los derechos reservados.',
+      socialLabel: 'Redes sociales',
+      // Suscripción a novedades PLANTEADA (BORRADOR, fuera del alcance del contrato): no hay servidor,
+      // al enviar se abre el correo del visitante con el mensaje listo para la firma.
+      newsletter: {
+        title: 'Suscríbete a nuestras novedades',
+        placeholder: 'Tu correo electrónico',
+        emailLabel: 'Correo electrónico para novedades',
+        submitLabel: 'Suscribirme',
+        consentBefore: 'Autorizo el tratamiento de mis datos conforme a la',
+        consentLink: 'política de tratamiento de datos',
+        mailSubject: 'Quiero recibir novedades',
+        mailBody:
+          'Hola, quisiera recibir novedades contables, tributarias y legales de IUS COUNTER CONSULTING en este correo: {correo}',
+        successTitle: '¡Casi listo!',
+        successText:
+          'Se abrió tu correo con el mensaje preparado. Solo envíalo para completar la suscripción.',
+        backLabel: 'Volver',
+        errors: {
+          email: 'Ingresa tu correo.',
+          emailInvalid: 'Ingresa un correo válido.',
+          consent: 'Debes autorizar el tratamiento de datos.',
+        },
+      },
     },
     policyPage: {
       title: 'Política de tratamiento de datos personales',
