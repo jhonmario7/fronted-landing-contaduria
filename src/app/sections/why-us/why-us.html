@@ -1,0 +1,35 @@
+<section id="por-que-elegirnos" class="section dark why">
+  <img class="why__bg" [ngSrc]="whyUs.background.src" [alt]="whyUs.background.alt" fill />
+
+  <div class="wrap why__inner">
+    <app-section-header
+      [eyebrow]="whyUs.eyebrow"
+      [title]="whyUs.title"
+      [subtitle]="whyUs.intro"
+      align="center"
+    />
+
+    <ul class="why__pillars">
+      @for (pillar of whyUs.pillars; track pillar.title) {
+        <li>
+          <span class="why__ring"><app-icon [name]="pillar.icon" [size]="28" /></span>
+          {{ pillar.title }}
+        </li>
+      }
+    </ul>
+
+    <p class="tagline why__closing">{{ whyUs.closing }}</p>
+
+    <ul class="why__promises">
+      @for (promise of whyUs.promises; track promise.title) {
+        <li>
+          <app-icon [name]="promise.icon" [size]="22" />
+          <span>
+            <strong>{{ promise.title }}</strong>
+            {{ promise.description }}
+          </span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

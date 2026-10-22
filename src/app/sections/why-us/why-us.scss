@@ -1,0 +1,122 @@
+.why {
+  position: relative;
+  overflow: hidden;
+}
+
+// Fondo decorativo (líneas doradas) + velo navy para que el texto blanco conserve contraste.
+.why__bg {
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.why::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 31, 59, 0.75),
+    rgba(6, 31, 59, 0.45) 50%,
+    rgba(6, 31, 59, 0.85)
+  );
+}
+
+.why__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.why__pillars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5) var(--space-3);
+
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  // En 2 columnas, el quinto pilar queda centrado.
+  @media (max-width: 699px) {
+    li:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+// Icono en aro dorado, como los del portafolio.
+.why__ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+  background: rgba(6, 31, 59, 0.6);
+  color: var(--color-gold-light);
+  box-shadow:
+    0 0 0 6px rgba(217, 165, 44, 0.08),
+    0 0 30px -6px rgba(217, 165, 44, 0.35);
+}
+
+.why__closing {
+  max-width: 44rem;
+  margin: var(--space-6) auto 0;
+  text-align: center;
+  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.2rem);
+  line-height: 1.3;
+  color: var(--color-gold-light);
+}
+
+.why__promises {
+  list-style: none;
+  margin: var(--space-6) 0 0;
+  padding: var(--space-4) 0 0;
+  border-top: 1px solid var(--color-border-gold);
+  display: grid;
+  gap: var(--space-4);
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    color: var(--color-text-soft-on-dark);
+  }
+
+  app-icon {
+    flex: none;
+    margin-top: 2px;
+    color: var(--color-gold);
+  }
+
+  strong {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+  }
+}

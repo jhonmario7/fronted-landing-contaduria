@@ -649,7 +649,18 @@ export const SITE_CONTENT: SiteContent = {
     },
   ],
 
+  // Diapositiva 18 "Nuestro compromiso". `benefits` (franja repetida en las diapositivas de
+  // servicios) queda en datos pero no se muestra: repetiría lo de pilares y promesas.
   whyUs: {
+    eyebrow: 'Por qué elegirnos',
+    title: 'Nuestro compromiso',
+    background: {
+      src: '/images/ia/por-que-elegirnos.webp',
+      alt: '',
+      width: 1024,
+      height: 432,
+      aiGenerated: true,
+    },
     intro:
       'En IUS COUNTER CONSULTING entendemos que una empresa necesita más que cumplir sus obligaciones tributarias.',
     pillars: [

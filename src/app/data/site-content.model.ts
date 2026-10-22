@@ -143,6 +143,9 @@ export interface Modality {
 }
 
 export interface WhyUsContent {
+  eyebrow: string;
+  title: string;
+  background: MediaAsset; // decorativa
   intro: string;
   pillars: IconCard[];
   closing: string;
