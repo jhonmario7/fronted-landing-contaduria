@@ -23,7 +23,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: color-mix(in srgb, var(--color-navy) 82%, transparent);
+  background: color-mix(in srgb, var(--color-navy) 96%, transparent);
   backdrop-filter: blur(14px) saturate(1.2);
   transition:
     background-color 0.3s ease,
@@ -155,7 +155,7 @@
     align-items: stretch;
     gap: 0;
     padding: var(--space-2) 16px var(--space-4);
-    background: color-mix(in srgb, var(--color-navy) 88%, transparent);
+    background: color-mix(in srgb, var(--color-navy) 96%, transparent);
     backdrop-filter: blur(14px) saturate(1.2);
     border-bottom: 1px solid var(--color-border-gold);
     box-shadow: 0 24px 40px -24px rgba(0, 0, 0, 0.6);
@@ -185,6 +185,14 @@
   }
 }
 
+// Celulares: el botón queda solo con el icono (el aria-label conserva el texto). Con texto
+// desbordaba la fila en pantallas de 430–480 px.
+@media (max-width: 599px) {
+  .header-cta__label {
+    display: none;
+  }
+}
+
 @media (max-width: 420px) {
   .brand__monogram {
     height: 40px;
@@ -193,8 +201,10 @@
   .brand__name {
     font-size: 1.2rem;
   }
+}
 
-  .header-cta__label {
-    display: none;
-  }
+// Que la fila nunca desborde: las columnas pueden encogerse.
+.brand,
+.site-nav {
+  min-width: 0;
 }
