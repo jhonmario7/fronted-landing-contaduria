@@ -19,12 +19,12 @@
 // Al pasar el umbral de scroll el header sólido cae desde arriba de la pantalla, como en la
 // referencia. Con prefers-reduced-motion la regla global de styles.scss la deja instantánea.
 .site-header.is-dropped {
-  animation: header-drop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: header-drop 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) both;
 }
 
 @keyframes header-drop {
   from {
-    transform: translateY(-100%);
+    transform: translateY(-40%);
     opacity: 0;
   }
   to {
