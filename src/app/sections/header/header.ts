@@ -39,6 +39,9 @@ export class Header {
     { initialValue: true },
   );
 
+  /** Con scroll en la home: el header sólido "cae" desde arriba (ver header.scss). */
+  protected readonly dropped = computed(() => this.overlay() && this.scrolled());
+
   /** Transparente solo en la home, arriba del todo y con el menú cerrado. */
   protected readonly overlay = computed(() => this.isHome());
   protected readonly transparent = computed(

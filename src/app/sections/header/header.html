@@ -2,6 +2,7 @@
   class="site-header dark"
   [class.site-header--overlay]="overlay()"
   [class.is-transparent]="transparent()"
+  [class.is-dropped]="dropped()"
 >
   <div class="wrap site-header__row">
     <a class="brand" href="/#inicio" (click)="closeMenu()" [attr.aria-label]="nav.homeLabel">

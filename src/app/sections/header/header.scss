@@ -16,6 +16,23 @@
   border-bottom-color: transparent;
 }
 
+// Al pasar el umbral de scroll el header sólido cae desde arriba de la pantalla, como en la
+// referencia. Con prefers-reduced-motion la regla global de styles.scss la deja instantánea.
+.site-header.is-dropped {
+  animation: header-drop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes header-drop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
 // Fondo "vidrio" en un pseudo-elemento: si el blur estuviera en .site-header, el panel del menú
 // (hijo con su propio blur) solo difuminaría el header y no la página que hay detrás.
 .site-header::before {
@@ -185,10 +202,10 @@
   }
 }
 
-// Celulares: el botón queda solo con el icono (el aria-label conserva el texto). Con texto
-// desbordaba la fila en pantallas de 430–480 px.
+// Celulares: sin botón "Escríbenos" (queda solo la hamburguesa); el botón flotante de WhatsApp
+// ya cubre el contacto y el header se ve menos cargado.
 @media (max-width: 599px) {
-  .header-cta__label {
+  .header-cta {
     display: none;
   }
 }
