@@ -166,7 +166,40 @@ export interface WhatsAppLine {
   display: string;
 }
 
+export interface ContactFormContent {
+  nameLabel: string;
+  namePlaceholder: string;
+  phoneLabel: string;
+  phonePlaceholder: string;
+  serviceLabel: string;
+  servicePlaceholder: string;
+  otherServiceLabel: string;
+  messageLabel: string;
+  messageOptional: string;
+  messagePlaceholder: string;
+  consentBefore: string;
+  consentLink: string;
+  submitLabel: string;
+  privacyNote: string;
+  successTitle: string;
+  successText: string;
+  reopenLabel: string;
+  backLabel: string;
+  whatsappIntro: string; // primera línea del mensaje
+  errors: {
+    name: string;
+    nameShort: string;
+    phone: string;
+    phoneInvalid: string;
+    service: string;
+    messageMax: string;
+    consent: string;
+  };
+  photo: MediaAsset;
+}
+
 export interface ContactContent {
+  form: ContactFormContent;
   heading: string;
   lead: string;
   closing: string;

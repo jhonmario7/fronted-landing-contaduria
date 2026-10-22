@@ -1,0 +1,221 @@
+.contact {
+  background:
+    radial-gradient(circle at 85% 10%, rgba(217, 165, 44, 0.14), transparent 45%), var(--color-navy);
+}
+
+.contact__grid {
+  display: grid;
+  gap: var(--space-5);
+  align-items: start;
+
+  @media (min-width: 960px) {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.contact__photo {
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center 40%;
+  border-radius: var(--radius-card);
+  box-shadow: 0 0 0 1px var(--color-border-gold);
+  opacity: 0.92;
+}
+
+.contact__channels {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  app-icon {
+    color: var(--color-gold);
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--color-gold-light);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+}
+
+.contact__closing {
+  margin-top: var(--space-3);
+  font-size: 1.4rem;
+  color: var(--color-gold-light);
+}
+
+// ---------- Formulario (tarjeta clara sobre fondo navy) ----------
+
+.contact__card {
+  padding: var(--space-4);
+  border-radius: var(--radius-card);
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-top: 3px solid var(--color-gold);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+
+  @media (min-width: 640px) {
+    padding: var(--space-5);
+  }
+
+  :focus-visible {
+    outline-color: var(--color-gold-text);
+  }
+}
+
+form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  input[type='text'],
+  input[type='tel'],
+  select,
+  textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-cream);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+
+    &::placeholder {
+      color: var(--color-text-soft);
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-gold-text);
+      outline-offset: 1px;
+      border-color: transparent;
+    }
+
+    // Campo inválido y tocado (la clase la pone la directiva de Signal Forms).
+    &[aria-invalid='true'] {
+      border-color: var(--color-danger);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--color-text-soft);
+}
+
+.field--check label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-weight: 400;
+  font-size: 0.88rem;
+  color: var(--color-text-soft);
+
+  input {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    accent-color: var(--color-navy);
+  }
+
+  a {
+    color: var(--color-navy);
+    font-weight: 600;
+  }
+}
+
+.error {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-danger);
+}
+
+.note {
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+}
+
+// Botón navy sobre la tarjeta clara (regla de marca).
+form app-button {
+  justify-self: start;
+}
+
+// ---------- Estado de éxito ----------
+
+.success {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  text-align: center;
+
+  p {
+    color: var(--color-text-soft);
+  }
+}
+
+.success__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-gold-light);
+  box-shadow: 0 0 0 2px var(--color-gold);
+}
+
+.success__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.link {
+  min-height: 44px;
+  padding: 0 var(--space-2);
+  background: none;
+  border: 0;
+  font-weight: 600;
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,128 @@
+<section id="contacto" class="section dark contact">
+  <div class="wrap contact__grid">
+    <div class="contact__aside">
+      <app-section-header eyebrow="Contacto" [title]="contact.heading" [subtitle]="contact.lead" />
+
+      <img
+        class="contact__photo"
+        [ngSrc]="text.photo.src"
+        [alt]="text.photo.alt"
+        [width]="text.photo.width"
+        [height]="text.photo.height"
+      />
+
+      <ul class="contact__channels">
+        @for (line of contact.whatsapp; track line.phoneE164) {
+          <li>
+            <app-icon name="whatsapp" [size]="20" />
+            <a [href]="'https://wa.me/' + line.phoneE164" target="_blank" rel="noopener">
+              {{ line.display }}
+            </a>
+          </li>
+        }
+        <li>
+          <app-icon name="mail" [size]="20" />
+          <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+        </li>
+      </ul>
+
+      <p class="tagline contact__closing">{{ contact.closing }}</p>
+    </div>
+
+    <div class="contact__card">
+      @if (sentUrl(); as url) {
+        <div class="success" role="status">
+          <span class="success__icon"><app-icon name="check" [size]="32" /></span>
+          <h3>{{ text.successTitle }}</h3>
+          <p>{{ text.successText }}</p>
+          <div class="success__actions">
+            <app-button [href]="url" target="_blank">
+              <app-icon name="whatsapp" [size]="18" />
+              {{ text.reopenLabel }}
+            </app-button>
+            <button type="button" class="link" (click)="reset()">{{ text.backLabel }}</button>
+          </div>
+        </div>
+      } @else {
+        <form (submit)="submit($event)" novalidate>
+          <div class="field">
+            <label for="c-name">{{ text.nameLabel }}</label>
+            <input
+              id="c-name"
+              type="text"
+              autocomplete="name"
+              [placeholder]="text.namePlaceholder"
+              [formField]="contactForm.name"
+            />
+            @if (contactForm.name().touched() && contactForm.name().invalid()) {
+              <p class="error" role="alert">{{ contactForm.name().errors()[0]?.message }}</p>
+            }
+          </div>
+
+          <div class="field">
+            <label for="c-phone">{{ text.phoneLabel }}</label>
+            <input
+              id="c-phone"
+              type="tel"
+              autocomplete="tel"
+              [placeholder]="text.phonePlaceholder"
+              [formField]="contactForm.phone"
+            />
+            @if (contactForm.phone().touched() && contactForm.phone().invalid()) {
+              <p class="error" role="alert">{{ contactForm.phone().errors()[0]?.message }}</p>
+            }
+          </div>
+
+          <div class="field">
+            <label for="c-service">{{ text.serviceLabel }}</label>
+            <select id="c-service" [formField]="contactForm.service">
+              <option value="" disabled>{{ text.servicePlaceholder }}</option>
+              @for (name of serviceNames; track name) {
+                <option [value]="name">{{ name }}</option>
+              }
+              <option [value]="text.otherServiceLabel">{{ text.otherServiceLabel }}</option>
+            </select>
+            @if (contactForm.service().touched() && contactForm.service().invalid()) {
+              <p class="error" role="alert">{{ contactForm.service().errors()[0]?.message }}</p>
+            }
+          </div>
+
+          <div class="field">
+            <label for="c-message">
+              {{ text.messageLabel }} <span class="optional">{{ text.messageOptional }}</span>
+            </label>
+            <textarea
+              id="c-message"
+              rows="3"
+              [placeholder]="text.messagePlaceholder"
+              [formField]="contactForm.message"
+            ></textarea>
+            @if (contactForm.message().invalid()) {
+              <p class="error" role="alert">{{ contactForm.message().errors()[0]?.message }}</p>
+            }
+          </div>
+
+          <div class="field field--check">
+            <label>
+              <input type="checkbox" [formField]="contactForm.dataConsent" />
+              <span>
+                {{ text.consentBefore }}
+                <a [href]="policyPath" target="_blank" rel="noopener">{{ text.consentLink }}</a
+                >.
+              </span>
+            </label>
+            @if (contactForm.dataConsent().touched() && contactForm.dataConsent().invalid()) {
+              <p class="error" role="alert">{{ contactForm.dataConsent().errors()[0]?.message }}</p>
+            }
+          </div>
+
+          <app-button type="submit" variant="primary">
+            <app-icon name="whatsapp" [size]="20" />
+            {{ text.submitLabel }}
+          </app-button>
+          <p class="note">{{ text.privacyNote }}</p>
+        </form>
+      }
+    </div>
+  </div>
+</section>

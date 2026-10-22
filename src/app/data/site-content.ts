@@ -702,6 +702,45 @@ export const SITE_CONTENT: SiteContent = {
 
   contact: {
     heading: '¡Escríbenos!',
+    form: {
+      nameLabel: 'Nombre',
+      namePlaceholder: 'Tu nombre',
+      phoneLabel: 'Teléfono o WhatsApp',
+      phonePlaceholder: '300 000 0000',
+      serviceLabel: 'Servicio de interés',
+      servicePlaceholder: 'Elige una opción',
+      otherServiceLabel: 'Otro / No estoy seguro',
+      messageLabel: 'Cuéntanos qué necesitas',
+      messageOptional: '(opcional)',
+      messagePlaceholder: 'Ej.: horario en que prefieres que te escribamos',
+      consentBefore: 'Autorizo el tratamiento de mis datos personales conforme a la',
+      consentLink: 'política de tratamiento de datos',
+      submitLabel: 'Enviar por WhatsApp',
+      privacyNote:
+        'Solo usamos tus datos para responder tu consulta. No incluyas información financiera ni documentos.',
+      successTitle: '¡Tu mensaje está listo!',
+      successText: 'Se abrió WhatsApp con tus datos. Solo confírmalo para enviarlo.',
+      reopenLabel: 'Abrir WhatsApp de nuevo',
+      backLabel: 'Volver al formulario',
+      whatsappIntro: 'Hola, quisiera recibir asesoría de IUS COUNTER CONSULTING.',
+      errors: {
+        name: 'Ingresa tu nombre.',
+        nameShort: 'El nombre es muy corto.',
+        phone: 'Ingresa tu número de teléfono.',
+        phoneInvalid: 'Ingresa un teléfono válido.',
+        service: 'Elige un servicio.',
+        messageMax: 'Máximo 300 caracteres.',
+        consent: 'Debes autorizar el tratamiento de datos para continuar.',
+      },
+      // Foto IA (docs/imagenes-ia/contacto): mano con el teléfono, pantalla desenfocada.
+      photo: {
+        src: '/images/ia/contacto.webp',
+        alt: 'Mano sosteniendo un teléfono sobre un escritorio junto a una libreta y una pluma dorada',
+        width: 823,
+        height: 1023,
+        aiGenerated: true,
+      },
+    }, // textos del formulario: BORRADOR
     lead: 'Estaremos encantados de brindarte la asesoría que necesitas y resolver todas tus dudas.',
     closing: '¡Tu tranquilidad también es nuestro compromiso!',
     // [PENDIENTE: cuál es la línea principal para el botón flotante y el formulario]
