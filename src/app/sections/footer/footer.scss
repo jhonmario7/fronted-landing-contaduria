@@ -22,7 +22,7 @@
 
   // Marca | Servicios (2 columnas) | Contacto + suscripción.
   @media (min-width: 1000px) {
-    grid-template-columns: 1fr 2fr 1.3fr;
+    grid-template-columns: 0.9fr 2.3fr 1.3fr;
     gap: var(--space-5);
   }
 }
@@ -129,9 +129,23 @@ a {
     break-inside: avoid;
   }
 
+  // Guión dorado delante de cada servicio, alineado con su primera línea: así los nombres que
+  // se parten en dos líneas no se confunden con el siguiente.
   a {
-    min-height: 36px;
+    align-items: flex-start;
+    gap: var(--space-2);
+    min-height: 0;
+    padding-block: 5px;
     font-size: 0.95rem;
+
+    &::before {
+      content: '';
+      flex: none;
+      width: 12px;
+      height: 1px;
+      margin-top: 0.82em; // centro de la primera línea (line-height 1.65 / 2)
+      background: var(--color-gold);
+    }
   }
 }
 

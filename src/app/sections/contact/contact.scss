@@ -6,13 +6,21 @@
   @media (min-width: 960px) {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-6);
+    align-items: stretch; // la columna izquierda llega hasta el final del formulario
   }
 }
 
+// Columna izquierda: título, foto que se estira para llenar el alto del formulario, eslogan.
+.contact__aside {
+  display: flex;
+  flex-direction: column;
+}
+
 .contact__photo {
+  flex: 1 1 280px;
+  min-height: 280px;
   width: 100%;
   height: auto;
-  max-height: 340px;
   object-fit: cover;
   object-position: center 40%;
   border-radius: var(--radius-card);
@@ -21,6 +29,7 @@
 
 .contact__closing {
   margin-top: var(--space-3);
+  text-align: center;
   font-size: 1.4rem;
   color: var(--color-gold-text);
 }
