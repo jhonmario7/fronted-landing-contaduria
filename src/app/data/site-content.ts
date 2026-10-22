@@ -715,7 +715,7 @@ export const SITE_CONTENT: SiteContent = {
       messageOptional: '(opcional)',
       messagePlaceholder: 'Ej.: horario en que prefieres que te escribamos',
       consentBefore: 'Autorizo el tratamiento de mis datos personales conforme a la',
-      consentLink: 'política de tratamiento de datos',
+      consentLink: 'política de tratamiento de datos.',
       submitLabel: 'Enviar por WhatsApp',
       privacyNote:
         'Solo usamos tus datos para responder tu consulta. No incluyas información financiera ni documentos.',

@@ -1,22 +1,21 @@
-// Botón fijo encima del de WhatsApp (58px + 12px de separación), centrado con él.
+// Botón fijo encima del de WhatsApp, del mismo tamaño (58px) y centrado con él.
 // Sin fondo: solo se ve el trazo dorado que se llena con el scroll y la flecha.
 .btt {
-  // El de WhatsApp mide 58px y este 52px: (58 - 52) / 2 = 3px extra para centrarlos.
   position: fixed;
-  right: calc(var(--space-4) + 3px);
+  right: var(--space-4);
   bottom: calc(var(--space-4) + 58px + 12px);
   z-index: 60;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   padding: 0;
   border: 0;
   border-radius: 50%;
   background: transparent;
-  // Dorado profundo: se lee sobre blanco (3,9:1), crema (3,6:1) y navy (4,2:1) sin necesitar contorno.
-  --btt-gold: #a8780a;
+  // Dorado de la marca (más amarillo); el trazo es algo más grueso para compensar el contraste.
+  --btt-gold: var(--color-gold);
   color: var(--btt-gold);
   cursor: pointer;
 
@@ -55,13 +54,13 @@
 }
 
 .btt__track {
-  stroke: rgba(168, 120, 10, 0.25);
-  stroke-width: 3;
+  stroke: rgba(217, 165, 44, 0.3);
+  stroke-width: 3.5;
 }
 
 .btt__bar {
   stroke: var(--btt-gold);
-  stroke-width: 3;
+  stroke-width: 3.5;
   stroke-linecap: round;
 }
 

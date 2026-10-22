@@ -7,16 +7,16 @@
   [tabindex]="visible() ? 0 : -1"
   (click)="scrollToTop()"
 >
-  <svg class="btt__ring" viewBox="0 0 52 52" aria-hidden="true">
-    <circle class="btt__track" cx="26" cy="26" r="22" />
+  <svg class="btt__ring" viewBox="0 0 58 58" aria-hidden="true">
+    <circle class="btt__track" cx="29" cy="29" r="27" />
     <circle
       class="btt__bar"
-      cx="26"
-      cy="26"
-      r="22"
+      cx="29"
+      cy="29"
+      r="27"
       [attr.stroke-dasharray]="circumference"
       [attr.stroke-dashoffset]="dashOffset()"
     />
   </svg>
-  <app-icon class="btt__arrow" name="arrow-right" [size]="20" />
+  <app-icon class="btt__arrow" name="arrow-right" [size]="22" />
 </button>

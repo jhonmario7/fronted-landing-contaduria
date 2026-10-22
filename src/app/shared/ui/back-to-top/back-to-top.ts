@@ -1,8 +1,8 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { Icon } from '../icon/icon';
 
-// Circunferencia del anillo (r = 22 en un viewBox de 52).
-const CIRCUMFERENCE = 2 * Math.PI * 22;
+// Circunferencia del anillo (r = 27 en un viewBox de 58, igual al botón de WhatsApp).
+const CIRCUMFERENCE = 2 * Math.PI * 27;
 
 // Scroll (px) desde el que aparece el botón.
 const SHOW_AFTER = 400;
