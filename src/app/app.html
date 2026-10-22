@@ -1,1 +1,8 @@
+<app-header />
 <router-outlet />
+<app-footer />
+<app-whatsapp-fab
+  [phoneE164]="whatsapp.phoneE164"
+  [message]="contact.whatsappMessage"
+  [label]="contact.whatsappLabel"
+/>

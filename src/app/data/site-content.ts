@@ -772,6 +772,21 @@ export const SITE_CONTENT: SiteContent = {
   },
 
   legal: {
+    footer: {
+      portfolioLabel: 'Portafolio de servicios',
+      portfolioPath: '/portafolio/',
+      policyLabel: 'Política de tratamiento de datos',
+      navTitle: 'Navegación',
+      contactTitle: 'Contacto',
+      rights: 'Todos los derechos reservados.',
+    },
+    policyPage: {
+      title: 'Política de tratamiento de datos personales',
+      backLabel: 'Volver al inicio',
+      // El texto legal lo entrega la cliente (Anexo 1, Ley 1581 de 2012); no se redacta aquí.
+      pendingNotice:
+        'Estamos preparando este documento. Si tienes dudas sobre el tratamiento de tus datos, escríbenos por WhatsApp o al correo de contacto.',
+    },
     dataPolicyPath: '/politica-de-tratamiento-de-datos',
     dataPolicyLastUpdated: '[PENDIENTE]',
     dataPolicySections: [], // [PENDIENTE: política de tratamiento de datos (Ley 1581 de 2012)]

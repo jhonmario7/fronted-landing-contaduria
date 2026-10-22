@@ -1,0 +1,42 @@
+.policy__inner {
+  max-width: 760px;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.policy__back {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: var(--space-2);
+  justify-self: start;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--color-navy);
+
+  app-icon {
+    transform: rotate(180deg);
+    color: var(--color-gold-text);
+  }
+}
+
+h1 {
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+h2 {
+  margin-bottom: var(--space-2);
+  font-size: 1.5rem;
+}
+
+section p,
+.policy__pending {
+  color: var(--color-text-soft);
+}
+
+.policy__pending {
+  padding: var(--space-4);
+  border-left: 3px solid var(--color-gold);
+  background: var(--color-cream);
+  border-radius: 0 12px 12px 0;
+}

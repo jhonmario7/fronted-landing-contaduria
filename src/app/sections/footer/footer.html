@@ -1,0 +1,55 @@
+<footer class="footer dark">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        @if (identity.logo; as logo) {
+          <img [ngSrc]="logo.src" alt="" [width]="logo.width" [height]="logo.height" />
+        }
+        <p class="footer__name">{{ identity.businessName }}</p>
+        <p class="tagline">{{ identity.tagline }}</p>
+      </div>
+
+      <nav [attr.aria-label]="legal.footer.navTitle">
+        <h2>{{ legal.footer.navTitle }}</h2>
+        <ul>
+          @for (link of nav.links; track link.fragment) {
+            <li>
+              <a [href]="'/#' + link.fragment">{{ link.label }}</a>
+            </li>
+          }
+          <li>
+            <a [href]="legal.footer.portfolioPath">{{ legal.footer.portfolioLabel }}</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2>{{ legal.footer.contactTitle }}</h2>
+        <ul>
+          @for (line of contact.whatsapp; track line.phoneE164) {
+            <li>
+              <app-icon name="whatsapp" [size]="18" />
+              <a [href]="'https://wa.me/' + line.phoneE164" target="_blank" rel="noopener">
+                {{ line.display }}
+              </a>
+            </li>
+          }
+          <li>
+            <app-icon name="mail" [size]="18" />
+            <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer__notice">{{ legalNotice }}</p>
+
+    <div class="footer__bottom">
+      <p>
+        © {{ year }} {{ identity.legalName }} · NIT {{ identity.nit }} · {{ identity.city }}.
+        {{ legal.footer.rights }}
+      </p>
+      <a routerLink="/politica-de-tratamiento-de-datos">{{ legal.footer.policyLabel }}</a>
+    </div>
+  </div>
+</footer>

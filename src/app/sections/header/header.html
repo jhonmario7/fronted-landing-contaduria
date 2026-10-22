@@ -1,6 +1,6 @@
 <header class="site-header dark">
   <div class="wrap site-header__row">
-    <a class="brand" href="#inicio" (click)="closeMenu()" [attr.aria-label]="nav.homeLabel">
+    <a class="brand" href="/#inicio" (click)="closeMenu()" [attr.aria-label]="nav.homeLabel">
       @if (logo) {
         <img
           class="brand__monogram"
@@ -19,7 +19,7 @@
 
     <nav id="site-nav" class="site-nav" [class.is-open]="isMenuOpen()">
       @for (link of nav.links; track link.fragment) {
-        <a [href]="'#' + link.fragment" (click)="closeMenu()">{{ link.label }}</a>
+        <a [href]="'/#' + link.fragment" (click)="closeMenu()">{{ link.label }}</a>
       }
     </nav>
 

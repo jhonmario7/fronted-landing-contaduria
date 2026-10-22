@@ -230,7 +230,24 @@ export interface LegalPolicySection {
   paragraphs: string[];
 }
 
+export interface FooterContent {
+  portfolioLabel: string;
+  portfolioPath: string;
+  policyLabel: string;
+  navTitle: string;
+  contactTitle: string;
+  rights: string; // "Todos los derechos reservados."
+}
+
+export interface PolicyPageContent {
+  title: string;
+  backLabel: string;
+  pendingNotice: string; // se muestra mientras no haya secciones
+}
+
 export interface LegalInfo {
+  footer: FooterContent;
+  policyPage: PolicyPageContent;
   dataPolicyPath: string;
   dataPolicyLastUpdated: string;
   dataPolicySections: LegalPolicySection[];
