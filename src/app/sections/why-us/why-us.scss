@@ -89,7 +89,8 @@
   list-style: none;
   margin: var(--space-6) 0 0;
   padding: var(--space-4) 0 0;
-  border-top: 1px solid var(--color-border-gold);
+  border-top: 1px solid;
+  border-image: var(--gold-fade) 1;
   display: grid;
   gap: var(--space-4);
 

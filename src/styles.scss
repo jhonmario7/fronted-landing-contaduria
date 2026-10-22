@@ -18,6 +18,8 @@
   --color-text-soft-on-dark: #b9c4d2; // 9.4:1 sobre navy
   --color-border: rgba(6, 31, 59, 0.12);
   --color-border-gold: rgba(217, 165, 44, 0.55);
+  // Filete dorado que se desvanece en punta hacia los lados (usar con border-image: var(--gold-fade) 1).
+  --gold-fade: linear-gradient(90deg, transparent, rgba(217, 165, 44, 0.85) 50%, transparent);
   --color-danger: #b42318;
 
   // Botones: navy + texto blanco en fondos claros; dorado + texto navy (7.4:1) en fondos navy.

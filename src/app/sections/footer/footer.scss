@@ -2,7 +2,8 @@
   padding-block: var(--space-6) var(--space-4);
   background: var(--color-navy);
   color: var(--color-text-on-dark);
-  border-top: 1px solid var(--color-border-gold);
+  border-top: 1px solid;
+  border-image: var(--gold-fade) 1;
 }
 
 .footer__grid {
@@ -82,7 +83,8 @@ a {
 .footer__notice {
   margin-top: var(--space-5);
   padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border-gold);
+  border-top: 1px solid;
+  border-image: var(--gold-fade) 1;
   max-width: 60rem;
   font-size: 0.85rem;
   color: var(--color-text-soft-on-dark);
