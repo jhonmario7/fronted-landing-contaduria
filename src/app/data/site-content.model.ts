@@ -2,6 +2,7 @@ import { IconName } from '../shared/ui/icon/icon';
 
 export interface SiteContent {
   identity: SiteIdentity;
+  navigation: NavigationContent;
   about: AboutContent;
   team: TeamContent;
   services: Service[];
@@ -11,6 +12,32 @@ export interface SiteContent {
   social: SocialChannels;
   seo: SeoConfig;
   legal: LegalInfo;
+}
+
+export interface NavLink {
+  label: string;
+  fragment: string; // id de la sección, sin "#"
+}
+
+export interface NavigationContent {
+  links: NavLink[];
+  ctaLabel: string;
+  homeLabel: string; // aria-label del logo
+  openMenuLabel: string;
+  closeMenuLabel: string;
+}
+
+export interface NavLink {
+  label: string;
+  fragment: string; // id de la sección, sin "#"
+}
+
+export interface NavigationContent {
+  links: NavLink[];
+  ctaLabel: string;
+  homeLabel: string; // aria-label del logo
+  openMenuLabel: string;
+  closeMenuLabel: string;
 }
 
 export interface MediaAsset {

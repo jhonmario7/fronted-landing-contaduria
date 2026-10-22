@@ -1,5 +1,5 @@
 .soon {
-  min-height: 100dvh;
+  min-height: calc(100dvh - var(--header-height));
   display: grid;
   place-items: center;
   padding: var(--space-6) 16px;

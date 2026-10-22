@@ -34,6 +34,22 @@ export const SITE_CONTENT: SiteContent = {
     },
   },
 
+  // Anclas a las secciones del contrato (cláusula 2: inicio, quiénes somos, servicios, por qué
+  // elegirnos, proceso de trabajo, contacto). Etiquetas BORRADOR.
+  navigation: {
+    links: [
+      { label: 'Quiénes somos', fragment: 'quienes-somos' },
+      { label: 'Servicios', fragment: 'servicios' },
+      { label: 'Por qué elegirnos', fragment: 'por-que-elegirnos' },
+      { label: 'Cómo trabajamos', fragment: 'como-trabajamos' },
+      { label: 'Contacto', fragment: 'contacto' },
+    ],
+    ctaLabel: 'Escríbenos',
+    homeLabel: 'IUS COUNTER CONSULTING, ir al inicio',
+    openMenuLabel: 'Abrir menú',
+    closeMenuLabel: 'Cerrar menú',
+  },
+
   about: {
     intro: [
       'Somos una firma de consultoría y asesoría integral que combina conocimientos contables, tributarios, jurídicos, financieros y administrativos para brindar soluciones a personas naturales, profesionales independientes, comerciantes, emprendedores, fundaciones y empresas de diferentes sectores económicos.',

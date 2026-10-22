@@ -44,6 +44,7 @@
 
   // Layout
   --content-max-width: 1160px;
+  --header-height: 72px;
 
   // Motion
   --transition-fast: 0.18s ease;
@@ -55,8 +56,10 @@
   box-sizing: border-box;
 }
 
+// scroll-padding = alto del header fijo: las anclas (#servicios…) no quedan tapadas.
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
 }
 
 body {

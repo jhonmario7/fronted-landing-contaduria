@@ -1,0 +1,49 @@
+<header class="site-header dark">
+  <div class="wrap site-header__row">
+    <a class="brand" href="#inicio" (click)="closeMenu()" [attr.aria-label]="nav.homeLabel">
+      @if (logo) {
+        <img
+          class="brand__monogram"
+          [ngSrc]="logo.src"
+          alt=""
+          [width]="logo.width"
+          [height]="logo.height"
+          priority
+        />
+      }
+      <span class="brand__wordmark" aria-hidden="true">
+        <span class="brand__name">IUS COUNTER</span>
+        <span class="brand__sub">CONSULTING</span>
+      </span>
+    </a>
+
+    <nav id="site-nav" class="site-nav" [class.is-open]="isMenuOpen()">
+      @for (link of nav.links; track link.fragment) {
+        <a [href]="'#' + link.fragment" (click)="closeMenu()">{{ link.label }}</a>
+      }
+    </nav>
+
+    <app-button
+      variant="gold"
+      size="sm"
+      [href]="whatsappHref"
+      target="_blank"
+      class="header-cta"
+      [ariaLabel]="nav.ctaLabel"
+    >
+      <app-icon name="whatsapp" [size]="18" />
+      <span class="header-cta__label">{{ nav.ctaLabel }}</span>
+    </app-button>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen()"
+      aria-controls="site-nav"
+      [attr.aria-label]="isMenuOpen() ? nav.closeMenuLabel : nav.openMenuLabel"
+    >
+      <app-icon [name]="isMenuOpen() ? 'close' : 'menu'" />
+    </button>
+  </div>
+</header>

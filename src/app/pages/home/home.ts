@@ -4,12 +4,13 @@ import { buildWhatsAppUrl } from '../../core/whatsapp-link.util';
 import { SITE_CONTENT } from '../../data/site-content';
 import { Button } from '../../shared/ui/button/button';
 import { Icon } from '../../shared/ui/icon/icon';
+import { Header } from '../../sections/header/header';
 
 // Temporal: "Próximamente" mientras se construye la landing (Fase 5). Sirve además como
 // muestra viva del sistema de diseño de la Fase 3.
 @Component({
   selector: 'app-home',
-  imports: [NgOptimizedImage, Button, Icon],
+  imports: [NgOptimizedImage, Button, Icon, Header],
   styleUrl: './home.scss',
   templateUrl: './home.html',
 })
