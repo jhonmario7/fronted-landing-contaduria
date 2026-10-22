@@ -184,20 +184,6 @@ a {
   }
 }
 
-.news__note {
-  margin-top: var(--space-3);
-  font-size: 0.78rem;
-  color: var(--color-text-soft-on-dark);
-
-  a {
-    display: inline;
-    min-height: 0;
-    color: var(--color-gold-light);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-}
-
 .news__error {
   margin-top: var(--space-1);
   font-size: 0.8rem;

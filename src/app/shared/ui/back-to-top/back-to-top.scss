@@ -15,10 +15,10 @@
   border: 0;
   border-radius: 50%;
   background: transparent;
-  color: var(--color-gold);
+  // Dorado profundo: se lee sobre blanco (3,9:1), crema (3,6:1) y navy (4,2:1) sin necesitar contorno.
+  --btt-gold: #a8780a;
+  color: var(--btt-gold);
   cursor: pointer;
-  // Fino contorno oscuro: el dorado se lee sobre fondos claros y no molesta sobre navy.
-  filter: drop-shadow(0 0 1.5px rgba(6, 31, 59, 0.7));
 
   // Oculto hasta que se baja un poco.
   opacity: 0;
@@ -40,7 +40,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--btt-gold);
     outline-offset: 3px;
   }
 }
@@ -55,12 +55,12 @@
 }
 
 .btt__track {
-  stroke: rgba(217, 165, 44, 0.3);
+  stroke: rgba(168, 120, 10, 0.25);
   stroke-width: 3;
 }
 
 .btt__bar {
-  stroke: var(--color-gold);
+  stroke: var(--btt-gold);
   stroke-width: 3;
   stroke-linecap: round;
 }

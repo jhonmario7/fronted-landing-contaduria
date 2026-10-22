@@ -223,8 +223,6 @@ export interface NewsletterContent {
   placeholder: string;
   emailLabel: string; // etiqueta accesible del campo
   submitLabel: string;
-  consentBefore: string; // línea corta antes del enlace a la política
-  consentLink: string;
   mailSubject: string;
   mailBody: string; // "{correo}" se reemplaza por el correo del visitante
   successTitle: string;

@@ -785,8 +785,6 @@ export const SITE_CONTENT: SiteContent = {
         placeholder: 'Tu correo electrónico',
         emailLabel: 'Correo electrónico para novedades',
         submitLabel: 'Suscribirme',
-        consentBefore: 'Al suscribirte aceptas nuestra',
-        consentLink: 'política de tratamiento de datos',
         mailSubject: 'Quiero recibir novedades',
         mailBody:
           'Hola, quisiera recibir novedades contables, tributarias y legales de IUS COUNTER CONSULTING en este correo: {correo}',
