@@ -44,7 +44,7 @@
 
   // Layout
   --content-max-width: 1160px;
-  --header-height: 72px;
+  --header-height: 92px;
 
   // Motion
   --transition-fast: 0.18s ease;
@@ -57,6 +57,13 @@
 }
 
 // scroll-padding = alto del header fijo: las anclas (#servicios…) no quedan tapadas.
+// Header más bajo en celular.
+@media (max-width: 1023px) {
+  :root {
+    --header-height: 76px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);

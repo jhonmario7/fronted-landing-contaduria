@@ -23,7 +23,7 @@ export const SITE_CONTENT: SiteContent = {
     legalName: 'IUS COUNTER CONSULTING SAS',
     nit: '902102537-3',
     city: 'Neiva, Huila',
-    headline: 'Asesoría contable, tributaria y legal',
+    headline: 'Asesoría contable, tributaria y legal.',
     tagline: 'Tu tranquilidad, nuestra prioridad',
     subtitle: 'Soluciones contables, tributarias y legales para el crecimiento de tu empresa.',
     practiceAreas: [
