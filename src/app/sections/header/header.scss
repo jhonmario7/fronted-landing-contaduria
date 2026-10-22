@@ -4,6 +4,16 @@
   z-index: 50;
   color: var(--color-text-on-dark);
   border-bottom: 1px solid var(--color-border-gold);
+  transition: border-color 0.3s ease;
+}
+
+// En la home el header flota sobre el Hero: se superpone restando su propia altura.
+.site-header--overlay {
+  margin-bottom: calc(-1 * var(--header-height));
+}
+
+.site-header.is-transparent {
+  border-bottom-color: transparent;
 }
 
 // Fondo "vidrio" en un pseudo-elemento: si el blur estuviera en .site-header, el panel del menú
@@ -15,6 +25,14 @@
   z-index: -1;
   background: color-mix(in srgb, var(--color-navy) 82%, transparent);
   backdrop-filter: blur(14px) saturate(1.2);
+  transition:
+    background-color 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+
+.site-header.is-transparent::before {
+  background-color: transparent;
+  backdrop-filter: none;
 }
 
 .site-header__row {
