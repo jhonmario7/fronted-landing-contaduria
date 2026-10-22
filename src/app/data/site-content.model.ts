@@ -53,7 +53,8 @@ export interface MediaAsset {
   alt: string;
   width: number;
   height: number;
-  isStockTemporary?: boolean;
+  // Imagen generada con IA (docs/imagenes-ia): complementaria, requiere aprobación de la cliente.
+  aiGenerated?: boolean;
 }
 
 export interface SiteIdentity {
@@ -79,6 +80,7 @@ export interface AboutContent {
   eyebrow: string;
   title: string;
   labels: { valueProposition: string; mission: string; vision: string; values: string };
+  photo: MediaAsset;
   intro: string[];
   valueProposition: string;
   mission: string;

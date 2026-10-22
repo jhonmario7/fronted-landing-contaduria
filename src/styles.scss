@@ -157,6 +157,16 @@ button {
   font-weight: 500;
 }
 
+// Párrafos largos justificados (pedido del usuario, 23 oct 2026). Solo desde 600px: en
+// columnas de celular el justificado abre huecos grandes entre palabras. hyphens usa lang="es".
+.justify {
+  hyphens: auto;
+
+  @media (min-width: 600px) {
+    text-align: justify;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

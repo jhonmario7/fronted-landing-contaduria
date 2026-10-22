@@ -25,6 +25,28 @@ h3 {
   }
 }
 
+// Foto con la tarjeta de propuesta de valor montada encima (en escritorio se solapan).
+.about__media {
+  display: grid;
+  gap: var(--space-4);
+
+  @media (min-width: 900px) {
+    gap: 0;
+  }
+}
+
+.about__photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+  box-shadow: 0 0 0 1px var(--color-border-gold);
+  object-fit: cover;
+
+  @media (max-width: 899px) {
+    aspect-ratio: 4 / 3;
+  }
+}
+
 // Propuesta de valor: tarjeta navy con filete dorado (la frase más importante de la sección).
 .about__value {
   display: flex;
@@ -47,7 +69,8 @@ h3 {
   }
 
   @media (min-width: 900px) {
-    margin-top: var(--space-6);
+    position: relative;
+    margin: -120px 0 0 -48px;
   }
 }
 

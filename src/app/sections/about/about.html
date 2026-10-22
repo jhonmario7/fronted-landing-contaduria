@@ -4,27 +4,36 @@
       <div class="about__intro">
         <app-section-header [eyebrow]="about.eyebrow" [title]="about.title" />
         @for (paragraph of about.intro; track $index) {
-          <p>{{ paragraph }}</p>
+          <p class="justify">{{ paragraph }}</p>
         }
       </div>
 
-      <aside class="about__value">
-        <app-icon name="target" [size]="32" />
-        <h3>{{ about.labels.valueProposition }}</h3>
-        <p>{{ about.valueProposition }}</p>
-      </aside>
+      <div class="about__media">
+        <img
+          class="about__photo"
+          [ngSrc]="about.photo.src"
+          [alt]="about.photo.alt"
+          [width]="about.photo.width"
+          [height]="about.photo.height"
+        />
+        <aside class="about__value">
+          <app-icon name="target" [size]="32" />
+          <h3>{{ about.labels.valueProposition }}</h3>
+          <p class="justify">{{ about.valueProposition }}</p>
+        </aside>
+      </div>
     </div>
 
     <div class="about__mv">
       <article class="about__statement">
         <app-icon name="target" [size]="26" />
         <h3>{{ about.labels.mission }}</h3>
-        <p>{{ about.mission }}</p>
+        <p class="justify">{{ about.mission }}</p>
       </article>
       <article class="about__statement">
         <app-icon name="eye" [size]="26" />
         <h3>{{ about.labels.vision }}</h3>
-        <p>{{ about.vision }}</p>
+        <p class="justify">{{ about.vision }}</p>
       </article>
     </div>
 

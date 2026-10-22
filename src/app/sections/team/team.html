@@ -28,13 +28,16 @@
             </div>
           </div>
 
-          <p class="member__summary">{{ member.summary }}</p>
+          <p class="member__summary justify">{{ member.summary }}</p>
 
           @if (member.credentials.length) {
             <h4 class="member__label">{{ team.labels.credentials }}</h4>
             <ul class="member__credentials">
               @for (credential of member.credentials; track credential) {
-                <li>{{ credential }}</li>
+                <li>
+                  <app-icon name="check" [size]="16" />
+                  {{ credential }}
+                </li>
               }
             </ul>
           }
@@ -55,7 +58,7 @@
           </details>
 
           @if (member.note) {
-            <p class="member__note">{{ member.note }}</p>
+            <p class="member__note justify">{{ member.note }}</p>
           }
         </li>
       }

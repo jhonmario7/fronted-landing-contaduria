@@ -73,6 +73,13 @@ export const SITE_CONTENT: SiteContent = {
       vision: 'Nuestra visión',
       values: 'Nuestros valores',
     },
+    photo: {
+      src: '/images/ia/quienes-somos.webp',
+      alt: 'Manos revisando un documento sobre un escritorio con libreta, calculadora y portátil',
+      width: 823,
+      height: 1024,
+      aiGenerated: true,
+    },
     intro: [
       'Somos una firma de consultoría y asesoría integral que combina conocimientos contables, tributarios, jurídicos, financieros y administrativos para brindar soluciones a personas naturales, profesionales independientes, comerciantes, emprendedores, fundaciones y empresas de diferentes sectores económicos.',
       'Nuestro equipo integra profesionales de la Contaduría Pública y el Derecho, con experiencia en cumplimiento normativo, gestión de impuestos, auditoría, defensa jurídica, organización empresarial y operación de procesos contables y administrativos.',
