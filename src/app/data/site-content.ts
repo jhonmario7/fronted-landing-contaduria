@@ -64,6 +64,7 @@ export const SITE_CONTENT: SiteContent = {
     homeLabel: 'IUS COUNTER CONSULTING, ir al inicio',
     openMenuLabel: 'Abrir menú',
     closeMenuLabel: 'Cerrar menú',
+    backToTopLabel: 'Volver arriba',
   },
 
   // BORRADOR (etiquetas de botones).
@@ -777,6 +778,7 @@ export const SITE_CONTENT: SiteContent = {
       portfolioPath: '/portafolio/',
       policyLabel: 'Política de tratamiento de datos',
       navTitle: 'Navegación',
+      servicesTitle: 'Servicios',
       contactTitle: 'Contacto',
       rights: 'Todos los derechos reservados.',
     },

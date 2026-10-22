@@ -1,0 +1,22 @@
+<button
+  type="button"
+  class="btt"
+  [class.is-visible]="visible()"
+  [attr.aria-label]="label()"
+  [attr.aria-hidden]="visible() ? null : 'true'"
+  [tabindex]="visible() ? 0 : -1"
+  (click)="scrollToTop()"
+>
+  <svg class="btt__ring" viewBox="0 0 52 52" aria-hidden="true">
+    <circle class="btt__track" cx="26" cy="26" r="22" />
+    <circle
+      class="btt__bar"
+      cx="26"
+      cy="26"
+      r="22"
+      [attr.stroke-dasharray]="circumference"
+      [attr.stroke-dashoffset]="dashOffset()"
+    />
+  </svg>
+  <app-icon class="btt__arrow" name="arrow-right" [size]="20" />
+</button>

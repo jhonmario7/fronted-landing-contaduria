@@ -1,6 +1,7 @@
 <app-header />
 <router-outlet />
 <app-footer />
+<app-back-to-top [label]="nav.backToTopLabel" />
 <app-whatsapp-fab
   [phoneE164]="whatsapp.phoneE164"
   [message]="contact.whatsappMessage"

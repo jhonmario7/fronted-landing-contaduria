@@ -1,4 +1,4 @@
-<footer class="footer dark">
+<footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
       <div class="footer__brand">
@@ -7,11 +7,29 @@
         }
         <p class="footer__name">{{ identity.businessName }}</p>
         <p class="tagline">{{ identity.tagline }}</p>
+        <p class="footer__about">{{ identity.subtitle }}</p>
+
+        @if (socials.length) {
+          <ul class="footer__socials">
+            @for (social of socials; track social.label) {
+              <li>
+                <a
+                  [href]="social.url"
+                  target="_blank"
+                  rel="noopener"
+                  [attr.aria-label]="social.label"
+                >
+                  <app-icon [name]="social.icon" [size]="18" />
+                </a>
+              </li>
+            }
+          </ul>
+        }
       </div>
 
       <nav [attr.aria-label]="legal.footer.navTitle">
         <h2>{{ legal.footer.navTitle }}</h2>
-        <ul>
+        <ul class="footer__links">
           @for (link of nav.links; track link.fragment) {
             <li>
               <a [href]="'/#' + link.fragment">{{ link.label }}</a>
@@ -23,19 +41,30 @@
         </ul>
       </nav>
 
+      <nav [attr.aria-label]="legal.footer.servicesTitle">
+        <h2>{{ legal.footer.servicesTitle }}</h2>
+        <ul class="footer__links footer__links--compact">
+          @for (name of serviceNames; track name) {
+            <li>
+              <a href="/#servicios">{{ name }}</a>
+            </li>
+          }
+        </ul>
+      </nav>
+
       <div>
         <h2>{{ legal.footer.contactTitle }}</h2>
-        <ul>
+        <ul class="footer__contact">
           @for (line of contact.whatsapp; track line.phoneE164) {
             <li>
-              <app-icon name="whatsapp" [size]="18" />
+              <app-icon name="whatsapp" [size]="20" />
               <a [href]="'https://wa.me/' + line.phoneE164" target="_blank" rel="noopener">
                 {{ line.display }}
               </a>
             </li>
           }
           <li>
-            <app-icon name="mail" [size]="18" />
+            <app-icon name="mail" [size]="20" />
             <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
           </li>
         </ul>

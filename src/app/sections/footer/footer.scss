@@ -1,18 +1,29 @@
+// Footer navy: se separa de Contacto (fondo blanco) con una línea dorada que se desvanece.
 .footer {
   padding-block: var(--space-6) var(--space-4);
   background: var(--color-navy);
   color: var(--color-text-on-dark);
   border-top: 1px solid;
   border-image: var(--gold-fade) 1;
+
+  // Los botones fijos (volver arriba y WhatsApp) no deben tapar la barra inferior en celular.
+  @media (max-width: 799px) {
+    padding-bottom: calc(var(--space-4) + 150px);
+  }
 }
 
 .footer__grid {
   display: grid;
   gap: var(--space-5);
 
-  @media (min-width: 800px) {
-    grid-template-columns: 1.3fr 1fr 1fr;
-    gap: var(--space-6);
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  // Marca | Navegación | Servicios | Contacto, como la referencia.
+  @media (min-width: 1000px) {
+    grid-template-columns: 1.4fr 0.9fr 1.4fr 1.3fr;
+    gap: var(--space-5);
   }
 }
 
@@ -40,14 +51,44 @@
   color: var(--color-gold-light);
 }
 
+.footer__about {
+  max-width: 24rem;
+  margin-top: var(--space-2);
+  font-size: 0.92rem;
+  color: var(--color-text-soft-on-dark);
+}
+
+// Redes: círculos sutiles (solo aparecen las que la cliente confirme).
+.footer__socials {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-height: 0;
+    border-radius: 50%;
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-gold-light);
+
+    &:hover {
+      background: var(--color-navy-soft);
+      border-color: var(--color-gold);
+      text-decoration: none;
+    }
+  }
+}
+
 h2 {
   margin-bottom: var(--space-3);
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
 }
 
 ul {
@@ -63,6 +104,7 @@ li {
 }
 
 app-icon {
+  flex: none;
   color: var(--color-gold);
 }
 
@@ -78,6 +120,18 @@ a {
     text-decoration: underline;
     text-underline-offset: 4px;
   }
+}
+
+// Contacto
+.footer__contact a {
+  // El correo no se parte: si falta espacio, la columna crece.
+  white-space: nowrap;
+}
+
+.footer__links--compact a {
+  // La lista de servicios es larga: filas más juntas.
+  min-height: 32px;
+  font-size: 0.92rem;
 }
 
 .footer__notice {
@@ -96,6 +150,10 @@ a {
   justify-content: space-between;
   gap: var(--space-2) var(--space-4);
   margin-top: var(--space-4);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--color-text-soft-on-dark);
+
+  a {
+    min-height: 32px;
+  }
 }

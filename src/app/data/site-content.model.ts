@@ -28,19 +28,7 @@ export interface NavigationContent {
   homeLabel: string; // aria-label del logo
   openMenuLabel: string;
   closeMenuLabel: string;
-}
-
-export interface NavLink {
-  label: string;
-  fragment: string; // id de la sección, sin "#"
-}
-
-export interface NavigationContent {
-  links: NavLink[];
-  ctaLabel: string;
-  homeLabel: string; // aria-label del logo
-  openMenuLabel: string;
-  closeMenuLabel: string;
+  backToTopLabel: string; // aria-label del botón volver arriba
 }
 
 // El h1, el lema y el subtítulo salen de identity; aquí solo lo propio del hero.
@@ -235,6 +223,7 @@ export interface FooterContent {
   portfolioPath: string;
   policyLabel: string;
   navTitle: string;
+  servicesTitle: string;
   contactTitle: string;
   rights: string; // "Todos los derechos reservados."
 }
