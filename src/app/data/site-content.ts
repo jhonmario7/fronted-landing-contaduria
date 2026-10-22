@@ -16,7 +16,13 @@ export const SITE_CONTENT: SiteContent = {
     headline: 'Asesoría contable, tributaria y legal',
     tagline: 'Tu tranquilidad, nuestra prioridad',
     subtitle: 'Soluciones contables, tributarias y legales para el crecimiento de tu empresa.',
-    practiceAreas: ['Contabilidad', 'Tributación', 'Derecho', 'Auditoría', 'Gestión empresarial'],
+    practiceAreas: [
+      { icon: 'calculator', title: 'Contabilidad' },
+      { icon: 'receipt', title: 'Tributación' },
+      { icon: 'scale', title: 'Derecho' },
+      { icon: 'search', title: 'Auditoría' },
+      { icon: 'briefcase', title: 'Gestión empresarial' },
+    ],
     slogans: [
       'Tu aliado en el crecimiento de tu empresa',
       'Comprometidos con tu tranquilidad y tu crecimiento',
@@ -48,6 +54,13 @@ export const SITE_CONTENT: SiteContent = {
     homeLabel: 'IUS COUNTER CONSULTING, ir al inicio',
     openMenuLabel: 'Abrir menú',
     closeMenuLabel: 'Cerrar menú',
+  },
+
+  // BORRADOR (etiquetas de botones).
+  hero: {
+    primaryCtaLabel: 'Agenda tu asesoría',
+    secondaryCtaLabel: 'Conoce nuestros servicios',
+    practiceAreasLabel: 'Nuestras áreas',
   },
 
   about: {

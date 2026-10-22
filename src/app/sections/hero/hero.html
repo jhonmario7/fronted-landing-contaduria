@@ -1,0 +1,49 @@
+<section id="inicio" class="hero dark">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">{{ identity.businessName }}</p>
+      <h1 class="hero__title">{{ identity.headline }}</h1>
+      <p class="tagline hero__tagline">{{ identity.tagline }}</p>
+      <p class="hero__subtitle">{{ identity.subtitle }}</p>
+
+      <div class="hero__actions">
+        <app-button variant="gold" [href]="whatsappHref" target="_blank">
+          <app-icon name="whatsapp" [size]="20" />
+          {{ hero.primaryCtaLabel }}
+        </app-button>
+        <app-button variant="ghost" href="#servicios">
+          {{ hero.secondaryCtaLabel }}
+          <app-icon name="arrow-right" [size]="18" />
+        </app-button>
+      </div>
+    </div>
+
+    <!-- Decorativo: eco del emblema circular del logo. -->
+    @if (identity.logo; as logo) {
+      <div class="hero__emblem" aria-hidden="true">
+        <span class="hero__ring hero__ring--outer"></span>
+        <span class="hero__ring hero__ring--inner"></span>
+        <img
+          class="hero__monogram"
+          [ngSrc]="logo.src"
+          alt=""
+          [width]="logo.width"
+          [height]="logo.height"
+          priority
+        />
+      </div>
+    }
+  </div>
+
+  <div class="wrap">
+    <h2 class="visually-hidden">{{ hero.practiceAreasLabel }}</h2>
+    <ul class="hero__areas">
+      @for (area of identity.practiceAreas; track area.title) {
+        <li>
+          <app-icon [name]="area.icon" [size]="22" />
+          {{ area.title }}
+        </li>
+      }
+    </ul>
+  </div>
+</section>

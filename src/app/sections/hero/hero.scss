@@ -1,0 +1,133 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-6) var(--space-5);
+  background:
+    radial-gradient(circle at 78% 42%, rgba(217, 165, 44, 0.16), transparent 42%),
+    radial-gradient(circle at 10% 0%, rgba(13, 49, 84, 0.9), transparent 55%), var(--color-navy);
+  color: var(--color-text-on-dark);
+
+  @media (min-width: 900px) {
+    min-height: calc(100dvh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: var(--space-7) var(--space-5);
+  }
+}
+
+.hero__grid {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1.25fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.hero__title {
+  font-size: clamp(2.6rem, 1.6rem + 4.2vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.hero__tagline {
+  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
+  color: var(--color-gold-light);
+}
+
+.hero__subtitle {
+  max-width: 34rem;
+  font-size: 1.08rem;
+  color: var(--color-text-soft-on-dark);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+// Emblema: dos anillos dorados finos con el monograma al centro (solo escritorio).
+.hero__emblem {
+  display: none;
+
+  @media (min-width: 900px) {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: min(100%, 420px);
+    aspect-ratio: 1;
+    justify-self: center;
+  }
+}
+
+.hero__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+}
+
+.hero__ring--outer {
+  box-shadow:
+    0 0 60px -10px rgba(217, 165, 44, 0.35),
+    inset 0 0 60px -20px rgba(217, 165, 44, 0.25);
+}
+
+.hero__ring--inner {
+  inset: 9%;
+  border-color: var(--color-border-gold);
+}
+
+.hero__monogram {
+  position: relative;
+  width: 58%;
+  height: auto;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.45));
+}
+
+// Franja de áreas, como los iconos al pie del logo.
+.hero__areas {
+  list-style: none;
+  margin: var(--space-6) 0 0;
+  padding: var(--space-4) 0 0;
+  border-top: 1px solid var(--color-border-gold);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-4);
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-on-dark);
+  }
+
+  app-icon {
+    color: var(--color-gold);
+  }
+
+  @media (max-width: 599px) {
+    justify-content: flex-start;
+
+    li {
+      flex: 1 1 calc(50% - var(--space-3));
+    }
+  }
+}

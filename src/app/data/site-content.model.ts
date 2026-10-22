@@ -3,6 +3,7 @@ import { IconName } from '../shared/ui/icon/icon';
 export interface SiteContent {
   identity: SiteIdentity;
   navigation: NavigationContent;
+  hero: HeroContent;
   about: AboutContent;
   team: TeamContent;
   services: Service[];
@@ -40,6 +41,13 @@ export interface NavigationContent {
   closeMenuLabel: string;
 }
 
+// El h1, el lema y el subtítulo salen de identity; aquí solo lo propio del hero.
+export interface HeroContent {
+  primaryCtaLabel: string; // abre WhatsApp
+  secondaryCtaLabel: string; // baja a #servicios
+  practiceAreasLabel: string; // título accesible de la franja de áreas
+}
+
 export interface MediaAsset {
   src: string;
   alt: string;
@@ -56,7 +64,7 @@ export interface SiteIdentity {
   headline: string; // "Asesoría contable, tributaria y legal"
   tagline: string; // lema principal, en serif itálica como en el logo
   subtitle: string;
-  practiceAreas: string[]; // franja "Contabilidad | Tributación | ..."
+  practiceAreas: IconCard[]; // franja "Contabilidad | Tributación | ..." (diapositiva 02)
   slogans: string[]; // frases secundarias del portafolio, para cierres de sección
   logo: MediaAsset | null;
 }
