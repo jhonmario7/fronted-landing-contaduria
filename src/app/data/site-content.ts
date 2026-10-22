@@ -63,7 +63,16 @@ export const SITE_CONTENT: SiteContent = {
     practiceAreasLabel: 'Nuestras áreas',
   },
 
+  // Títulos y etiquetas tomados del portafolio (diapositivas 02 y 03).
   about: {
+    eyebrow: 'Quiénes somos',
+    title: 'Más que asesoría, somos tu apoyo',
+    labels: {
+      valueProposition: 'Nuestra propuesta de valor',
+      mission: 'Nuestra misión',
+      vision: 'Nuestra visión',
+      values: 'Nuestros valores',
+    },
     intro: [
       'Somos una firma de consultoría y asesoría integral que combina conocimientos contables, tributarios, jurídicos, financieros y administrativos para brindar soluciones a personas naturales, profesionales independientes, comerciantes, emprendedores, fundaciones y empresas de diferentes sectores económicos.',
       'Nuestro equipo integra profesionales de la Contaduría Pública y el Derecho, con experiencia en cumplimiento normativo, gestión de impuestos, auditoría, defensa jurídica, organización empresarial y operación de procesos contables y administrativos.',
@@ -113,7 +122,11 @@ export const SITE_CONTENT: SiteContent = {
     ],
   },
 
+  // Diapositivas 01 y 04. Las tarjetas profesionales no se publican (decisión de la cliente).
   team: {
+    eyebrow: 'Nuestro equipo',
+    title: 'Nuestro equipo profesional',
+    labels: { credentials: 'Formación', leadershipAreas: 'Áreas de liderazgo' },
     tagline: 'Más que un equipo, son personas comprometidas con tu éxito',
     members: [
       {

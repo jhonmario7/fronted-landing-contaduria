@@ -76,6 +76,9 @@ export interface IconCard {
 }
 
 export interface AboutContent {
+  eyebrow: string;
+  title: string;
+  labels: { valueProposition: string; mission: string; vision: string; values: string };
   intro: string[];
   valueProposition: string;
   mission: string;
@@ -95,6 +98,9 @@ export interface TeamMember {
 }
 
 export interface TeamContent {
+  eyebrow: string;
+  title: string;
+  labels: { credentials: string; leadershipAreas: string };
   tagline: string;
   members: TeamMember[];
 }

@@ -1,0 +1,42 @@
+<section id="quienes-somos" class="section">
+  <div class="wrap">
+    <div class="about__top">
+      <div class="about__intro">
+        <app-section-header [eyebrow]="about.eyebrow" [title]="about.title" />
+        @for (paragraph of about.intro; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+      </div>
+
+      <aside class="about__value">
+        <app-icon name="target" [size]="32" />
+        <h3>{{ about.labels.valueProposition }}</h3>
+        <p>{{ about.valueProposition }}</p>
+      </aside>
+    </div>
+
+    <div class="about__mv">
+      <article class="about__statement">
+        <app-icon name="target" [size]="26" />
+        <h3>{{ about.labels.mission }}</h3>
+        <p>{{ about.mission }}</p>
+      </article>
+      <article class="about__statement">
+        <app-icon name="eye" [size]="26" />
+        <h3>{{ about.labels.vision }}</h3>
+        <p>{{ about.vision }}</p>
+      </article>
+    </div>
+
+    <h3 class="about__values-title">{{ about.labels.values }}</h3>
+    <ul class="about__values">
+      @for (value of about.values; track value.title) {
+        <li>
+          <span class="about__value-icon"><app-icon [name]="value.icon" [size]="24" /></span>
+          <h4>{{ value.title }}</h4>
+          <p>{{ value.description }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

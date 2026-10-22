@@ -1,0 +1,64 @@
+<section id="equipo" class="section alt">
+  <div class="wrap">
+    <app-section-header
+      [eyebrow]="team.eyebrow"
+      [title]="team.title"
+      [subtitle]="team.tagline"
+      align="center"
+    />
+
+    <ul class="team__grid">
+      @for (member of team.members; track member.id) {
+        <li class="member">
+          <div class="member__head">
+            @if (showPhotos && member.photo; as photo) {
+              <img
+                class="member__photo"
+                [ngSrc]="photo.src"
+                [alt]="photo.alt"
+                [width]="photo.width"
+                [height]="photo.height"
+              />
+            } @else {
+              <span class="member__initials" aria-hidden="true">{{ initials(member.name) }}</span>
+            }
+            <div>
+              <h3>{{ member.name }}</h3>
+              <p class="member__role">{{ member.role }}</p>
+            </div>
+          </div>
+
+          <p class="member__summary">{{ member.summary }}</p>
+
+          @if (member.credentials.length) {
+            <h4 class="member__label">{{ team.labels.credentials }}</h4>
+            <ul class="member__credentials">
+              @for (credential of member.credentials; track credential) {
+                <li>{{ credential }}</li>
+              }
+            </ul>
+          }
+
+          <details class="member__areas">
+            <summary>
+              {{ team.labels.leadershipAreas }}
+              <app-icon name="chevron-down" [size]="18" />
+            </summary>
+            <ul>
+              @for (area of member.leadershipAreas; track area) {
+                <li>
+                  <app-icon name="check" [size]="16" />
+                  {{ area }}
+                </li>
+              }
+            </ul>
+          </details>
+
+          @if (member.note) {
+            <p class="member__note">{{ member.note }}</p>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+</section>

@@ -1,6 +1,14 @@
 <app-header />
 <main>
   <app-hero />
-  <!-- Fase 5: siguientes secciones en orden — Quiénes somos, Servicios, Por qué elegirnos,
-       Cómo trabajamos, Contacto; después Footer, botón flotante y política de datos. -->
+  <!-- Hidratación incremental: el HTML prerenderizado se ve completo desde el inicio;
+       el JS de cada sección se activa solo cuando entra en pantalla. -->
+  @defer (hydrate on viewport) {
+    <app-about />
+  }
+  @defer (hydrate on viewport) {
+    <app-team />
+  }
+  <!-- Fase 5: siguen Servicios, Por qué elegirnos, Cómo trabajamos, Contacto;
+       después Footer, botón flotante y política de datos. -->
 </main>

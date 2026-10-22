@@ -1,0 +1,139 @@
+h3 {
+  font-size: 1.6rem;
+}
+
+.about__top {
+  display: grid;
+  gap: var(--space-5);
+  align-items: start;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.about__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  --section-header-gap: var(--space-2);
+
+  p {
+    color: var(--color-text-soft);
+    font-size: 1.05rem;
+  }
+}
+
+// Propuesta de valor: tarjeta navy con filete dorado (la frase más importante de la sección).
+.about__value {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-4);
+  border-radius: var(--radius-card);
+  background: var(--color-navy);
+  color: var(--color-text-on-dark);
+  border-top: 3px solid var(--color-gold);
+  box-shadow: var(--shadow-card);
+
+  app-icon {
+    color: var(--color-gold);
+  }
+
+  p {
+    color: var(--color-text-soft-on-dark);
+    font-size: 1.05rem;
+  }
+
+  @media (min-width: 900px) {
+    margin-top: var(--space-6);
+  }
+}
+
+.about__mv {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+
+  @media (min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about__statement {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-4);
+  border-radius: var(--radius-card);
+  background: var(--color-cream);
+  border-left: 3px solid var(--color-gold);
+
+  app-icon {
+    color: var(--color-gold-text);
+  }
+
+  p {
+    color: var(--color-text-soft);
+  }
+}
+
+.about__values-title {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-4);
+  text-align: center;
+  font-size: clamp(1.8rem, 1.4rem + 1.5vw, 2.4rem);
+}
+
+.about__values {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    text-align: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+  }
+
+  h4 {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  p {
+    color: var(--color-text-soft);
+    font-size: 0.95rem;
+  }
+}
+
+// Icono en círculo navy con aro dorado, como los del portafolio.
+.about__value-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-gold-light);
+  box-shadow: 0 0 0 2px var(--color-gold);
+}

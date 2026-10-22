@@ -1,0 +1,164 @@
+.team__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+  align-items: start;
+
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-bg);
+  border-radius: var(--radius-card);
+  border-top: 3px solid var(--color-gold);
+  box-shadow: var(--shadow-card);
+}
+
+.member__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  h3 {
+    font-size: 1.45rem;
+    line-height: 1.15;
+  }
+}
+
+.member__initials,
+.member__photo {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--color-gold);
+}
+
+.member__photo {
+  object-fit: cover;
+  object-position: top;
+}
+
+// Monograma de iniciales en el mismo lenguaje del logo.
+.member__initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-navy);
+  color: var(--color-gold-light);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+}
+
+.member__role {
+  margin-top: var(--space-1);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-gold-text);
+}
+
+.member__summary {
+  color: var(--color-text-soft);
+}
+
+.member__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.member__credentials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+
+  li {
+    position: relative;
+    padding-left: var(--space-4);
+    font-size: 0.88rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.8em;
+      width: 12px;
+      height: 1px;
+      background: var(--color-gold);
+    }
+  }
+}
+
+// <details> nativo: accesible por teclado y el contenido ya viene en el HTML prerenderizado.
+.member__areas {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-3);
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    app-icon {
+      color: var(--color-gold-text);
+      transition: transform var(--transition-fast);
+    }
+  }
+
+  &[open] summary app-icon {
+    transform: rotate(180deg);
+  }
+
+  ul {
+    list-style: none;
+    margin: var(--space-2) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  li {
+    display: flex;
+    gap: var(--space-2);
+    font-size: 0.92rem;
+    color: var(--color-text-soft);
+
+    app-icon {
+      flex: none;
+      margin-top: 4px;
+      color: var(--color-gold-text);
+    }
+  }
+}
+
+.member__note {
+  padding: var(--space-3);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--color-text-soft);
+  background: var(--color-cream);
+  border-radius: 12px;
+}

@@ -20,6 +20,7 @@ export const ICON_NAMES = [
   'lightbulb',
   'award',
   'sprout',
+  'eye',
   'chat',
   'calendar',
   'gear',
