@@ -25,7 +25,7 @@ export const SITE_CONTENT: SiteContent = {
       'Tu aliado estratégico en cada paso',
       'Asesoría que impulsa tu futuro',
     ],
-    logo: null, // [PENDIENTE: logo en SVG o PNG grande sin fondo]
+    logo: null, // Recibido 22 oct 2026 (docs/: monograma IC y emblema, PNG con transparencia). Se procesa en la Fase 3.
   },
 
   about: {
@@ -128,14 +128,13 @@ export const SITE_CONTENT: SiteContent = {
           'Evaluación del cumplimiento normativo.',
           'Consultoría jurídica y contable integral.',
         ],
-        photo: null, // [PENDIENTE: foto real]
+        photo: null, // Recibida 22 oct 2026 (docs/, foto tipo documento con fondo azul). Se recorta en la Fase 3.
       },
       {
         id: 'rosi-cujinos',
-        // [PENDIENTE: confirmar "Rosi" o "Rosy" (la diapositiva 13 dice Rosy)]
+        // Nombre y cargo confirmados por la cliente (22 oct 2026).
         name: 'Rosi Angélica Cujiños Gómez',
-        // [PENDIENTE: confirmar cargo; la diapositiva 01 dice "Asistente contable"]
-        role: 'Consultora de Soporte Técnico y Gestión Contable-Administrativa',
+        role: 'Asistente Contable',
         summary:
           'Con experiencia en soporte técnico, implementación de sistemas contables, asistencia contable y ejecución de procesos empresariales.',
         credentials: [],
@@ -514,8 +513,8 @@ export const SITE_CONTENT: SiteContent = {
     },
   ],
 
-  // Diapositiva 18. [PENDIENTE: confirmar si "Proceso de trabajo" son estas modalidades
-  // o la cliente envía los pasos reales de su proceso]
+  // Diapositiva 18. La cliente confirmó (22 oct 2026) que el contenido sale del portafolio:
+  // estas modalidades son la sección "Proceso de trabajo".
   modalities: [
     {
       icon: 'chat',
@@ -588,7 +587,7 @@ export const SITE_CONTENT: SiteContent = {
       { phoneE164: '573194975125', display: '319 497 5125' },
     ],
     email: 'iuscounter2026@gmail.com',
-    address: '[PENDIENTE: dirección de la oficina en Neiva]',
+    // Sin oficina física: la firma trabaja de forma remota (cliente, 22 oct 2026).
     hours: '[PENDIENTE: horarios de atención]',
   },
 

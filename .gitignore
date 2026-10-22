@@ -43,10 +43,10 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
-# Material fuente de la cliente (contrato, RUT, portafolio original): vive en ../documentacion, nunca en el repo
-/docs/materiales/
-
 # Claude Code session artifacts
 /.claude/
 /AGENTS.md
 /CLAUDE.md
+
+# Material de la cliente para procesar (logo, fotos). Lo que se publique se copia optimizado a public/
+/docs/

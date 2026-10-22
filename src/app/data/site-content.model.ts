@@ -106,7 +106,6 @@ export interface ContactContent {
   closing: string;
   whatsapp: WhatsAppLine[];
   email: string;
-  address: string;
   hours: string;
 }
 
