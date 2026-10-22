@@ -1,9 +1,200 @@
+:root {
+  color-scheme: light;
+
+  // Color — marca IUS COUNTER (navy + dorado del logo y el portafolio).
+  // Contrastes WCAG medidos (22 oct 2026): ver documentacion/PLAN.md, Fase 3.
+  --color-navy: #061f3b; // fondo de marca; texto blanco 16.6:1
+  --color-navy-soft: #0d3154; // superficies sobre navy; texto blanco 13.3:1
+  --color-gold: #d9a52c; // 7.4:1 sobre navy. Sobre blanco/crema NO pasa AA (2.2:1): solo adorno
+  --color-gold-light: #f2cc70; // texto/acentos sobre navy (10.8:1)
+  --color-gold-text: #8a6410; // dorado oscurecido para texto pequeño en fondos claros (4.9:1 sobre crema)
+  --color-cream: #f7f4eb;
+
+  --color-bg: #ffffff;
+  --color-bg-alt: var(--color-cream);
+  --color-text: var(--color-navy); // 15:1 sobre crema
+  --color-text-soft: #4a5b70; // 6.3:1 sobre crema
+  --color-text-on-dark: #ffffff;
+  --color-text-soft-on-dark: #b9c4d2; // 9.4:1 sobre navy
+  --color-border: rgba(6, 31, 59, 0.12);
+  --color-border-gold: rgba(217, 165, 44, 0.55);
+  --color-danger: #b42318;
+
+  // Botones: navy + texto blanco en fondos claros; dorado + texto navy (7.4:1) en fondos navy.
+  --color-cta: var(--color-navy);
+  --color-cta-hover: var(--color-navy-soft);
+
+  // Elevation / shape
+  --shadow-card: 0 18px 40px -22px rgba(6, 31, 59, 0.35);
+  --radius-card: 16px;
+  --radius-pill: 999px;
+
+  // Typography — títulos serif clásicos como el logo; texto sans como "CONSULTING".
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-sans: 'Montserrat', 'Segoe UI', -apple-system, sans-serif;
+
+  // Spacing scale
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+
+  // Layout
+  --content-max-width: 1160px;
+
+  // Motion
+  --transition-fast: 0.18s ease;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  color: inherit;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-text);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media (min-width: 640px) {
+    padding: 0 28px;
+  }
+}
+
+.section {
+  padding-block: var(--space-6);
+
+  @media (min-width: 900px) {
+    padding-block: var(--space-7);
+  }
+}
+
+.section.alt {
+  background: var(--color-bg-alt);
+}
+
+// Sección oscura: invierte texto y foco.
+.section.dark {
+  background: var(--color-navy);
+  color: var(--color-text-on-dark);
+
+  :focus-visible {
+    outline-color: var(--color-gold-light);
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-gold-text);
+
+  .dark & {
+    color: var(--color-gold-light);
+  }
+}
+
+// Lema "Tu tranquilidad, nuestra prioridad": serif itálica, como en el logo.
+.tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+[appRevealOnScroll] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+[appRevealOnScroll].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [appRevealOnScroll] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

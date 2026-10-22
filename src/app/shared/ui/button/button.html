@@ -1,0 +1,24 @@
+<ng-template #projected>
+  <ng-content />
+</ng-template>
+
+@if (href() && !disabled()) {
+  <a
+    class="btn btn-{{ variant() }} btn-{{ size() }}"
+    [href]="href()"
+    [attr.aria-label]="ariaLabel()"
+    [attr.target]="target() === '_blank' ? '_blank' : null"
+    [attr.rel]="target() === '_blank' ? 'noopener' : null"
+  >
+    <ng-container [ngTemplateOutlet]="projected" />
+  </a>
+} @else {
+  <button
+    class="btn btn-{{ variant() }} btn-{{ size() }}"
+    [type]="type()"
+    [disabled]="disabled()"
+    [attr.aria-label]="ariaLabel()"
+  >
+    <ng-container [ngTemplateOutlet]="projected" />
+  </button>
+}

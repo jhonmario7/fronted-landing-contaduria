@@ -1,3 +1,5 @@
+import { IconName } from '../shared/ui/icon/icon';
+
 export interface SiteContent {
   identity: SiteIdentity;
   about: AboutContent;
@@ -25,16 +27,15 @@ export interface SiteIdentity {
   nit: string;
   city: string;
   headline: string; // "Asesoría contable, tributaria y legal"
-  tagline: string; // lema principal, en caligráfica
+  tagline: string; // lema principal, en serif itálica como en el logo
   subtitle: string;
   practiceAreas: string[]; // franja "Contabilidad | Tributación | ..."
   slogans: string[]; // frases secundarias del portafolio, para cierres de sección
   logo: MediaAsset | null;
 }
 
-// icon: nombre del icono (se resuelve en shared/ui/icon cuando exista).
 export interface IconCard {
-  icon: string;
+  icon: IconName;
   title: string;
   description?: string;
 }
@@ -71,7 +72,7 @@ export interface ServiceGroup {
 
 export interface Service {
   id: string;
-  icon: string;
+  icon: IconName;
   name: string; // nombre corto de la tarjeta
   title: string; // título completo del detalle
   summary?: string;
@@ -81,7 +82,7 @@ export interface Service {
 }
 
 export interface Modality {
-  icon: string;
+  icon: IconName;
   title: string;
   description: string;
 }
@@ -106,6 +107,8 @@ export interface ContactContent {
   closing: string;
   whatsapp: WhatsAppLine[];
   email: string;
+  whatsappMessage: string; // mensaje prellenado del botón flotante y CTA generales
+  whatsappLabel: string; // aria-label del botón flotante
   hours: string;
 }
 

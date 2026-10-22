@@ -1,21 +1,23 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
+import { buildWhatsAppUrl } from '../../core/whatsapp-link.util';
+import { SITE_CONTENT } from '../../data/site-content';
+import { Button } from '../../shared/ui/button/button';
+import { Icon } from '../../shared/ui/icon/icon';
 
-// Temporal (Fase 2): "Próximamente" mientras se construye la landing. Se reemplaza en la Fase 5.
+// Temporal: "Próximamente" mientras se construye la landing (Fase 5). Sirve además como
+// muestra viva del sistema de diseño de la Fase 3.
 @Component({
   selector: 'app-home',
+  imports: [NgOptimizedImage, Button, Icon],
   styleUrl: './home.scss',
-  template: `
-    <main class="soon">
-      <h1 class="brand">IUS COUNTER <span>CONSULTING</span></h1>
-      <p class="tagline">Asesoría contable, tributaria y legal</p>
-      <p class="note">Estamos construyendo nuestra página. Mientras tanto, escríbenos:</p>
-      <ul class="links">
-        <li><a href="https://wa.me/573178224883">WhatsApp 317 822 4883</a></li>
-        <li><a href="https://wa.me/573194975125">WhatsApp 319 497 5125</a></li>
-        <li><a href="mailto:iuscounter2026@gmail.com">iuscounter2026&#64;gmail.com</a></li>
-        <li><a href="/portafolio/">Ver portafolio de servicios</a></li>
-      </ul>
-    </main>
-  `,
+  templateUrl: './home.html',
 })
-export class Home {}
+export class Home {
+  protected readonly identity = SITE_CONTENT.identity;
+  protected readonly contact = SITE_CONTENT.contact;
+  protected readonly whatsappLinks = SITE_CONTENT.contact.whatsapp.map((line) => ({
+    ...line,
+    href: buildWhatsAppUrl(line.phoneE164, SITE_CONTENT.contact.whatsappMessage),
+  }));
+}

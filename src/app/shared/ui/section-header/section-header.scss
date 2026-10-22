@@ -1,0 +1,48 @@
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 680px;
+  margin-bottom: var(--space-5);
+}
+
+.section-header--center {
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+// Filete dorado bajo la etiqueta, como las líneas del logo.
+.section-header .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  &::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--color-gold);
+  }
+}
+
+.section-header--center .eyebrow::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+.section-header__subtitle {
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+  line-height: 1.7;
+
+  :host-context(.dark) & {
+    color: var(--color-text-soft-on-dark);
+  }
+}

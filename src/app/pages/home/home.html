@@ -1,0 +1,44 @@
+<main class="soon dark">
+  <div class="soon__inner">
+    @if (identity.logo; as logo) {
+      <img
+        class="soon__monogram"
+        [ngSrc]="logo.src"
+        alt=""
+        [width]="logo.width"
+        [height]="logo.height"
+        priority
+      />
+    }
+
+    <h1 class="wordmark">
+      <span class="wordmark__name">IUS COUNTER</span>
+      <span class="wordmark__sub">CONSULTING</span>
+    </h1>
+
+    <p class="tagline soon__tagline">{{ identity.tagline }}</p>
+    <p class="eyebrow">{{ identity.headline }}</p>
+
+    <p class="soon__note">Estamos construyendo nuestra página. Mientras tanto, escríbenos:</p>
+
+    <div class="soon__actions">
+      @for (line of whatsappLinks; track line.phoneE164; let first = $first) {
+        <app-button [variant]="first ? 'gold' : 'ghost'" [href]="line.href" target="_blank">
+          <app-icon name="whatsapp" [size]="20" />
+          {{ line.display }}
+        </app-button>
+      }
+    </div>
+
+    <div class="soon__links">
+      <a [href]="'mailto:' + contact.email">
+        <app-icon name="mail" [size]="18" />
+        {{ contact.email }}
+      </a>
+      <a href="/portafolio/">
+        Ver portafolio de servicios
+        <app-icon name="arrow-right" [size]="18" />
+      </a>
+    </div>
+  </div>
+</main>

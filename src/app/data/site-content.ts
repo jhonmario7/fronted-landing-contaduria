@@ -25,7 +25,13 @@ export const SITE_CONTENT: SiteContent = {
       'Tu aliado estratégico en cada paso',
       'Asesoría que impulsa tu futuro',
     ],
-    logo: null, // Recibido 22 oct 2026 (docs/: monograma IC y emblema, PNG con transparencia). Se procesa en la Fase 3.
+    // Monograma "IC" del logo recibido el 22 oct 2026 (fuente en docs/, no versionada).
+    logo: {
+      src: '/images/logo-monogram.webp',
+      alt: 'IUS COUNTER CONSULTING',
+      width: 262,
+      height: 160,
+    },
   },
 
   about: {
@@ -128,7 +134,12 @@ export const SITE_CONTENT: SiteContent = {
           'Evaluación del cumplimiento normativo.',
           'Consultoría jurídica y contable integral.',
         ],
-        photo: null, // Recibida 22 oct 2026 (docs/, foto tipo documento con fondo azul). Se recorta en la Fase 3.
+        photo: {
+          src: '/images/team/carlos-fierro.webp',
+          alt: 'Carlos Andrés Fierro González, abogado y contador público, de traje azul',
+          width: 600,
+          height: 800,
+        },
       },
       {
         id: 'rosi-cujinos',
@@ -187,7 +198,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       id: 'tributario',
-      icon: 'receipt-percent',
+      icon: 'receipt',
       name: 'Tributario',
       title: 'Asesoría, consultoría, defensa y representación tributaria',
       groups: [
@@ -304,7 +315,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       id: 'auditoria-revisoria-fiscal',
-      icon: 'search-document',
+      icon: 'search',
       name: 'Auditoría y revisoría fiscal',
       title: 'Auditoría y revisoría fiscal',
       groups: [
@@ -327,7 +338,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       id: 'creacion-empresas',
-      icon: 'building-plus',
+      icon: 'building',
       name: 'Creación y formalización de empresas',
       title: 'Creación y formalización de empresas',
       summary:
@@ -354,7 +365,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       id: 'fundaciones-esal',
-      icon: 'hand-heart',
+      icon: 'heart',
       name: 'Fundaciones y entidades sin ánimo de lucro',
       title: 'Fundaciones y entidades sin ánimo de lucro',
       summary:
@@ -380,7 +391,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       id: 'gestion-operativa',
-      icon: 'user-gear',
+      icon: 'briefcase',
       name: 'Gestión operativa y administrativa',
       title: 'Gestión operativa y administrativa',
       summary:
@@ -411,7 +422,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       id: 'software-contable',
-      icon: 'laptop-gear',
+      icon: 'laptop',
       name: 'Software contable y transformación digital',
       title: 'Software contable y transformación digital',
       summary:
@@ -465,7 +476,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       id: 'cartera-cobranza',
-      icon: 'hand-coins',
+      icon: 'money',
       name: 'Cartera, cobranza y acuerdos de pago',
       title: 'Cartera, cobranza y acuerdos de pago',
       summary:
@@ -488,7 +499,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       id: 'capacitacion',
-      icon: 'graduation-cap',
+      icon: 'graduation',
       name: 'Capacitación y acompañamiento empresarial',
       title: 'Capacitación y acompañamiento empresarial',
       summary:
@@ -529,13 +540,13 @@ export const SITE_CONTENT: SiteContent = {
         'Servicio continuo para empresas y comerciantes en sus procesos contables, tributarios y administrativos.',
     },
     {
-      icon: 'gears',
+      icon: 'gear',
       title: 'Consultoría por proyectos',
       description:
         'Constitución de empresas, reconstrucción contable, implementación de software, auditorías, reformas y reorganización de procesos.',
     },
     {
-      icon: 'shield-scale',
+      icon: 'scale',
       title: 'Representación y defensa',
       description:
         'Acompañamiento jurídico y tributario en requerimientos, controversias, procedimientos administrativos y procesos judiciales.',
@@ -587,6 +598,8 @@ export const SITE_CONTENT: SiteContent = {
       { phoneE164: '573194975125', display: '319 497 5125' },
     ],
     email: 'iuscounter2026@gmail.com',
+    whatsappMessage: 'Hola, quisiera recibir asesoría de IUS COUNTER CONSULTING.', // BORRADOR
+    whatsappLabel: 'Escríbenos por WhatsApp',
     // Sin oficina física: la firma trabaja de forma remota (cliente, 22 oct 2026).
     hours: '[PENDIENTE: horarios de atención]',
   },
@@ -599,7 +612,12 @@ export const SITE_CONTENT: SiteContent = {
     // BORRADOR
     defaultDescription:
       'Firma de asesoría contable, tributaria y legal en Neiva. Contadores públicos y abogados que acompañan a personas, comerciantes, emprendedores, fundaciones y empresas.',
-    ogImage: null, // [PENDIENTE: imagen 1200×630 con el logo real]
+    ogImage: {
+      src: '/images/og-image.jpg',
+      alt: 'Emblema de IUS COUNTER CONSULTING: monograma IC dorado y el lema Tu tranquilidad, nuestra prioridad',
+      width: 1200,
+      height: 630,
+    },
   },
 
   legal: {

@@ -1,0 +1,33 @@
+.wa-fab {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 10px 24px -8px rgba(6, 31, 59, 0.6);
+  animation: wa-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes wa-pulse {
+  0%,
+  100% {
+    box-shadow: 0 10px 24px -8px rgba(6, 31, 59, 0.6);
+  }
+  50% {
+    box-shadow: 0 10px 24px -4px rgba(6, 31, 59, 0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-fab {
+    animation: none;
+  }
+}

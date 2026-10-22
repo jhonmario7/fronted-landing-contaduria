@@ -1,62 +1,102 @@
 .soon {
   min-height: 100dvh;
   display: grid;
-  place-content: center;
-  gap: 1rem;
-  padding: 2rem 1rem;
+  place-items: center;
+  padding: var(--space-6) 16px;
   text-align: center;
-  background: #061f3b;
-  color: #fff;
-  font-family: Arial, sans-serif;
+  // Halo dorado muy sutil detrás del monograma.
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(217, 165, 44, 0.12), transparent 60%),
+    var(--color-navy);
+  color: var(--color-text-on-dark);
 }
 
-.brand {
-  margin: 0;
-  font-size: clamp(1.8rem, 6vw, 3rem);
-  letter-spacing: 0.04em;
+.soon__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 560px;
+}
 
-  span {
-    display: block;
-    color: #d9a52c;
-    font-size: 0.55em;
-    letter-spacing: 0.3em;
+.soon__monogram {
+  width: clamp(120px, 30vw, 170px);
+  height: auto;
+  margin-bottom: var(--space-2);
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.wordmark__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 1.6rem + 4vw, 3.75rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+// "CONSULTING" espaciado entre filetes dorados, como en el logo.
+.wordmark__sub {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(0.85rem, 0.7rem + 0.8vw, 1.15rem);
+  letter-spacing: 0.5em;
+  margin-right: -0.5em; // compensa el tracking del último carácter
+  color: var(--color-gold);
+
+  &::before,
+  &::after {
+    content: '';
+    width: clamp(24px, 8vw, 56px);
+    height: 1px;
+    background: var(--color-gold);
   }
 }
 
-.tagline {
-  margin: 0;
-  font-weight: 700;
+.soon__tagline {
+  font-size: clamp(1.3rem, 1.1rem + 1vw, 1.7rem);
+  color: var(--color-text-on-dark);
 }
 
-.note {
-  margin: 1rem 0 0;
-  color: #e6ebf1;
+.soon__note {
+  margin-top: var(--space-4);
+  color: var(--color-text-soft-on-dark);
 }
 
-.links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.75rem;
+.soon__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.soon__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-2);
 
   a {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    border: 1px solid #d9a52c;
-    border-radius: 999px;
-    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    color: var(--color-gold-light);
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 500;
 
-    &:hover,
-    &:focus-visible {
-      background: #0d3154;
-    }
-
-    &:focus-visible {
-      outline: 2px solid #f2cc70;
-      outline-offset: 3px;
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
   }
 }
