@@ -73,7 +73,7 @@
               </button>
             </div>
           } @else {
-            <form (submit)="subscribe($event)" novalidate>
+            <form method="dialog" (submit)="subscribe($event)" novalidate>
               <div class="news__row">
                 <input
                   type="email"

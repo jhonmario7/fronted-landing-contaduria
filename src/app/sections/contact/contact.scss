@@ -69,7 +69,6 @@ form {
 
   input[type='text'],
   input[type='tel'],
-  select,
   textarea {
     width: 100%;
     min-height: 48px;
@@ -190,4 +189,98 @@ form app-button {
   text-decoration: underline;
   text-underline-offset: 4px;
   cursor: pointer;
+}
+
+// ---------- Selector de servicio (se despliega siempre hacia abajo) ----------
+
+.select {
+  position: relative;
+}
+
+.select__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  font: inherit;
+  text-align: left;
+  color: var(--color-text);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  cursor: pointer;
+
+  .is-placeholder {
+    color: var(--color-text-soft);
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-gold-text);
+    outline-offset: 1px;
+    border-color: transparent;
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-danger);
+  }
+
+  &[aria-expanded='true'] {
+    border-color: var(--color-gold-text);
+  }
+}
+
+.select__chevron {
+  flex: none;
+  color: var(--color-gold-text);
+  transition: transform var(--transition-fast);
+
+  .select__btn[aria-expanded='true'] & {
+    transform: rotate(180deg);
+  }
+}
+
+.select__list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  max-height: 264px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 18px 40px -16px rgba(6, 31, 59, 0.35);
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+
+    app-icon {
+      flex: none;
+      color: var(--color-gold-text);
+    }
+
+    &.is-active {
+      background: var(--color-cream);
+    }
+
+    &[aria-selected='true'] {
+      font-weight: 600;
+    }
+  }
 }

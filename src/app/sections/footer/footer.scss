@@ -108,11 +108,11 @@ a {
   min-height: 40px;
   color: var(--color-text-soft-on-dark);
   text-decoration: none;
+  transition: color var(--transition-fast);
 
+  // Sin subrayado: al pasar el puntero el texto se pone dorado claro.
   &:hover {
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    color: var(--color-gold-light);
   }
 }
 
@@ -141,10 +141,16 @@ a {
     &::before {
       content: '';
       flex: none;
+      transition: width var(--transition-fast);
       width: 12px;
       height: 1px;
       margin-top: 0.82em; // centro de la primera línea (line-height 1.65 / 2)
       background: var(--color-gold);
+    }
+
+    // El guión se alarga al pasar el puntero.
+    &:hover::before {
+      width: 20px;
     }
   }
 }
@@ -220,9 +226,11 @@ a {
   border: 0;
   font-weight: 600;
   color: var(--color-gold-light);
-  text-decoration: underline;
-  text-underline-offset: 4px;
   cursor: pointer;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 // ---------- Barra inferior ----------

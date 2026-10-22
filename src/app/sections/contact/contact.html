@@ -29,7 +29,9 @@
           </div>
         </div>
       } @else {
-        <form (submit)="submit($event)" novalidate>
+        <!-- method="dialog": si el envío ocurre antes de que Angular active el formulario, el navegador
+          no hace nada (sin él recargaría la página con los datos en la URL). -->
+        <form method="dialog" (submit)="submit($event)" novalidate>
           <div class="field">
             <label for="c-name">{{ text.nameLabel }}</label>
             <input
@@ -59,14 +61,58 @@
           </div>
 
           <div class="field">
-            <label for="c-service">{{ text.serviceLabel }}</label>
-            <select id="c-service" [formField]="contactForm.service">
-              <option value="" disabled>{{ text.servicePlaceholder }}</option>
-              @for (name of serviceNames; track name) {
-                <option [value]="name">{{ name }}</option>
+            <label id="c-service-label" for="c-service">{{ text.serviceLabel }}</label>
+            <div class="select">
+              <button
+                id="c-service"
+                type="button"
+                class="select__btn"
+                role="combobox"
+                aria-haspopup="listbox"
+                aria-controls="c-service-list"
+                aria-labelledby="c-service-label"
+                [attr.aria-expanded]="selectOpen()"
+                [attr.aria-activedescendant]="
+                  selectOpen() ? 'c-service-opt-' + activeIndex() : null
+                "
+                [attr.aria-invalid]="
+                  contactForm.service().touched() && contactForm.service().invalid()
+                "
+                (click)="toggleSelect($event)"
+                (keydown)="onSelectKey($event)"
+              >
+                <span [class.is-placeholder]="!selectedService()">
+                  {{ selectedService() || text.servicePlaceholder }}
+                </span>
+                <app-icon class="select__chevron" name="chevron-down" [size]="20" />
+              </button>
+
+              @if (selectOpen()) {
+                <ul
+                  id="c-service-list"
+                  class="select__list"
+                  role="listbox"
+                  aria-labelledby="c-service-label"
+                >
+                  @for (option of serviceOptions; track option; let i = $index) {
+                    <li
+                      role="option"
+                      [id]="'c-service-opt-' + i"
+                      [class.is-active]="i === activeIndex()"
+                      [attr.aria-selected]="option === selectedService()"
+                      (mousedown)="$event.preventDefault()"
+                      (mousemove)="activeIndex.set(i)"
+                      (click)="chooseService(option)"
+                    >
+                      {{ option }}
+                      @if (option === selectedService()) {
+                        <app-icon name="check" [size]="16" />
+                      }
+                    </li>
+                  }
+                </ul>
               }
-              <option [value]="text.otherServiceLabel">{{ text.otherServiceLabel }}</option>
-            </select>
+            </div>
             @if (contactForm.service().touched() && contactForm.service().invalid()) {
               <p class="error" role="alert">{{ contactForm.service().errors()[0]?.message }}</p>
             }
