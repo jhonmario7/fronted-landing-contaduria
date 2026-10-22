@@ -1,4 +1,9 @@
+// Verde de WhatsApp (#1da851): el icono blanco queda a 3,1:1 y el botón a 5,3:1 contra el navy.
+// Con el navy de la marca el botón se perdía sobre las secciones oscuras.
 .wa-fab {
+  --wa-green: #1da851;
+  --wa-green-dark: #178a43;
+
   position: fixed;
   right: var(--space-4);
   bottom: var(--space-4);
@@ -6,23 +11,32 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  background: var(--color-navy);
-  color: var(--color-gold-light);
-  border: 1px solid var(--color-gold);
-  box-shadow: 0 10px 24px -8px rgba(6, 31, 59, 0.6);
+  background: var(--wa-green);
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 10px 24px -8px rgba(29, 168, 81, 0.7);
+  transition: background var(--transition-fast);
   animation: wa-pulse 2.6s ease-in-out infinite;
+
+  &:hover {
+    background: var(--wa-green-dark);
+  }
 }
 
 @keyframes wa-pulse {
   0%,
   100% {
-    box-shadow: 0 10px 24px -8px rgba(6, 31, 59, 0.6);
+    box-shadow:
+      0 10px 24px -8px rgba(29, 168, 81, 0.7),
+      0 0 0 0 rgba(29, 168, 81, 0.45);
   }
   50% {
-    box-shadow: 0 10px 24px -4px rgba(6, 31, 59, 0.9);
+    box-shadow:
+      0 10px 24px -8px rgba(29, 168, 81, 0.7),
+      0 0 0 12px rgba(29, 168, 81, 0);
   }
 }
 
