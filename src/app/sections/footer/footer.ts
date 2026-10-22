@@ -8,7 +8,6 @@ import { Icon, IconName } from '../../shared/ui/icon/icon';
 
 interface NewsletterModel {
   email: string;
-  consent: boolean;
 }
 
 @Component({
@@ -37,12 +36,11 @@ export class Footer {
   /** URL mailto ya armada; no nula = se envió (muestra el mensaje de éxito). */
   protected readonly sentUrl = signal<string | null>(null);
 
-  private readonly model = signal<NewsletterModel>({ email: '', consent: false });
+  private readonly model = signal<NewsletterModel>({ email: '' });
 
   protected readonly newsletterForm = form(this.model, (f) => {
     required(f.email, { message: this.news.errors.email });
     pattern(f.email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, { message: this.news.errors.emailInvalid });
-    required(f.consent, { message: this.news.errors.consent });
   });
 
   subscribe(event: Event): void {

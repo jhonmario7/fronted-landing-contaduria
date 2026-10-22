@@ -11,21 +11,6 @@
         [height]="text.photo.height"
       />
 
-      <ul class="contact__channels">
-        @for (line of contact.whatsapp; track line.phoneE164) {
-          <li>
-            <app-icon name="whatsapp" [size]="20" />
-            <a [href]="'https://wa.me/' + line.phoneE164" target="_blank" rel="noopener">
-              {{ line.display }}
-            </a>
-          </li>
-        }
-        <li>
-          <app-icon name="mail" [size]="20" />
-          <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
-        </li>
-      </ul>
-
       <p class="tagline contact__closing">{{ contact.closing }}</p>
     </div>
 

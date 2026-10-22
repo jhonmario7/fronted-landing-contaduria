@@ -19,38 +19,6 @@
   box-shadow: 0 0 0 1px var(--color-border-gold);
 }
 
-.contact__channels {
-  list-style: none;
-  margin: var(--space-4) 0 0;
-  padding: 0;
-  display: grid;
-  gap: var(--space-1);
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-  }
-
-  app-icon {
-    color: var(--color-gold-text);
-  }
-
-  a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    color: var(--color-navy);
-    text-decoration: none;
-    font-weight: 500;
-
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-  }
-}
-
 .contact__closing {
   margin-top: var(--space-3);
   font-size: 1.4rem;
@@ -160,12 +128,13 @@ form {
 
 .note {
   font-size: 0.8rem;
+  text-align: center;
   color: var(--color-text-soft);
 }
 
 // Botón navy sobre la tarjeta clara (regla de marca).
 form app-button {
-  justify-self: start;
+  justify-self: center;
 }
 
 // ---------- Estado de éxito ----------

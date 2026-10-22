@@ -92,20 +92,11 @@
                   {{ newsletterForm.email().errors()[0]?.message }}
                 </p>
               }
-
-              <label class="news__consent">
-                <input type="checkbox" [formField]="newsletterForm.consent" />
-                <span>
-                  {{ news.consentBefore }}
-                  <a routerLink="/politica-de-tratamiento-de-datos">{{ news.consentLink }}</a
-                  >.
-                </span>
-              </label>
-              @if (newsletterForm.consent().touched() && newsletterForm.consent().invalid()) {
-                <p class="news__error" role="alert">
-                  {{ newsletterForm.consent().errors()[0]?.message }}
-                </p>
-              }
+              <p class="news__note">
+                {{ news.consentBefore }}
+                <a routerLink="/politica-de-tratamiento-de-datos">{{ news.consentLink }}</a
+                >.
+              </p>
             </form>
           }
         </div>
@@ -115,7 +106,6 @@
     <div class="footer__bottom">
       <p>© {{ year }} {{ identity.legalName }} · NIT {{ identity.nit }}</p>
       <p class="footer__legal">
-        <a [href]="text.portfolioPath">{{ text.portfolioLabel }}</a>
         <a routerLink="/politica-de-tratamiento-de-datos">{{ text.policyLabel }}</a>
       </p>
     </div>

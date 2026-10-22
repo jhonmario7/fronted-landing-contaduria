@@ -774,8 +774,6 @@ export const SITE_CONTENT: SiteContent = {
 
   legal: {
     footer: {
-      portfolioLabel: 'Portafolio de servicios',
-      portfolioPath: '/portafolio/',
       policyLabel: 'Política de tratamiento de datos',
       servicesTitle: 'Servicios',
       contactTitle: 'Contacto',
@@ -787,7 +785,7 @@ export const SITE_CONTENT: SiteContent = {
         placeholder: 'Tu correo electrónico',
         emailLabel: 'Correo electrónico para novedades',
         submitLabel: 'Suscribirme',
-        consentBefore: 'Autorizo el tratamiento de mis datos conforme a la',
+        consentBefore: 'Al suscribirte aceptas nuestra',
         consentLink: 'política de tratamiento de datos',
         mailSubject: 'Quiero recibir novedades',
         mailBody:
@@ -799,7 +797,6 @@ export const SITE_CONTENT: SiteContent = {
         errors: {
           email: 'Ingresa tu correo.',
           emailInvalid: 'Ingresa un correo válido.',
-          consent: 'Debes autorizar el tratamiento de datos.',
         },
       },
     },

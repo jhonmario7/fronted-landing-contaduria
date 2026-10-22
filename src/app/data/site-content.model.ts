@@ -223,19 +223,17 @@ export interface NewsletterContent {
   placeholder: string;
   emailLabel: string; // etiqueta accesible del campo
   submitLabel: string;
-  consentBefore: string;
+  consentBefore: string; // línea corta antes del enlace a la política
   consentLink: string;
   mailSubject: string;
   mailBody: string; // "{correo}" se reemplaza por el correo del visitante
   successTitle: string;
   successText: string;
   backLabel: string;
-  errors: { email: string; emailInvalid: string; consent: string };
+  errors: { email: string; emailInvalid: string };
 }
 
 export interface FooterContent {
-  portfolioLabel: string;
-  portfolioPath: string;
   policyLabel: string;
   servicesTitle: string;
   contactTitle: string;
