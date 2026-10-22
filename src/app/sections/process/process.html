@@ -1,0 +1,29 @@
+<section id="como-trabajamos" class="section alt">
+  <div class="wrap process">
+    <div class="process__aside">
+      <app-section-header [eyebrow]="section.eyebrow" [title]="section.title" />
+      <img
+        class="process__photo"
+        [ngSrc]="section.photo.src"
+        [alt]="section.photo.alt"
+        [width]="section.photo.width"
+        [height]="section.photo.height"
+      />
+    </div>
+
+    <ol class="process__steps">
+      @for (modality of modalities; track modality.title; let i = $index) {
+        <li class="step">
+          <span class="step__number" aria-hidden="true">{{ i + 1 | number: '2.0-0' }}</span>
+          <div class="step__body">
+            <h3>
+              <app-icon [name]="modality.icon" [size]="22" />
+              {{ modality.title }}
+            </h3>
+            <p>{{ modality.description }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

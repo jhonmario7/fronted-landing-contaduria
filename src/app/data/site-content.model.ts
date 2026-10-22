@@ -8,6 +8,7 @@ export interface SiteContent {
   team: TeamContent;
   servicesSection: ServicesSectionContent;
   services: Service[];
+  processSection: ProcessSectionContent;
   modalities: Modality[];
   whyUs: WhyUsContent;
   contact: ContactContent;
@@ -134,6 +135,12 @@ export interface Service {
   groups: ServiceGroup[];
   note?: string;
   closingLine?: string;
+}
+
+export interface ProcessSectionContent {
+  eyebrow: string;
+  title: string;
+  photo: MediaAsset;
 }
 
 export interface Modality {

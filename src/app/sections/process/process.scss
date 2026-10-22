@@ -1,0 +1,93 @@
+.process {
+  display: grid;
+  gap: var(--space-5);
+
+  @media (min-width: 960px) {
+    grid-template-columns: 1fr 1.15fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+}
+
+// En escritorio la columna de título + foto acompaña el recorrido de los pasos.
+.process__aside {
+  @media (min-width: 960px) {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-4));
+  }
+}
+
+.process__photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+  box-shadow: 0 0 0 1px var(--color-border-gold);
+}
+
+// Línea de tiempo: números dorados unidos por un filete vertical.
+.process__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--space-3);
+  padding-bottom: var(--space-5);
+
+  &:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 31px;
+    top: 64px;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-border-gold);
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.step__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-gold-light);
+  box-shadow: 0 0 0 2px var(--color-gold);
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.step__body {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  background: var(--color-bg);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2);
+  }
+
+  app-icon {
+    flex: none;
+    color: var(--color-gold-text);
+  }
+
+  p {
+    color: var(--color-text-soft);
+  }
+}

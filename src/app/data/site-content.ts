@@ -616,6 +616,17 @@ export const SITE_CONTENT: SiteContent = {
 
   // Diapositiva 18. La cliente confirmó (22 oct 2026) que el contenido sale del portafolio:
   // estas modalidades son la sección "Proceso de trabajo".
+  processSection: {
+    eyebrow: 'Cómo trabajamos',
+    title: 'Modalidades de servicio',
+    photo: {
+      src: '/images/ia/como-trabajamos.webp',
+      alt: 'Persona de espaldas en una videollamada de trabajo desde un escritorio en casa',
+      width: 1024,
+      height: 687,
+      aiGenerated: true,
+    },
+  },
   modalities: [
     {
       icon: 'chat',
