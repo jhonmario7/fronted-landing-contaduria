@@ -35,21 +35,20 @@ export class Services {
   // ---------- Carrusel ----------
   // Pista con scroll-snap nativo (se desliza con el dedo o el trackpad) que avanza sola de a una
   // tarjeta. Se detiene al pasar el cursor o enfocar, con la pestaña oculta, con un detalle
-  // abierto, con "reducir movimiento" o con el botón de pausa (WCAG 2.2.2).
-  private static readonly INTERVAL_MS = 4000;
+  // abierto o con el botón de pausa (WCAG 2.2.2). Arranca reproduciéndose.
+  private static readonly INTERVAL_MS = 4500;
+  private static readonly SLIDE_MS = 1000;
   private readonly track = viewChild.required<ElementRef<HTMLElement>>('track');
   protected readonly positions = signal<number[]>([0]);
   protected readonly active = signal(0);
   protected readonly paused = signal(false);
   private holding = false;
-  private reduceMotion = false;
+  private frame = 0;
 
   constructor() {
     const destroyRef = inject(DestroyRef);
     afterNextRender(() => {
       const el = this.track().nativeElement;
-      this.reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (this.reduceMotion) this.paused.set(true);
 
       const measure = () => {
         const step = this.step();
@@ -65,6 +64,23 @@ export class Services {
       const resize = new ResizeObserver(measure);
       resize.observe(el);
 
+      // El usuario toma el control: se cancela la animación en curso.
+      const stop = () => this.cancelSlide();
+      for (const type of ['wheel', 'touchstart', 'pointerdown']) {
+        el.addEventListener(type, stop, { passive: true });
+      }
+
+      // Las tarjetas fuera de vista se atenúan un poco y entran con un leve zoom.
+      const seen = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            entry.target.classList.toggle('is-visible', entry.isIntersecting);
+          }
+        },
+        { root: el, threshold: 0.6 },
+      );
+      el.querySelectorAll('.card').forEach((card) => seen.observe(card));
+
       const timer = setInterval(() => {
         if (this.paused() || this.holding || document.hidden || el.querySelector('dialog[open]')) {
           return;
@@ -75,16 +91,42 @@ export class Services {
       destroyRef.onDestroy(() => {
         clearInterval(timer);
         resize.disconnect();
+        seen.disconnect();
+        this.cancelSlide();
+        for (const type of ['wheel', 'touchstart', 'pointerdown']) el.removeEventListener(type, stop);
         el.removeEventListener('scroll', measure);
       });
     });
   }
 
+  // Desplazamiento propio con aceleración y frenado suaves (el "smooth" del navegador es seco).
+  // El scroll-snap se apaga mientras dura para que no pelee con la animación.
   protected goTo(index: number): void {
-    this.track().nativeElement.scrollTo({
-      left: index * this.step(),
-      behavior: this.reduceMotion ? 'auto' : 'smooth',
-    });
+    const el = this.track().nativeElement;
+    this.cancelSlide();
+    const from = el.scrollLeft;
+    const delta = index * this.step() - from;
+    if (Math.abs(delta) < 1) return;
+
+    el.style.scrollSnapType = 'none';
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / Services.SLIDE_MS, 1);
+      const eased = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; // easeInOutCubic
+      el.scrollLeft = from + delta * eased;
+      if (p < 1) {
+        this.frame = requestAnimationFrame(tick);
+      } else {
+        this.cancelSlide();
+      }
+    };
+    this.frame = requestAnimationFrame(tick);
+  }
+
+  private cancelSlide(): void {
+    cancelAnimationFrame(this.frame);
+    this.frame = 0;
+    this.track().nativeElement.style.scrollSnapType = '';
   }
 
   protected hold(value: boolean): void {
