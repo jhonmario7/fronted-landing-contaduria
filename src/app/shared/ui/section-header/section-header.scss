@@ -12,7 +12,8 @@
   margin-inline: auto;
 }
 
-// Filete dorado bajo la etiqueta, como las líneas del logo.
+// Filetes dorados a los lados de la etiqueta, en punta: se desvanecen hacia afuera, como las
+// líneas del logo (pedido del usuario, 23 oct 2026).
 .section-header .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -20,17 +21,17 @@
 
   &::before {
     content: '';
-    width: 32px;
+    width: 56px;
     height: 1px;
-    background: var(--color-gold);
+    background: linear-gradient(90deg, transparent, var(--color-gold));
   }
 }
 
 .section-header--center .eyebrow::after {
   content: '';
-  width: 32px;
+  width: 56px;
   height: 1px;
-  background: var(--color-gold);
+  background: linear-gradient(90deg, var(--color-gold), transparent);
 }
 
 .section-header h2 {
