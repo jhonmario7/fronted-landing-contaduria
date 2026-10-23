@@ -232,6 +232,10 @@ export const SITE_CONTENT: SiteContent = {
     closeLabel: 'Cerrar',
     ctaLabel: 'Consultar por WhatsApp', // BORRADOR
     whatsappMessage: 'Hola, quisiera información sobre el servicio: {servicio}.', // BORRADOR
+    carouselLabel: 'Carrusel de servicios',
+    pauseLabel: 'Pausar el carrusel',
+    playLabel: 'Reanudar el carrusel',
+    goToLabel: 'Ir a la posición {n}',
   },
 
   // Orden y agrupación según la diapositiva 05 "Nuestros servicios" (11 tarjetas).

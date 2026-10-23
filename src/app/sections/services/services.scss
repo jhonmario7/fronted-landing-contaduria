@@ -1,16 +1,132 @@
-.services__grid {
+// Fondo navy como la referencia; tarjetas blancas que pasan en carrusel.
+.services {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(217, 165, 44, 0.12), transparent 45%),
+    radial-gradient(circle at 90% 100%, rgba(13, 49, 84, 0.9), transparent 55%), var(--color-navy);
+
+  .wrap {
+    position: relative;
+  }
+}
+
+// Palabra gigante con solo contorno detrás de las tarjetas (decorativa).
+.services__watermark {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--space-7) * -1);
+  transform: translateX(-50%);
+  z-index: 0;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 3rem + 14vw, 16rem);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(242, 204, 112, 0.22);
+  pointer-events: none;
+  user-select: none;
+}
+
+// ---------- Carrusel ----------
+
+.carousel {
+  position: relative;
+  z-index: 1;
+}
+
+.carousel__track {
+  --per-view: 1;
+
   list-style: none;
   margin: 0;
-  padding: 0;
+  // Aire para que la sombra y el "levantar" de las tarjetas no se corten.
+  padding: var(--space-3) var(--space-1) var(--space-4);
   display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (var(--per-view) - 1) * var(--space-4)) / var(--per-view));
   gap: var(--space-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
 
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    --per-view: 2;
   }
 
   @media (min-width: 960px) {
-    grid-template-columns: repeat(3, 1fr);
+    --per-view: 3;
+  }
+
+  @media (min-width: 1200px) {
+    --per-view: 4;
+  }
+}
+
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+// En celular hay 11 posiciones: una sola fila (11 × 24 px) junto al botón de pausa.
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+// Área táctil de 24 px con el punto visible de 12 px dentro.
+.carousel__dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px solid var(--color-gold-light);
+    transition:
+      background var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  &.is-active::before {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+    transform: scale(1.35);
+  }
+}
+
+.carousel__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-gold);
+  background: none;
+  color: var(--color-gold-light);
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(217, 165, 44, 0.12);
   }
 }
 
@@ -18,70 +134,26 @@
 
 .card {
   position: relative;
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-4) var(--space-4);
+  text-align: center;
   background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    border-color var(--transition-fast);
+  color: var(--color-text);
+  border-radius: 10px;
+  box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-border-gold);
-    box-shadow: var(--shadow-card);
+    transform: translateY(-6px);
   }
-
-  &:focus-within {
-    border-color: var(--color-gold);
-  }
-}
-
-.card__media {
-  position: relative;
-
-  img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: left center; // los bodegones dejan el objeto a la izquierda
-  }
-}
-
-// Icono en círculo navy con aro dorado, montado sobre el borde de la imagen.
-.card__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--color-navy);
-  color: var(--color-gold-light);
-  box-shadow:
-    0 0 0 2px var(--color-gold),
-    0 8px 18px -8px rgba(6, 31, 59, 0.6);
-}
-
-.card__media .card__icon {
-  position: absolute;
-  left: var(--space-4);
-  bottom: -26px;
-}
-
-.card__body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  padding: calc(var(--space-4) + 26px) var(--space-4) var(--space-4);
 
   h3 {
-    font-size: 1.5rem;
+    margin-top: var(--space-3);
+    font-size: 1.45rem;
   }
 
   p {
@@ -91,17 +163,29 @@
   }
 }
 
+// Icono en círculo dorado con degradado, como la referencia (navy sobre dorado: 7,4:1).
+.card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 70%);
+  color: var(--color-navy);
+  box-shadow: 0 12px 24px -12px rgba(217, 165, 44, 0.8);
+}
+
 .card__more {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  align-self: flex-start;
   min-height: 44px;
   margin-top: var(--space-2);
   padding: 0;
   background: none;
   border: 0;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-navy);
   cursor: pointer;
@@ -116,10 +200,16 @@
     content: '';
     position: absolute;
     inset: 0;
+    border-radius: 10px;
   }
 
   &:focus-visible {
     outline: none;
+
+    &::after {
+      outline: 2px solid var(--color-gold-light);
+      outline-offset: 3px;
+    }
   }
 
   .card:hover & app-icon {
@@ -128,6 +218,17 @@
 }
 
 // ---------- Detalle (<dialog> nativo) ----------
+
+// El diálogo vive dentro de la tarjeta: no hereda su centrado ni el icono grande.
+.detail {
+  text-align: left;
+}
+
+.detail__heading .card__icon {
+  width: 52px;
+  height: 52px;
+  box-shadow: none;
+}
 
 .detail {
   width: min(760px, calc(100% - 24px));

@@ -1,4 +1,4 @@
-<section id="servicios" class="section">
+<section id="servicios" class="section dark services">
   <div class="wrap">
     <app-section-header
       [eyebrow]="section.eyebrow"
@@ -7,19 +7,20 @@
       align="center"
     />
 
-    <ul class="services__grid">
-      @for (service of services; track service.id) {
-        <li class="card" data-icon-hover>
-          <div class="card__media">
-            <img
-              [ngSrc]="service.image.src"
-              [alt]="service.image.alt"
-              [width]="service.image.width"
-              [height]="service.image.height"
-            />
-            <span class="card__icon"><app-icon [name]="service.icon" [size]="24" /></span>
-          </div>
-          <div class="card__body">
+    <div
+      class="carousel"
+      role="region"
+      aria-roledescription="carrusel"
+      [attr.aria-label]="section.carouselLabel"
+      (mouseenter)="hold(true)"
+      (mouseleave)="hold(false)"
+      (focusin)="hold(true)"
+      (focusout)="hold(false)"
+    >
+      <ul #track class="carousel__track">
+        @for (service of services; track service.id) {
+          <li class="card" data-icon-hover>
+            <span class="card__icon"><app-icon [name]="service.icon" [size]="40" /></span>
             <h3>{{ service.name }}</h3>
             <p>{{ service.summary }}</p>
             <!-- ::after del botón cubre toda la tarjeta: se abre tocando cualquier parte. -->
@@ -33,75 +34,100 @@
               <span class="visually-hidden">: {{ service.name }}</span>
               <app-icon name="arrow-right" [size]="18" />
             </button>
-          </div>
 
-          <dialog
-            #dialog
-            class="detail"
-            [attr.aria-labelledby]="'servicio-' + service.id"
-            (click)="closeOnBackdrop($event, dialog)"
-          >
-            <div class="detail__panel">
-              <header class="detail__header dark">
-                <img
-                  [ngSrc]="service.image.src"
-                  [alt]="service.image.alt"
-                  [width]="service.image.width"
-                  [height]="service.image.height"
-                />
-                <div class="detail__heading">
-                  <span class="card__icon"><app-icon [name]="service.icon" [size]="24" /></span>
-                  <h3 [id]="'servicio-' + service.id">{{ service.title }}</h3>
-                  <p>{{ service.summary }}</p>
-                </div>
-                <form method="dialog">
-                  <button class="detail__close" [attr.aria-label]="section.closeLabel">
-                    <app-icon name="close" [size]="20" />
-                  </button>
-                </form>
-              </header>
-
-              <div class="detail__body">
-                @for (group of service.groups; track $index) {
-                  <div class="detail__group">
-                    @if (group.title) {
-                      <h4>{{ group.title }}</h4>
-                    }
-                    @if (group.intro) {
-                      <p class="detail__intro">{{ group.intro }}</p>
-                    }
-                    <ul class="detail__items">
-                      @for (item of group.items; track item) {
-                        <li>
-                          <app-icon name="check" [size]="16" />
-                          {{ item }}
-                        </li>
-                      }
-                    </ul>
+            <dialog
+              #dialog
+              class="detail"
+              [attr.aria-labelledby]="'servicio-' + service.id"
+              (click)="closeOnBackdrop($event, dialog)"
+            >
+              <div class="detail__panel">
+                <header class="detail__header dark">
+                  <img
+                    [ngSrc]="service.image.src"
+                    [alt]="service.image.alt"
+                    [width]="service.image.width"
+                    [height]="service.image.height"
+                  />
+                  <div class="detail__heading">
+                    <span class="card__icon"><app-icon [name]="service.icon" [size]="24" /></span>
+                    <h3 [id]="'servicio-' + service.id">{{ service.title }}</h3>
+                    <p>{{ service.summary }}</p>
                   </div>
-                }
+                  <form method="dialog">
+                    <button class="detail__close" [attr.aria-label]="section.closeLabel">
+                      <app-icon name="close" [size]="20" />
+                    </button>
+                  </form>
+                </header>
 
-                @if (service.note) {
-                  <p class="detail__note">
-                    <app-icon name="shield-check" [size]="20" />
-                    {{ service.note }}
-                  </p>
-                }
+                <div class="detail__body">
+                  @for (group of service.groups; track $index) {
+                    <div class="detail__group">
+                      @if (group.title) {
+                        <h4>{{ group.title }}</h4>
+                      }
+                      @if (group.intro) {
+                        <p class="detail__intro">{{ group.intro }}</p>
+                      }
+                      <ul class="detail__items">
+                        @for (item of group.items; track item) {
+                          <li>
+                            <app-icon name="check" [size]="16" />
+                            {{ item }}
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  }
+
+                  @if (service.note) {
+                    <p class="detail__note">
+                      <app-icon name="shield-check" [size]="20" />
+                      {{ service.note }}
+                    </p>
+                  }
+                </div>
+
+                <footer class="detail__footer">
+                  @if (service.closingLine) {
+                    <p class="tagline">{{ service.closingLine }}</p>
+                  }
+                  <app-button [href]="service.whatsappHref" target="_blank">
+                    <app-icon name="whatsapp" [size]="20" />
+                    {{ section.ctaLabel }}
+                  </app-button>
+                </footer>
               </div>
+            </dialog>
+          </li>
+        }
+      </ul>
 
-              <footer class="detail__footer">
-                @if (service.closingLine) {
-                  <p class="tagline">{{ service.closingLine }}</p>
-                }
-                <app-button [href]="service.whatsappHref" target="_blank">
-                  <app-icon name="whatsapp" [size]="20" />
-                  {{ section.ctaLabel }}
-                </app-button>
-              </footer>
-            </div>
-          </dialog>
-        </li>
-      }
-    </ul>
+      <div class="carousel__controls">
+        <div class="carousel__dots">
+          @for (index of positions(); track index) {
+            <button
+              type="button"
+              class="carousel__dot"
+              [class.is-active]="index === active()"
+              [attr.aria-label]="dotLabel(index)"
+              [attr.aria-current]="index === active() ? 'true' : null"
+              (click)="goTo(index)"
+            ></button>
+          }
+        </div>
+        <button
+          type="button"
+          class="carousel__toggle"
+          [attr.aria-label]="paused() ? section.playLabel : section.pauseLabel"
+          (click)="paused.set(!paused())"
+        >
+          <app-icon [name]="paused() ? 'play' : 'pause'" [size]="16" />
+        </button>
+      </div>
+    </div>
+
+    <p class="services__watermark" aria-hidden="true">{{ section.eyebrow }}</p>
   </div>
 </section>

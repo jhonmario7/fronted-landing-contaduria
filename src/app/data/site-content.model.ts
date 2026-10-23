@@ -118,6 +118,10 @@ export interface ServicesSectionContent {
   closeLabel: string;
   ctaLabel: string;
   whatsappMessage: string; // "{servicio}" se reemplaza por el nombre del servicio
+  carouselLabel: string;
+  pauseLabel: string;
+  playLabel: string;
+  goToLabel: string; // "{n}" se reemplaza por la posición
 }
 
 export interface Service {
