@@ -23,7 +23,6 @@ import {
   Clock,
   Coins,
   Eye,
-  Facebook,
   FileSearch,
   FileText,
   GraduationCap,
@@ -34,7 +33,6 @@ import {
   Landmark,
   Laptop,
   Lightbulb,
-  Linkedin,
   Mail,
   Medal,
   Menu,
@@ -48,7 +46,7 @@ import {
   Users,
   X,
 } from '@animateicons/angular/lucide';
-import { Whatsapp } from '@animateicons/angular/huge';
+import { Tiktok, Whatsapp } from '@animateicons/angular/huge';
 
 // Iconos animados de animateicons.in (MIT; formas de Lucide, ISC, y Hugeicons). Aviso de
 // licencias en node_modules/@animateicons/angular/THIRD_PARTY_NOTICES.md.
@@ -90,8 +88,7 @@ const ICONS = {
   menu: Menu,
   close: X,
   instagram: Instagram,
-  facebook: Facebook,
-  linkedin: Linkedin,
+  tiktok: Tiktok,
 } as const satisfies Record<string, IconData>;
 
 export type IconName = keyof typeof ICONS;

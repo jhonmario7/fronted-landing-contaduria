@@ -29,8 +29,7 @@ export class Footer {
   // ([PENDIENTE: redes sociales] en site-content.ts).
   protected readonly socials: { icon: IconName; label: string; url: string }[] = [
     { icon: 'instagram', label: 'Instagram', url: SITE_CONTENT.social.instagramUrl ?? '' },
-    { icon: 'facebook', label: 'Facebook', url: SITE_CONTENT.social.facebookUrl ?? '' },
-    { icon: 'linkedin', label: 'LinkedIn', url: SITE_CONTENT.social.linkedinUrl ?? '' },
+    { icon: 'tiktok', label: 'TikTok', url: SITE_CONTENT.social.tiktokUrl ?? '' },
   ];
 
   /** URL mailto ya armada; no nula = se envió (muestra el mensaje de éxito). */

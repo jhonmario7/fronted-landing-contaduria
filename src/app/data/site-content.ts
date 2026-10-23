@@ -202,7 +202,7 @@ export const SITE_CONTENT: SiteContent = {
           src: '/images/team/carlos-fierro.webp',
           alt: 'Carlos Andrés Fierro González, abogado y contador público, de traje azul',
           width: 600,
-          height: 800,
+          height: 680,
         },
       },
       {
@@ -760,7 +760,11 @@ export const SITE_CONTENT: SiteContent = {
     hours: '[PENDIENTE: horarios de atención]',
   },
 
-  social: {}, // [PENDIENTE: redes sociales]
+  // Redes confirmadas por el usuario (23 oct 2026), sin parámetros de rastreo. No tiene Facebook ni LinkedIn.
+  social: {
+    instagramUrl: 'https://www.instagram.com/ius.counter.consulting.sas',
+    tiktokUrl: 'https://www.tiktok.com/@ius.counter.consu',
+  },
 
   seo: {
     siteUrl: SITE_URL,
