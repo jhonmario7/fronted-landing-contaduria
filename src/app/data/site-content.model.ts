@@ -262,6 +262,7 @@ export interface FooterContent {
 }
 
 export interface PolicyPageContent {
+  lastUpdatedLabel: string;
   title: string;
   backLabel: string;
   pendingNotice: string; // se muestra mientras no haya secciones

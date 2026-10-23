@@ -905,12 +905,80 @@ export const SITE_CONTENT: SiteContent = {
     policyPage: {
       title: 'Política de tratamiento de datos personales',
       backLabel: 'Volver al inicio',
-      // El texto legal lo entrega la cliente (Anexo 1, Ley 1581 de 2012); no se redacta aquí.
+      lastUpdatedLabel: 'Última actualización:',
+      // Se muestra solo si no hay secciones.
       pendingNotice:
         'Estamos preparando este documento. Si tienes dudas sobre el tratamiento de tus datos, escríbenos por WhatsApp o al correo de contacto.',
     },
     dataPolicyPath: '/politica-de-tratamiento-de-datos',
-    dataPolicyLastUpdated: '[PENDIENTE]',
-    dataPolicySections: [], // [PENDIENTE: política de tratamiento de datos (Ley 1581 de 2012)]
+    dataPolicyLastUpdated: '23 de octubre de 2026',
+    // BORRADOR (23 oct 2026) basado en la Ley 1581 de 2012 y el Decreto 1377 de 2013, con los datos
+    // conocidos de la firma. PENDIENTE: revisión y aprobación de la cliente (dirección física, si la
+    // quieren publicar, y canal oficial para datos personales).
+    dataPolicySections: [
+      {
+        heading: '1. Responsable del tratamiento',
+        paragraphs: [
+          'IUS COUNTER CONSULTING SAS, identificada con NIT 902102537-3, con domicilio en Neiva, Huila (Colombia), es responsable del tratamiento de los datos personales que recolecta a través de este sitio web y de sus canales de atención.',
+          'Canales de contacto para temas de datos personales: correo electrónico iuscounter2026@gmail.com y líneas de WhatsApp 317 822 4883 y 319 497 5125.',
+        ],
+      },
+      {
+        heading: '2. Marco legal',
+        paragraphs: [
+          'Esta política se adopta en cumplimiento del artículo 15 de la Constitución Política, la Ley 1581 de 2012, el Decreto 1377 de 2013 (compilado en el Decreto 1074 de 2015) y las demás normas que los modifiquen o complementen.',
+        ],
+      },
+      {
+        heading: '3. Datos que recolectamos',
+        paragraphs: [
+          'A través del formulario de contacto recolectamos el nombre, el número de teléfono, el servicio de interés y el mensaje que la persona decida escribir. A través de la suscripción a novedades, el correo electrónico.',
+          'No solicitamos por este sitio datos sensibles, información financiera ni documentos. Te pedimos no incluirlos en tus mensajes; si son necesarios para prestar un servicio, se solicitarán por un canal adecuado y con la autorización correspondiente.',
+        ],
+      },
+      {
+        heading: '4. Finalidades del tratamiento',
+        paragraphs: [
+          'Los datos se usan para: responder tus consultas y solicitudes; contactarte por WhatsApp, teléfono o correo electrónico; preparar propuestas y prestar los servicios contables, tributarios y legales que contrates; enviarte novedades si te suscribiste; y cumplir las obligaciones legales y contractuales de la firma.',
+        ],
+      },
+      {
+        heading: '5. Cómo funciona el formulario',
+        paragraphs: [
+          'Este sitio no guarda en servidores propios la información del formulario. Al enviarlo, se abre WhatsApp con tu mensaje listo y eres tú quien decide enviarlo. Desde ese momento la conversación se rige también por las condiciones y la política de privacidad de WhatsApp (Meta). La suscripción a novedades abre tu aplicación de correo con el mensaje preparado.',
+        ],
+      },
+      {
+        heading: '6. Autorización',
+        paragraphs: [
+          'Al marcar la casilla de autorización del formulario y enviar tu mensaje, autorizas de forma previa, expresa e informada el tratamiento de tus datos para las finalidades descritas. Sin esa autorización el formulario no se envía. Puedes revocarla en cualquier momento por los canales indicados en esta política.',
+        ],
+      },
+      {
+        heading: '7. Derechos del titular',
+        paragraphs: [
+          'Como titular de los datos tienes derecho a: conocer, actualizar y rectificar tus datos; solicitar prueba de la autorización otorgada; ser informado sobre el uso que se les ha dado; presentar quejas ante la Superintendencia de Industria y Comercio por infracciones a la ley; revocar la autorización o solicitar la supresión de tus datos cuando no exista un deber legal o contractual de conservarlos; y acceder gratuitamente a ellos.',
+        ],
+      },
+      {
+        heading: '8. Consultas y reclamos',
+        paragraphs: [
+          'Para ejercer tus derechos escribe a iuscounter2026@gmail.com indicando tu nombre, tu medio de contacto y la solicitud. Las consultas se responden en un plazo máximo de diez (10) días hábiles, prorrogable por cinco (5) días hábiles más, informándote el motivo.',
+          'Los reclamos (corrección, actualización, supresión o revocatoria) se atienden en un plazo máximo de quince (15) días hábiles, prorrogable por ocho (8) días hábiles más. Si el reclamo está incompleto, te pediremos completarlo dentro de los cinco (5) días siguientes; si pasan dos (2) meses sin respuesta, se entenderá que desististe.',
+        ],
+      },
+      {
+        heading: '9. Seguridad, confidencialidad y circulación',
+        paragraphs: [
+          'Aplicamos medidas razonables para proteger tus datos contra el acceso, uso o divulgación no autorizados, y quienes los manejan están sujetos al deber de confidencialidad y al secreto profesional. No vendemos ni cedemos tus datos. Solo se comparten con proveedores que nos apoyan en la prestación del servicio (por ejemplo, de mensajería o correo) o con autoridades cuando la ley lo exija.',
+        ],
+      },
+      {
+        heading: '10. Vigencia',
+        paragraphs: [
+          'Esta política rige desde su publicación. Los datos se conservarán durante el tiempo necesario para cumplir las finalidades descritas y los deberes legales. Cualquier cambio sustancial se publicará en esta misma página.',
+        ],
+      },
+    ],
   },
 };
