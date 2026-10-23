@@ -56,13 +56,13 @@ h3 {
   }
 }
 
+// Sombra de la referencia (Financer): muy difusa y suave, sin borde, para que la tarjeta flote.
 .about__card {
-  padding: var(--space-4);
-  border: 1px solid var(--color-border);
+  padding: var(--space-4) calc(var(--space-4) + 4px);
   border-top: 3px solid var(--color-gold);
-  border-radius: var(--radius-card);
+  border-radius: 10px;
   background: var(--color-bg);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 0.06);
 
   h3 {
     font-size: 1.35rem;
