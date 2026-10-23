@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, DOCUMENT, DestroyRef, afterNextRender, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { startScrollReveal } from './core/scroll-reveal';
 import { SITE_CONTENT } from './data/site-content';
 import { Footer } from './sections/footer/footer';
 import { Header } from './sections/header/header';
@@ -17,4 +18,10 @@ export class App {
   protected readonly contact = SITE_CONTENT.contact;
   // [PENDIENTE: línea principal de WhatsApp] — mientras tanto, la primera del portafolio.
   protected readonly whatsapp = SITE_CONTENT.contact.whatsapp[0];
+
+  constructor() {
+    const doc = inject(DOCUMENT);
+    const destroyRef = inject(DestroyRef);
+    afterNextRender(() => destroyRef.onDestroy(startScrollReveal(doc)));
+  }
 }

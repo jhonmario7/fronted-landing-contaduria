@@ -1,6 +1,7 @@
 <section id="equipo" class="section alt">
   <div class="wrap">
     <app-section-header
+      data-reveal="up"
       [eyebrow]="team.eyebrow"
       [title]="team.title"
       [subtitle]="team.tagline"
@@ -8,8 +9,8 @@
     />
 
     <ul class="team__grid">
-      @for (member of team.members; track member.id) {
-        <li class="member">
+      @for (member of team.members; track member.id; let i = $index) {
+        <li class="member" data-reveal="up" [style.--reveal-delay]="i * 150 + 'ms'">
           <div class="member__media">
             @if (showPhotos && member.photo; as photo) {
               <img

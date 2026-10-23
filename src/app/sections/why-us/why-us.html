@@ -3,6 +3,7 @@
 
   <div class="wrap why__inner">
     <app-section-header
+      data-reveal="up"
       [eyebrow]="whyUs.eyebrow"
       [title]="whyUs.title"
       [subtitle]="whyUs.intro"
@@ -10,7 +11,7 @@
     />
 
     <!-- Pestañas como "Our Services" de la referencia: al pasar el cursor el texto se pinta de dorado. -->
-    <div class="tabs" role="tablist" [attr.aria-label]="whyUs.tabsLabel" (keydown)="onKeydown($event)">
+    <div class="tabs" data-reveal="up" style="--reveal-delay: 120ms" role="tablist" [attr.aria-label]="whyUs.tabsLabel" (keydown)="onKeydown($event)">
       @for (pillar of whyUs.pillars; track pillar.id; let i = $index) {
         <button
           type="button"
@@ -36,7 +37,7 @@
         [attr.aria-labelledby]="'compromiso-tab-' + pillar.id"
         [hidden]="i !== active()"
       >
-        <div class="panel__text">
+        <div class="panel__text" data-reveal="left">
           <h3>{{ pillar.title }}</h3>
           <p class="justify">{{ pillar.description }}</p>
           <ul class="panel__points">
@@ -53,6 +54,7 @@
         </div>
         <img
           class="panel__image"
+          data-reveal="right"
           [ngSrc]="pillar.image.src"
           [alt]="pillar.image.alt"
           [width]="pillar.image.width"
@@ -61,6 +63,6 @@
       </div>
     }
 
-    <p class="tagline why__closing">{{ whyUs.closing }}</p>
+    <p class="tagline why__closing" data-reveal="zoom">{{ whyUs.closing }}</p>
   </div>
 </section>

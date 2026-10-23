@@ -1,6 +1,7 @@
 <section id="servicios" class="section">
   <div class="wrap">
     <app-section-header
+      data-reveal="up"
       [eyebrow]="section.eyebrow"
       [title]="section.title"
       [subtitle]="section.subtitle"
@@ -9,6 +10,8 @@
 
     <div
       class="carousel"
+      data-reveal="up"
+      style="--reveal-delay: 150ms"
       role="region"
       aria-roledescription="carrusel"
       [attr.aria-label]="section.carouselLabel"

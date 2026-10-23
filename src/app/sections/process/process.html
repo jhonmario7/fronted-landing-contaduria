@@ -1,6 +1,6 @@
 <section id="como-trabajamos" class="section alt">
   <div class="wrap process">
-    <div class="process__aside">
+    <div class="process__aside" data-reveal="left">
       <app-section-header [eyebrow]="section.eyebrow" [title]="section.title" />
       <img
         class="process__photo"
@@ -13,7 +13,7 @@
 
     <ol class="process__steps">
       @for (modality of modalities; track modality.title; let i = $index) {
-        <li class="step">
+        <li class="step" data-reveal="right" [style.--reveal-delay]="i * 120 + 'ms'">
           <span class="step__number" aria-hidden="true">{{ i + 1 | number: '2.0-0' }}</span>
           <div class="step__body">
             <h3>

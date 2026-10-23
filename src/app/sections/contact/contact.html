@@ -1,6 +1,6 @@
 <section id="contacto" class="section contact">
   <div class="wrap contact__grid">
-    <div class="contact__aside">
+    <div class="contact__aside" data-reveal="left">
       <app-section-header eyebrow="Contacto" [title]="contact.heading" [subtitle]="contact.lead" />
 
       <img
@@ -14,7 +14,7 @@
       <p class="tagline contact__closing">{{ contact.closing }}</p>
     </div>
 
-    <div class="contact__card">
+    <div class="contact__card" data-reveal="right" style="--reveal-delay: 150ms">
       @if (sentUrl(); as url) {
         <div class="success" role="status">
           <span class="success__icon"><app-icon name="check" [size]="32" /></span>

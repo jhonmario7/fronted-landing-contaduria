@@ -205,23 +205,52 @@ html:has(dialog[open]) {
   }
 }
 
-[appRevealOnScroll] {
+// ---------- Aparición al hacer scroll (core/scroll-reveal.ts) ----------
+// Solo se oculta cuando el script arrancó (html.reveal-ready): sin JS todo se ve.
+.reveal-ready [data-reveal] {
   opacity: 0;
-  transform: translateY(16px);
   transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
-[appRevealOnScroll].is-visible {
+.reveal-ready [data-reveal='up'] {
+  transform: translateY(48px);
+}
+
+.reveal-ready [data-reveal='left'] {
+  transform: translateX(-56px);
+}
+
+.reveal-ready [data-reveal='right'] {
+  transform: translateX(56px);
+}
+
+.reveal-ready [data-reveal='zoom'] {
+  transform: scale(0.9);
+}
+
+.reveal-ready [data-reveal].is-revealed {
   opacity: 1;
   transform: none;
 }
 
+// Lo que entra desde los lados no debe crear scroll horizontal mientras está desplazado.
+// clip (no hidden) para no romper el position: sticky de Cómo trabajamos.
+main {
+  overflow-x: clip;
+}
+
+// Componentes que por defecto son inline: necesitan bloque para moverse.
+app-section-header[data-reveal] {
+  display: block;
+}
+
+// Con "reducir movimiento": sin desplazamientos, solo un fundido suave.
 @media (prefers-reduced-motion: reduce) {
-  [appRevealOnScroll] {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  .reveal-ready [data-reveal] {
+    transform: none !important;
+    transition: opacity 0.8s ease var(--reveal-delay, 0ms) !important;
   }
 }
