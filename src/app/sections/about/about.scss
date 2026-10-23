@@ -5,30 +5,11 @@ h3 {
 .about__top {
   display: grid;
   gap: var(--space-5);
-  align-items: start;
+  align-items: center;
 
   @media (min-width: 900px) {
-    grid-template-columns: 1.4fr 1fr;
-    grid-template-areas:
-      'intro media'
-      'mv media';
-    column-gap: var(--space-6);
-    row-gap: var(--space-4);
-  }
-}
-
-// En escritorio: texto y, debajo, Misión y Visión a la izquierda; foto + propuesta de valor a la derecha.
-.about__intro {
-  @media (min-width: 900px) {
-    grid-area: intro;
-  }
-}
-
-.about__media {
-  @media (min-width: 900px) {
-    grid-area: media;
-    grid-template-rows: minmax(0, 1fr) auto;
-    align-self: stretch;
+    grid-template-columns: 0.85fr 1.25fr;
+    gap: var(--space-5);
   }
 }
 
@@ -44,69 +25,51 @@ h3 {
   }
 }
 
-// Foto y, debajo, la tarjeta de propuesta de valor (sin solaparse, pedido del usuario).
-.about__media {
-  display: grid;
-  gap: var(--space-4);
-}
-
-// 4:3 en todos los tamaños para que la columna no quede mucho más alta que el texto.
 .about__photo {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
+  margin-top: var(--space-3);
   border-radius: var(--radius-card);
   box-shadow: 0 0 0 1px var(--color-border-gold);
   object-fit: cover;
-
-  // En escritorio la foto se estira para que la columna derecha mida lo mismo que la izquierda.
-  @media (min-width: 900px) {
-    height: 100%;
-    min-height: 280px;
-    aspect-ratio: auto;
-  }
 }
 
-// Propuesta de valor: texto libre bajo la foto, sin tarjeta (pedido del usuario, 23 oct 2026).
-.about__value {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-
-  app-icon {
-    color: var(--color-gold-text);
-  }
-
-  p {
-    color: var(--color-text-soft);
-    font-size: 1.05rem;
-  }
-}
-
-.about__mv {
+// Misión, visión, propuesta de valor y experiencia: tarjetas en dos columnas; la derecha baja
+// un poco (escalonado) en escritorio. En celular, una columna en ese mismo orden.
+.about__cards {
   display: grid;
   gap: var(--space-4);
 
-  @media (min-width: 900px) {
-    grid-area: mv;
+  @media (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    padding-bottom: var(--space-6);
+
+    .about__card:nth-child(n + 3) {
+      transform: translateY(var(--space-6));
+    }
   }
 }
 
-.about__statement {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+.about__card {
   padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-gold);
   border-radius: var(--radius-card);
-  background: var(--color-cream);
-  border-left: 3px solid var(--color-gold);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-card);
 
-  app-icon {
-    color: var(--color-gold-text);
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-3);
   }
 
   p {
     color: var(--color-text-soft);
+    font-size: 0.98rem;
+    hyphens: auto;
   }
 }
 

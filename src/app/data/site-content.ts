@@ -80,6 +80,7 @@ export const SITE_CONTENT: SiteContent = {
     title: 'Más que asesoría, somos tu apoyo',
     labels: {
       valueProposition: 'Nuestra propuesta de valor',
+      experience: 'Nuestra experiencia',
       mission: 'Nuestra misión',
       vision: 'Nuestra visión',
       values: 'Nuestros valores',
@@ -93,8 +94,9 @@ export const SITE_CONTENT: SiteContent = {
     },
     intro: [
       'Somos una firma de consultoría y asesoría integral que combina conocimientos contables, tributarios, jurídicos, financieros y administrativos para brindar soluciones a personas naturales, profesionales independientes, comerciantes, emprendedores, fundaciones y empresas de diferentes sectores económicos.',
-      'Nuestro equipo integra profesionales de la Contaduría Pública y el Derecho, con experiencia en cumplimiento normativo, gestión de impuestos, auditoría, defensa jurídica, organización empresarial y operación de procesos contables y administrativos.',
     ],
+    experience:
+      'Nuestro equipo integra profesionales de la Contaduría Pública y el Derecho, con experiencia en cumplimiento normativo, gestión de impuestos, auditoría, defensa jurídica, organización empresarial y operación de procesos contables y administrativos.',
     valueProposition:
       'Acompañar al cliente desde la organización de su información y el cumplimiento de sus obligaciones hasta la prevención de riesgos, la defensa de sus intereses y el fortalecimiento de su negocio.',
     mission:

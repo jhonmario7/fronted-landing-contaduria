@@ -6,9 +6,6 @@
         @for (paragraph of about.intro; track $index) {
           <p class="justify">{{ paragraph }}</p>
         }
-      </div>
-
-      <div class="about__media">
         <img
           class="about__photo"
           [ngSrc]="about.photo.src"
@@ -16,23 +13,24 @@
           [width]="about.photo.width"
           [height]="about.photo.height"
         />
-        <aside class="about__value">
-          <app-icon name="target" [size]="32" />
-          <h3>{{ about.labels.valueProposition }}</h3>
-          <p class="justify">{{ about.valueProposition }}</p>
-        </aside>
       </div>
 
-      <div class="about__mv">
-        <article class="about__statement">
-          <app-icon name="target" [size]="26" />
+      <div class="about__cards">
+        <article class="about__card">
           <h3>{{ about.labels.mission }}</h3>
-          <p class="justify">{{ about.mission }}</p>
+          <p>{{ about.mission }}</p>
         </article>
-        <article class="about__statement">
-          <app-icon name="eye" [size]="26" />
+        <article class="about__card">
           <h3>{{ about.labels.vision }}</h3>
-          <p class="justify">{{ about.vision }}</p>
+          <p>{{ about.vision }}</p>
+        </article>
+        <article class="about__card">
+          <h3>{{ about.labels.valueProposition }}</h3>
+          <p>{{ about.valueProposition }}</p>
+        </article>
+        <article class="about__card">
+          <h3>{{ about.labels.experience }}</h3>
+          <p>{{ about.experience }}</p>
         </article>
       </div>
     </div>

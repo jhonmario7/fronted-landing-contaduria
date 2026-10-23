@@ -69,9 +69,16 @@ export interface IconCard {
 export interface AboutContent {
   eyebrow: string;
   title: string;
-  labels: { valueProposition: string; mission: string; vision: string; values: string };
+  labels: {
+    valueProposition: string;
+    experience: string;
+    mission: string;
+    vision: string;
+    values: string;
+  };
   photo: MediaAsset;
   intro: string[];
+  experience: string;
   valueProposition: string;
   mission: string;
   vision: string;
