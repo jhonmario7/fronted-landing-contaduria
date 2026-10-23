@@ -9,7 +9,26 @@ h3 {
 
   @media (min-width: 900px) {
     grid-template-columns: 1.4fr 1fr;
-    gap: var(--space-6);
+    grid-template-areas:
+      'intro media'
+      'mv media';
+    column-gap: var(--space-6);
+    row-gap: var(--space-4);
+  }
+}
+
+// En escritorio: texto y, debajo, Misión y Visión a la izquierda; foto + propuesta de valor a la derecha.
+.about__intro {
+  @media (min-width: 900px) {
+    grid-area: intro;
+  }
+}
+
+.about__media {
+  @media (min-width: 900px) {
+    grid-area: media;
+    grid-template-rows: minmax(0, 1fr) auto;
+    align-self: stretch;
   }
 }
 
@@ -39,6 +58,13 @@ h3 {
   border-radius: var(--radius-card);
   box-shadow: 0 0 0 1px var(--color-border-gold);
   object-fit: cover;
+
+  // En escritorio la foto se estira para que la columna derecha mida lo mismo que la izquierda.
+  @media (min-width: 900px) {
+    height: 100%;
+    min-height: 280px;
+    aspect-ratio: auto;
+  }
 }
 
 // Propuesta de valor: texto libre bajo la foto, sin tarjeta (pedido del usuario, 23 oct 2026).
@@ -60,18 +86,17 @@ h3 {
 .about__mv {
   display: grid;
   gap: var(--space-4);
-  margin-top: var(--space-6);
 
-  @media (min-width: 700px) {
-    grid-template-columns: 1fr 1fr;
+  @media (min-width: 900px) {
+    grid-area: mv;
   }
 }
 
 .about__statement {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-5) var(--space-4);
+  gap: var(--space-2);
+  padding: var(--space-4);
   border-radius: var(--radius-card);
   background: var(--color-cream);
   border-left: 3px solid var(--color-gold);
