@@ -87,37 +87,19 @@
   }
 }
 
-// Guiones con un circulito en cada punta entre un icono y el siguiente (solo en una fila).
+// Guiones entre un icono y el siguiente (solo en una fila), con aire a cada lado del círculo.
 .why__link {
+  --gap: 30px;
+
   display: none;
 
   @media (min-width: 1000px) {
     display: block;
     position: absolute;
     top: calc(var(--ring) / 2);
-    left: calc(50% + var(--ring) / 2 + 14px);
-    width: calc(100% + var(--space-4) - var(--ring) - 28px);
+    left: calc(50% + var(--ring) / 2 + var(--gap));
+    width: calc(100% + var(--space-4) - var(--ring) - 2 * var(--gap));
     border-top: 1px dashed rgba(242, 204, 112, 0.55);
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: -6px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      border: 1px solid var(--color-gold-light);
-      background: var(--color-navy);
-    }
-
-    &::before {
-      left: -9px;
-    }
-
-    &::after {
-      right: -9px;
-    }
   }
 }
 
