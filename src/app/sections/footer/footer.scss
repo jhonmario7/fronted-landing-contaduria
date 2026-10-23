@@ -14,6 +14,8 @@
 
 .footer__grid {
   display: grid;
+  // minmax(0, 1fr): sin esto la columna crece al ancho del contenido y desborda en celulares angostos.
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-5);
 
   @media (min-width: 700px) {
@@ -157,6 +159,7 @@ a {
 
 .footer__side {
   display: grid;
+  grid-template-columns: minmax(0, 1fr); // el campo de correo se encoge en vez de desbordar
   gap: var(--space-5);
   align-content: start;
 }

@@ -236,4 +236,14 @@
       justify-self: center;
     }
   }
+
+  // Celulares muy angostos (320 px): letra y separación menores para que quepan dos por fila.
+  @media (max-width: 379px) {
+    column-gap: var(--space-3);
+
+    li {
+      font-size: 0.74rem;
+      letter-spacing: 0.05em;
+    }
+  }
 }
