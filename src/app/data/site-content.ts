@@ -142,13 +142,7 @@ export const SITE_CONTENT: SiteContent = {
   team: {
     eyebrow: 'Nuestro equipo',
     title: 'Nuestro equipo profesional',
-    labels: {
-      credentials: 'Formación',
-      leadershipAreas: 'Áreas de liderazgo',
-      whatsapp: 'Escribir por WhatsApp',
-      email: 'Enviar un correo',
-    },
-    whatsappMessage: 'Hola, quisiera hablar con {nombre} de IUS COUNTER CONSULTING.', // BORRADOR
+    labels: { credentials: 'Formación', leadershipAreas: 'Áreas de liderazgo' },
     tagline: 'Más que un equipo, son personas comprometidas con tu éxito',
     members: [
       {

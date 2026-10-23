@@ -22,13 +22,17 @@
   box-shadow: var(--shadow-card);
 }
 
-// Foto (o monograma) grande arriba, como la referencia. Al pasar el cursor: zoom suave, velo con
-// degradado navy → dorado y botones de contacto que crecen desde el centro.
+// Foto (o monograma) en círculo con aro dorado, centrada arriba. Al pasar el cursor, zoom suave.
 .member__media {
-  position: relative;
+  width: 180px;
+  aspect-ratio: 1;
+  margin: var(--space-2) auto 0;
   overflow: hidden;
-  aspect-ratio: 5 / 4;
-  border-radius: 10px;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 3px var(--color-bg),
+    0 0 0 5px var(--color-gold),
+    0 18px 40px -18px rgba(6, 31, 59, 0.45);
 }
 
 .member__photo,
@@ -38,7 +42,7 @@
   transition: transform 0.5s ease;
 
   .member:hover & {
-    transform: scale(1.15);
+    transform: scale(1.08);
   }
 }
 
@@ -58,53 +62,8 @@
   color: var(--color-gold-light);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 4.5rem;
+  font-size: 3.6rem;
   letter-spacing: 0.04em;
-}
-
-.member__overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  transform: scale(0);
-  transition: transform 0.5s ease;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(111deg, var(--color-navy) 20%, var(--color-gold) 100%);
-    opacity: 0.45;
-  }
-
-  // Teclado: aparece al enfocar los botones.
-  .member:hover &,
-  .member__media:focus-within & {
-    transform: scale(1);
-  }
-}
-
-.member__action {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: #fff;
-  color: var(--color-navy);
-  transition:
-    background var(--transition-fast),
-    color var(--transition-fast);
-
-  &:hover {
-    background: var(--color-gold);
-  }
 }
 
 .member__head {

@@ -22,25 +22,6 @@
             } @else {
               <span class="member__initials" aria-hidden="true">{{ initials(member.name) }}</span>
             }
-            <!-- Hover como la referencia: velo con degradado de marca y botones que aparecen. -->
-            <div class="member__overlay">
-              <a
-                class="member__action"
-                [href]="whatsappHref(member.name)"
-                target="_blank"
-                rel="noopener"
-                [attr.aria-label]="team.labels.whatsapp + ': ' + member.name"
-              >
-                <app-icon name="whatsapp" [size]="20" />
-              </a>
-              <a
-                class="member__action"
-                [href]="mailHref"
-                [attr.aria-label]="team.labels.email + ': ' + member.name"
-              >
-                <app-icon name="mail" [size]="20" />
-              </a>
-            </div>
           </div>
 
           <div class="member__head">

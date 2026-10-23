@@ -99,14 +99,7 @@ export interface TeamMember {
 export interface TeamContent {
   eyebrow: string;
   title: string;
-  labels: {
-    credentials: string;
-    leadershipAreas: string;
-    whatsapp: string;
-    email: string;
-  };
-  /** Mensaje de WhatsApp desde la tarjeta; {nombre} se reemplaza por el integrante. */
-  whatsappMessage: string;
+  labels: { credentials: string; leadershipAreas: string };
   tagline: string;
   members: TeamMember[];
 }
