@@ -1,34 +1,3 @@
-// Fondo navy como la referencia; tarjetas blancas que pasan en carrusel.
-.services {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 15% 0%, rgba(217, 165, 44, 0.12), transparent 45%),
-    radial-gradient(circle at 90% 100%, rgba(13, 49, 84, 0.9), transparent 55%), var(--color-navy);
-
-  .wrap {
-    position: relative;
-  }
-}
-
-// Palabra gigante con solo contorno detrás de las tarjetas (decorativa).
-.services__watermark {
-  position: absolute;
-  left: 50%;
-  bottom: calc(var(--space-7) * -1);
-  transform: translateX(-50%);
-  z-index: 0;
-  font-family: var(--font-display);
-  font-size: clamp(6rem, 3rem + 14vw, 16rem);
-  font-weight: 700;
-  line-height: 1;
-  white-space: nowrap;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(242, 204, 112, 0.22);
-  pointer-events: none;
-  user-select: none;
-}
-
 // ---------- Carrusel ----------
 
 .carousel {
@@ -40,9 +9,13 @@
   --per-view: 1;
 
   list-style: none;
-  margin: 0;
-  // Aire para que la sombra y el "levantar" de las tarjetas no se corten.
-  padding: var(--space-3) var(--space-1) var(--space-4);
+  // Aire alrededor para que la sombra amplia y el "levantar" de las tarjetas no se corten
+  // (el margen negativo devuelve la pista a la grilla).
+  margin: calc(var(--space-5) * -1) calc(var(--space-5) * -1) 0;
+  padding: var(--space-5);
+  scroll-padding-inline: var(--space-5);
+  // Los bordes se desvanecen: la tarjeta siguiente asoma apenas, sin corte duro.
+  mask-image: linear-gradient(90deg, transparent, #000 var(--space-5), #000 calc(100% - var(--space-5)), transparent);
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: calc((100% - (var(--per-view) - 1) * var(--space-4)) / var(--per-view));
@@ -99,7 +72,7 @@
     position: absolute;
     inset: 6px;
     border-radius: 50%;
-    border: 1px solid var(--color-gold-light);
+    border: 1px solid var(--color-gold-text);
     transition:
       background var(--transition-fast),
       transform var(--transition-fast);
@@ -122,7 +95,7 @@
   border-radius: 50%;
   border: 1px solid var(--color-border-gold);
   background: none;
-  color: var(--color-gold-light);
+  color: var(--color-gold-text);
   cursor: pointer;
 
   &:hover {
@@ -144,7 +117,8 @@
   background: var(--color-bg);
   color: var(--color-text);
   border-radius: 10px;
-  box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 0.18);
+  // Sombra amplia y suave de la referencia (Financer).
+  box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 
   &:hover {
@@ -207,7 +181,7 @@
     outline: none;
 
     &::after {
-      outline: 2px solid var(--color-gold-light);
+      outline: 2px solid var(--color-gold-text);
       outline-offset: 3px;
     }
   }
