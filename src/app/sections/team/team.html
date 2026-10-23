@@ -10,7 +10,7 @@
     <ul class="team__grid">
       @for (member of team.members; track member.id) {
         <li class="member">
-          <div class="member__head">
+          <div class="member__media">
             @if (showPhotos && member.photo; as photo) {
               <img
                 class="member__photo"
@@ -22,10 +22,30 @@
             } @else {
               <span class="member__initials" aria-hidden="true">{{ initials(member.name) }}</span>
             }
-            <div>
-              <h3>{{ member.name }}</h3>
-              <p class="member__role">{{ member.role }}</p>
+            <!-- Hover como la referencia: velo con degradado de marca y botones que aparecen. -->
+            <div class="member__overlay">
+              <a
+                class="member__action"
+                [href]="whatsappHref(member.name)"
+                target="_blank"
+                rel="noopener"
+                [attr.aria-label]="team.labels.whatsapp + ': ' + member.name"
+              >
+                <app-icon name="whatsapp" [size]="20" />
+              </a>
+              <a
+                class="member__action"
+                [href]="mailHref"
+                [attr.aria-label]="team.labels.email + ': ' + member.name"
+              >
+                <app-icon name="mail" [size]="20" />
+              </a>
             </div>
+          </div>
+
+          <div class="member__head">
+            <h3>{{ member.name }}</h3>
+            <p class="member__role">{{ member.role }}</p>
           </div>
 
           <p class="member__summary justify">{{ member.summary }}</p>

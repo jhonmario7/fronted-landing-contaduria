@@ -22,24 +22,24 @@
   box-shadow: var(--shadow-card);
 }
 
-.member__head {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-
-  h3 {
-    font-size: 1.45rem;
-    line-height: 1.15;
-  }
+// Foto (o monograma) grande arriba, como la referencia. Al pasar el cursor: zoom suave, velo con
+// degradado navy → dorado y botones de contacto que crecen desde el centro.
+.member__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  border-radius: 10px;
 }
 
-.member__initials,
-.member__photo {
-  flex: none;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--color-gold);
+.member__photo,
+.member__initials {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+
+  .member:hover & {
+    transform: scale(1.15);
+  }
 }
 
 .member__photo {
@@ -49,15 +49,71 @@
 
 // Monograma de iniciales en el mismo lenguaje del logo.
 .member__initials {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-navy);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(217, 165, 44, 0.22), transparent 60%),
+    var(--color-navy);
   color: var(--color-gold-light);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 4.5rem;
   letter-spacing: 0.04em;
+}
+
+.member__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(111deg, var(--color-navy) 20%, var(--color-gold) 100%);
+    opacity: 0.45;
+  }
+
+  // Teclado: aparece al enfocar los botones.
+  .member:hover &,
+  .member__media:focus-within & {
+    transform: scale(1);
+  }
+}
+
+.member__action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-navy);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+
+  &:hover {
+    background: var(--color-gold);
+  }
+}
+
+.member__head {
+  text-align: center;
+
+  h3 {
+    font-size: 1.45rem;
+    line-height: 1.15;
+  }
 }
 
 .member__role {
