@@ -701,8 +701,13 @@ export const SITE_CONTENT: SiteContent = {
           { icon: 'document', title: 'Orden en tus registros', description: 'Contabilidad, conciliaciones y cierres al día.' },
           { icon: 'shield-check', title: 'Confianza en tus cifras', description: 'Estados financieros claros para decidir con seguridad.' },
         ],
-        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/informacion-confiable.webp]
-        image: { ...img('contable'), alt: 'Libretas, calculadora e informes sobre un escritorio' },
+        image: {
+          src: '/images/compromiso/informacion-confiable.webp',
+          alt: 'Informes financieros, calculadora y carpeta sobre un paño azul marino',
+          width: 800,
+          height: 600,
+          aiGenerated: true,
+        },
       },
       {
         id: 'procesos-organizados',
@@ -714,8 +719,13 @@ export const SITE_CONTENT: SiteContent = {
           { icon: 'calendar', title: 'Obligaciones a tiempo', description: 'Fechas y vencimientos bajo control.' },
           { icon: 'gear', title: 'Procesos ordenados', description: 'Documentos, nómina y soportes organizados.' },
         ],
-        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/procesos-organizados.webp]
-        image: { ...img('gestion-operativa-administrativa'), alt: 'Carpetas y libreta abierta sobre un escritorio' },
+        image: {
+          src: '/images/compromiso/procesos-organizados.webp',
+          alt: 'Carpetas archivadoras, calendario de escritorio y agenda abierta',
+          width: 800,
+          height: 600,
+          aiGenerated: true,
+        },
       },
       {
         id: 'proteccion-juridica',
@@ -727,8 +737,13 @@ export const SITE_CONTENT: SiteContent = {
           { icon: 'scale', title: 'Defensa y representación', description: 'Respuesta a requerimientos y actuaciones.' },
           { icon: 'shield-check', title: 'Prevención de riesgos', description: 'Revisión del cumplimiento normativo.' },
         ],
-        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/proteccion-juridica.webp]
-        image: { ...img('juridico'), alt: 'Balanza de la justicia y libros sobre un escritorio' },
+        image: {
+          src: '/images/compromiso/proteccion-juridica.webp',
+          alt: 'Balanza de la justicia, mazo, libros de derecho y documento sellado',
+          width: 800,
+          height: 600,
+          aiGenerated: true,
+        },
       },
       {
         id: 'control-financiero',
@@ -740,8 +755,13 @@ export const SITE_CONTENT: SiteContent = {
           { icon: 'chart', title: 'Decisiones más acertadas', description: 'Indicadores y análisis financiero.' },
           { icon: 'money', title: 'Flujo de caja bajo control', description: 'Presupuestos y seguimiento de cartera.' },
         ],
-        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/control-financiero.webp]
-        image: { ...img('auditoria-y-revision-fiscal'), alt: 'Lupa sobre informes financieros' },
+        image: {
+          src: '/images/compromiso/control-financiero.webp',
+          alt: 'Tableta con gráficas, lupa sobre un informe, monedas y calculadora',
+          width: 800,
+          height: 600,
+          aiGenerated: true,
+        },
       },
       {
         id: 'acompanamiento-permanente',
@@ -753,8 +773,13 @@ export const SITE_CONTENT: SiteContent = {
           { icon: 'chat', title: 'Asesoría cercana', description: 'Respuesta oportuna a tus consultas.' },
           { icon: 'sprout', title: 'Crecimiento para tu negocio', description: 'Acompañamiento en cada etapa.' },
         ],
-        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/acompanamiento-permanente.webp]
-        image: { ...img('contacto'), alt: 'Escritorio de trabajo con portátil y documentos', width: 823, height: 1023 },
+        image: {
+          src: '/images/compromiso/acompanamiento-permanente.webp',
+          alt: 'Apretón de manos sobre un escritorio con libreta, café y una planta',
+          width: 800,
+          height: 600,
+          aiGenerated: true,
+        },
       },
     ],
     closing:
