@@ -2,13 +2,16 @@ h3 {
   font-size: 1.6rem;
 }
 
-.about__top {
+// Dos mitades como la referencia (col-6 / col-6): texto a la izquierda, tarjetas a la derecha.
+.about__grid {
   display: grid;
   gap: var(--space-5);
   align-items: center;
+  // Un poco más ancho que el resto para que las tarjetas no queden angostas (como la referencia).
+  max-width: 1280px;
 
   @media (min-width: 900px) {
-    grid-template-columns: 0.75fr 1.25fr;
+    grid-template-columns: 5fr 7fr;
     gap: var(--space-6);
   }
 }
@@ -16,6 +19,7 @@ h3 {
 .about__intro {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-3);
   --section-header-gap: var(--space-2);
 
@@ -23,28 +27,37 @@ h3 {
     color: var(--color-text-soft);
     font-size: 1.05rem;
   }
+
+  app-button {
+    margin-top: var(--space-3);
+  }
 }
 
-// Misión, visión, propuesta de valor y experiencia: tarjetas en dos columnas; la derecha baja
-// un poco (escalonado) en escritorio. En celular, una columna en ese mismo orden.
+// Tarjetas en dos columnas de altura natural; la derecha baja (escalonado) en escritorio.
 .about__cards {
   display: grid;
   gap: var(--space-4);
 
   @media (min-width: 640px) {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-auto-flow: column;
-    padding-bottom: var(--space-6);
+    align-items: start;
+  }
+}
 
-    .about__card:nth-child(n + 3) {
-      transform: translateY(var(--space-6));
+.about__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+
+  @media (min-width: 640px) {
+    &:nth-child(2) {
+      margin-top: var(--space-7);
     }
   }
 }
 
 .about__card {
-  padding: var(--space-4);
+  padding: var(--space-5) var(--space-4);
   border: 1px solid var(--color-border);
   border-top: 3px solid var(--color-gold);
   border-radius: var(--radius-card);

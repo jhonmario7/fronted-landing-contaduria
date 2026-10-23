@@ -77,6 +77,7 @@ export interface AboutContent {
     values: string;
   };
   intro: string[];
+  ctaLabel: string;
   experience: string;
   valueProposition: string;
   mission: string;

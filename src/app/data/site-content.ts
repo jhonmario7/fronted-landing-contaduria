@@ -85,17 +85,20 @@ export const SITE_CONTENT: SiteContent = {
       vision: 'Nuestra visión',
       values: 'Nuestros valores',
     },
+    // Textos resumidos a partir del portafolio (diapositivas 02 y 03) para las tarjetas: sin datos nuevos.
+    // PENDIENTE: que la cliente apruebe la versión corta.
     intro: [
-      'Somos una firma de consultoría y asesoría integral que combina conocimientos contables, tributarios, jurídicos, financieros y administrativos para brindar soluciones a personas naturales, profesionales independientes, comerciantes, emprendedores, fundaciones y empresas de diferentes sectores económicos.',
+      'Somos una firma de consultoría y asesoría integral que combina conocimientos contables, tributarios, jurídicos, financieros y administrativos para brindar soluciones a personas y empresas de diferentes sectores.',
     ],
-    experience:
-      'Nuestro equipo integra profesionales de la Contaduría Pública y el Derecho, con experiencia en cumplimiento normativo, gestión de impuestos, auditoría, defensa jurídica, organización empresarial y operación de procesos contables y administrativos.',
-    valueProposition:
-      'Acompañar al cliente desde la organización de su información y el cumplimiento de sus obligaciones hasta la prevención de riesgos, la defensa de sus intereses y el fortalecimiento de su negocio.',
+    ctaLabel: 'Contáctanos',
     mission:
-      'Brindar asesoría contable, tributaria y legal de manera oportuna, confiable y personalizada, contribuyendo al crecimiento y fortalecimiento de las empresas, emprendedores y personas naturales, a través de un equipo de profesionales comprometidos con la excelencia y la ética.',
+      'Brindar asesoría contable, tributaria y legal oportuna, confiable y personalizada, con un equipo comprometido con la excelencia y la ética.',
     vision:
-      'Ser un referente en el sector de la asesoría contable, tributaria y legal a nivel regional y nacional, reconocidos por nuestra calidad, innovación y compromiso con el desarrollo sostenible de nuestros clientes, construyendo relaciones a largo plazo basadas en la confianza y el profesionalismo.',
+      'Ser un referente regional y nacional en asesoría contable, tributaria y legal, reconocido por su calidad y por relaciones de confianza a largo plazo.',
+    valueProposition:
+      'Acompañar al cliente desde la organización de su información hasta la defensa de sus intereses y el fortalecimiento de su negocio.',
+    experience:
+      'Profesionales de la Contaduría Pública y el Derecho con experiencia en impuestos, auditoría, defensa jurídica y organización empresarial.',
     values: [
       {
         icon: 'handshake',

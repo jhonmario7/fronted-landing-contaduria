@@ -1,33 +1,38 @@
 <section id="quienes-somos" class="section">
-  <div class="wrap about__top">
+  <div class="wrap about__grid">
     <div class="about__intro">
       <app-section-header [eyebrow]="about.eyebrow" [title]="about.title" />
       @for (paragraph of about.intro; track $index) {
         <p class="justify">{{ paragraph }}</p>
       }
+      <app-button href="#contacto">{{ about.ctaLabel }}</app-button>
     </div>
 
     <div class="about__cards">
-      <article class="about__card" data-icon-hover>
-        <span class="about__icon"><app-icon name="target" [size]="28" /></span>
-        <h3>{{ about.labels.mission }}</h3>
-        <p>{{ about.mission }}</p>
-      </article>
-      <article class="about__card" data-icon-hover>
-        <span class="about__icon"><app-icon name="eye" [size]="28" /></span>
-        <h3>{{ about.labels.vision }}</h3>
-        <p>{{ about.vision }}</p>
-      </article>
-      <article class="about__card" data-icon-hover>
-        <span class="about__icon"><app-icon name="handshake" [size]="28" /></span>
-        <h3>{{ about.labels.valueProposition }}</h3>
-        <p>{{ about.valueProposition }}</p>
-      </article>
-      <article class="about__card" data-icon-hover>
-        <span class="about__icon"><app-icon name="award" [size]="28" /></span>
-        <h3>{{ about.labels.experience }}</h3>
-        <p>{{ about.experience }}</p>
-      </article>
+      <div class="about__col">
+        <article class="about__card" data-icon-hover>
+          <span class="about__icon"><app-icon name="target" [size]="28" /></span>
+          <h3>{{ about.labels.mission }}</h3>
+          <p>{{ about.mission }}</p>
+        </article>
+        <article class="about__card" data-icon-hover>
+          <span class="about__icon"><app-icon name="eye" [size]="28" /></span>
+          <h3>{{ about.labels.vision }}</h3>
+          <p>{{ about.vision }}</p>
+        </article>
+      </div>
+      <div class="about__col">
+        <article class="about__card" data-icon-hover>
+          <span class="about__icon"><app-icon name="handshake" [size]="28" /></span>
+          <h3>{{ about.labels.valueProposition }}</h3>
+          <p>{{ about.valueProposition }}</p>
+        </article>
+        <article class="about__card" data-icon-hover>
+          <span class="about__icon"><app-icon name="award" [size]="28" /></span>
+          <h3>{{ about.labels.experience }}</h3>
+          <p>{{ about.experience }}</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
