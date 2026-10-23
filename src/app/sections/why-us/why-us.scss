@@ -26,81 +26,160 @@
   z-index: 1;
 }
 
-.why__pillars {
-  --ring: 88px;
+// ---------- Pestañas ----------
 
-  list-style: none;
-  margin: var(--space-2) 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-5) var(--space-3);
+// En pantallas angostas las pestañas se deslizan de lado en vez de partirse en varias filas.
+.tabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  scrollbar-width: none;
 
-  @media (min-width: 700px) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  &::-webkit-scrollbar {
+    display: none;
   }
 
   @media (min-width: 1000px) {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: var(--space-4);
+    justify-content: space-between;
+  }
+}
+
+.tabs__tab {
+  position: relative;
+  flex: none;
+  min-height: 52px;
+  padding: var(--space-3) var(--space-3);
+  background: none;
+  border: 0;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+
+  // Filete dorado que se dibuja de izquierda a derecha.
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-gold-light), var(--color-gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s ease;
   }
 
-  li {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-4);
-    text-align: center;
+  &:hover::after,
+  &[aria-selected='true']::after {
+    transform: scaleX(1);
+  }
+
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+// "Pintado": una capa dorada recorre el texto blanco de izquierda a derecha.
+.tabs__label {
+  background:
+    linear-gradient(90deg, var(--color-gold-light), var(--color-gold)) 0 0 / 0% 100% no-repeat,
+    linear-gradient(#fff, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-size 0.45s ease;
+
+  .tabs__tab:hover &,
+  .tabs__tab[aria-selected='true'] & {
+    background-size:
+      100% 100%,
+      auto;
+  }
+}
+
+// ---------- Panel ----------
+
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: center;
+  margin-top: var(--space-6);
+  animation: panel-in 0.55s ease both;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  &[hidden] {
+    display: none;
   }
 
   h3 {
-    font-size: 1.35rem;
-    line-height: 1.2;
+    font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem);
+    margin-bottom: var(--space-3);
   }
 
-  // En 2 columnas, el quinto pilar queda centrado.
-  @media (max-width: 699px) {
-    li:last-child {
-      grid-column: 1 / -1;
-    }
+  p {
+    color: var(--color-text-soft-on-dark);
+    font-size: 1.05rem;
   }
 }
 
-// Icono en círculo dorado con degradado (navy sobre dorado: 7,4:1), como en Servicios.
-.why__ring {
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.panel__points {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+
+  li {
+    display: flex;
+    gap: var(--space-3);
+    color: var(--color-text-soft-on-dark);
+  }
+
+  strong {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: #fff;
+  }
+}
+
+// Icono en círculo dorado translúcido, como los de la referencia.
+.panel__icon {
+  flex: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--ring);
-  height: var(--ring);
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 70%);
-  color: var(--color-navy);
-  box-shadow:
-    0 0 0 6px rgba(217, 165, 44, 0.12),
-    0 14px 30px -12px rgba(217, 165, 44, 0.7);
-  transition: transform 0.4s ease;
-
-  li:hover & {
-    transform: translateY(-4px);
-  }
+  background: rgba(217, 165, 44, 0.16);
+  color: var(--color-gold-light);
 }
 
-// Guiones entre un icono y el siguiente (solo en una fila), con aire a cada lado del círculo.
-.why__link {
-  --gap: 30px;
-
-  display: none;
-
-  @media (min-width: 1000px) {
-    display: block;
-    position: absolute;
-    top: calc(var(--ring) / 2);
-    left: calc(50% + var(--ring) / 2 + var(--gap));
-    width: calc(100% + var(--space-4) - var(--ring) - 2 * var(--gap));
-    border-top: 1px dashed rgba(242, 204, 112, 0.55);
-  }
+.panel__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.6);
 }
 
 .why__closing {

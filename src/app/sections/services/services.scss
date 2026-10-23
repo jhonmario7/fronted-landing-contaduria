@@ -3,6 +3,11 @@ app-section-header {
   --section-header-max: 900px;
 }
 
+// El aire de la pista para las sombras se sale de la pantalla en celular: se recorta aquí.
+.section {
+  overflow-x: clip;
+}
+
 // ---------- Carrusel ----------
 
 .carousel {

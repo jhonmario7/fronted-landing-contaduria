@@ -9,18 +9,57 @@
       align="center"
     />
 
-    <!-- Recorrido como "How It Works" de la referencia: iconos en círculo dorado unidos por guiones. -->
-    <ol class="why__pillars">
-      @for (pillar of whyUs.pillars; track pillar.title; let last = $last) {
-        <li data-icon-hover>
-          <span class="why__ring"><app-icon [name]="pillar.icon" [size]="36" /></span>
-          @if (!last) {
-            <span class="why__link" aria-hidden="true"></span>
-          }
-          <h3>{{ pillar.title }}</h3>
-        </li>
+    <!-- Pestañas como "Our Services" de la referencia: al pasar el cursor el texto se pinta de dorado. -->
+    <div class="tabs" role="tablist" [attr.aria-label]="whyUs.tabsLabel" (keydown)="onKeydown($event)">
+      @for (pillar of whyUs.pillars; track pillar.id; let i = $index) {
+        <button
+          type="button"
+          role="tab"
+          class="tabs__tab"
+          [id]="'compromiso-tab-' + pillar.id"
+          [attr.aria-controls]="'compromiso-' + pillar.id"
+          [attr.aria-selected]="i === active()"
+          [attr.tabindex]="i === active() ? 0 : -1"
+          (click)="active.set(i)"
+        >
+          <span class="tabs__label">{{ pillar.title }}</span>
+        </button>
       }
-    </ol>
+    </div>
+
+    <!-- Todos los paneles van en el HTML prerenderizado (Google los lee); solo uno se muestra. -->
+    @for (pillar of whyUs.pillars; track pillar.id; let i = $index) {
+      <div
+        class="panel"
+        role="tabpanel"
+        [id]="'compromiso-' + pillar.id"
+        [attr.aria-labelledby]="'compromiso-tab-' + pillar.id"
+        [hidden]="i !== active()"
+      >
+        <div class="panel__text">
+          <h3>{{ pillar.title }}</h3>
+          <p class="justify">{{ pillar.description }}</p>
+          <ul class="panel__points">
+            @for (point of pillar.points; track point.title) {
+              <li data-icon-hover>
+                <span class="panel__icon"><app-icon [name]="point.icon" [size]="26" /></span>
+                <span>
+                  <strong>{{ point.title }}</strong>
+                  {{ point.description }}
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+        <img
+          class="panel__image"
+          [ngSrc]="pillar.image.src"
+          [alt]="pillar.image.alt"
+          [width]="pillar.image.width"
+          [height]="pillar.image.height"
+        />
+      </div>
+    }
 
     <p class="tagline why__closing">{{ whyUs.closing }}</p>
   </div>

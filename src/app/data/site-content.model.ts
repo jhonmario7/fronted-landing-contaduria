@@ -148,12 +148,23 @@ export interface Modality {
   description: string;
 }
 
+/** Pilar de "Nuestro compromiso": pestaña + panel con texto, dos puntos e imagen. */
+export interface Commitment {
+  id: string;
+  icon: IconName;
+  title: string;
+  description: string;
+  points: IconCard[];
+  image: MediaAsset;
+}
+
 export interface WhyUsContent {
   eyebrow: string;
   title: string;
   background: MediaAsset; // decorativa
   intro: string;
-  pillars: IconCard[];
+  tabsLabel: string; // aria-label de la lista de pestañas
+  pillars: Commitment[];
   closing: string;
   promises: IconCard[]; // "Compromiso con tu negocio", "Experiencia que genera resultados"...
   benefits: IconCard[]; // franja repetida en las diapositivas de servicios

@@ -687,12 +687,75 @@ export const SITE_CONTENT: SiteContent = {
     },
     intro:
       'En IUS COUNTER CONSULTING entendemos que una empresa necesita más que cumplir sus obligaciones tributarias.',
+    tabsLabel: 'Pilares de nuestro compromiso',
+    // Títulos del portafolio (diapositiva 18). BORRADOR: descripciones y puntos redactados a partir
+    // de los servicios del portafolio, pendientes de aprobación de la cliente.
     pillars: [
-      { icon: 'info', title: 'Información confiable' },
-      { icon: 'gear', title: 'Procesos organizados' },
-      { icon: 'shield-check', title: 'Protección jurídica' },
-      { icon: 'chart', title: 'Control financiero' },
-      { icon: 'users', title: 'Acompañamiento permanente' },
+      {
+        id: 'informacion-confiable',
+        icon: 'info',
+        title: 'Información confiable',
+        description:
+          'Llevamos tu contabilidad al día y con los soportes en orden, para que cada cifra refleje la realidad de tu negocio.',
+        points: [
+          { icon: 'document', title: 'Orden en tus registros', description: 'Contabilidad, conciliaciones y cierres al día.' },
+          { icon: 'shield-check', title: 'Confianza en tus cifras', description: 'Estados financieros claros para decidir con seguridad.' },
+        ],
+        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/informacion-confiable.webp]
+        image: { ...img('contable'), alt: 'Libretas, calculadora e informes sobre un escritorio' },
+      },
+      {
+        id: 'procesos-organizados',
+        icon: 'gear',
+        title: 'Procesos organizados',
+        description:
+          'Organizamos la operación contable y administrativa con procedimientos claros, para que tu empresa funcione sin improvisar.',
+        points: [
+          { icon: 'calendar', title: 'Obligaciones a tiempo', description: 'Fechas y vencimientos bajo control.' },
+          { icon: 'gear', title: 'Procesos ordenados', description: 'Documentos, nómina y soportes organizados.' },
+        ],
+        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/procesos-organizados.webp]
+        image: { ...img('gestion-operativa-administrativa'), alt: 'Carpetas y libreta abierta sobre un escritorio' },
+      },
+      {
+        id: 'proteccion-juridica',
+        icon: 'shield-check',
+        title: 'Protección jurídica',
+        description:
+          'Te representamos ante la DIAN y demás autoridades, y prevenimos riesgos legales antes de que se conviertan en problemas.',
+        points: [
+          { icon: 'scale', title: 'Defensa y representación', description: 'Respuesta a requerimientos y actuaciones.' },
+          { icon: 'shield-check', title: 'Prevención de riesgos', description: 'Revisión del cumplimiento normativo.' },
+        ],
+        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/proteccion-juridica.webp]
+        image: { ...img('juridico'), alt: 'Balanza de la justicia y libros sobre un escritorio' },
+      },
+      {
+        id: 'control-financiero',
+        icon: 'chart',
+        title: 'Control financiero',
+        description:
+          'Te damos indicadores, presupuestos y análisis de costos para que conozcas la salud de tu negocio y tomes decisiones más acertadas.',
+        points: [
+          { icon: 'chart', title: 'Decisiones más acertadas', description: 'Indicadores y análisis financiero.' },
+          { icon: 'money', title: 'Flujo de caja bajo control', description: 'Presupuestos y seguimiento de cartera.' },
+        ],
+        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/control-financiero.webp]
+        image: { ...img('auditoria-y-revision-fiscal'), alt: 'Lupa sobre informes financieros' },
+      },
+      {
+        id: 'acompanamiento-permanente',
+        icon: 'users',
+        title: 'Acompañamiento permanente',
+        description:
+          'Estamos contigo en cada etapa: resolvemos tus dudas, te asesoramos de forma cercana y te acompañamos en el crecimiento de tu empresa.',
+        points: [
+          { icon: 'chat', title: 'Asesoría cercana', description: 'Respuesta oportuna a tus consultas.' },
+          { icon: 'sprout', title: 'Crecimiento para tu negocio', description: 'Acompañamiento en cada etapa.' },
+        ],
+        // [PENDIENTE: imagen propia generada con IA → public/images/compromiso/acompanamiento-permanente.webp]
+        image: { ...img('contacto'), alt: 'Escritorio de trabajo con portátil y documentos', width: 823, height: 1023 },
+      },
     ],
     closing:
       'No solo asesoramos: organizamos, prevenimos, acompañamos y defendemos los intereses de nuestros clientes.',
