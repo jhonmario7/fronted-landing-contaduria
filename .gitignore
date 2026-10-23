@@ -51,5 +51,3 @@ Thumbs.db
 # Material de la cliente para procesar (logo, fotos). Lo que se publique se copia optimizado a public/
 /docs/
 
-# Fotos de ejemplo de la plantilla de referencia: solo para ver el diseño en ng serve, nunca se publican.
-/public/images/team/ejemplo/

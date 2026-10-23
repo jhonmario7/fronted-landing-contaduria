@@ -167,7 +167,12 @@ export const SITE_CONTENT: SiteContent = {
           'Consultoría empresarial.',
           'Supervisión y revisión de procesos contables.',
         ],
-        photo: null, // [PENDIENTE: foto real; las del portafolio parecen ilustrativas]
+        photo: {
+          src: '/images/team/yury-vera.webp',
+          alt: 'Yury Vera Plazas, contadora pública y especialista en gerencia tributaria, de saco negro',
+          width: 600,
+          height: 680,
+        },
       },
       {
         id: 'carlos-fierro',
@@ -218,7 +223,12 @@ export const SITE_CONTENT: SiteContent = {
           'Implementación de procedimientos empresariales.',
         ],
         note: 'Su función permite que los servicios de asesoría no se limiten a entregar recomendaciones, sino que también incluyan acompañamiento en la ejecución de los procesos administrativos y contables.',
-        photo: null, // [PENDIENTE: foto real]
+        photo: {
+          src: '/images/team/rosi-cujinos.webp',
+          alt: 'Rosi Angélica Cujiños Gómez, asistente contable, de saco negro',
+          width: 600,
+          height: 680,
+        },
       },
     ],
   },
