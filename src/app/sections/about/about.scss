@@ -41,24 +41,18 @@ h3 {
   object-fit: cover;
 }
 
-// Propuesta de valor: tarjeta navy con filete dorado (la frase más importante de la sección).
+// Propuesta de valor: texto libre bajo la foto, sin tarjeta (pedido del usuario, 23 oct 2026).
 .about__value {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-5) var(--space-4);
-  border-radius: var(--radius-card);
-  background: var(--color-navy);
-  color: var(--color-text-on-dark);
-  border-top: 3px solid var(--color-gold);
-  box-shadow: var(--shadow-card);
+  gap: var(--space-2);
 
   app-icon {
-    color: var(--color-gold);
+    color: var(--color-gold-text);
   }
 
   p {
-    color: var(--color-text-soft-on-dark);
+    color: var(--color-text-soft);
     font-size: 1.05rem;
   }
 }
