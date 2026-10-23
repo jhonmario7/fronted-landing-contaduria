@@ -454,8 +454,9 @@ app-section-header {
   }
 
   .detail__footer {
+    flex-direction: column;
     justify-content: center;
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-3);
 
     .tagline {
       display: none;
