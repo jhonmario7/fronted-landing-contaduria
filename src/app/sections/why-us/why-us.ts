@@ -14,6 +14,17 @@ export class WhyUs {
   protected readonly whyUs = SITE_CONTENT.whyUs;
   protected readonly active = signal(0);
 
+  protected select(index: number, event: Event): void {
+    this.active.set(index);
+    this.center(event.currentTarget as HTMLElement);
+  }
+
+  // En celular las pestañas no caben: la elegida se lleva al centro de la fila.
+  private center(tab: HTMLElement): void {
+    const list = tab.parentElement!;
+    list.scrollTo({ left: tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2, behavior: 'smooth' });
+  }
+
   // Pestañas accesibles (patrón ARIA): flechas, Inicio y Fin cambian de pestaña y mueven el foco.
   protected onKeydown(event: KeyboardEvent): void {
     const last = this.whyUs.pillars.length - 1;
@@ -29,5 +40,6 @@ export class WhyUs {
     this.active.set(next);
     const tabs = (event.currentTarget as HTMLElement).querySelectorAll<HTMLElement>('[role="tab"]');
     tabs[next]?.focus();
+    if (tabs[next]) this.center(tabs[next]);
   }
 }

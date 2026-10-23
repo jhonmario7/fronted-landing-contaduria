@@ -47,3 +47,19 @@
     color: var(--color-text-soft-on-dark);
   }
 }
+
+// Celular y tablet (una columna): todos los encabezados centrados, con filete a ambos lados.
+@media (max-width: 899px) {
+  .section-header--left {
+    align-items: center;
+    text-align: center;
+    margin-inline: auto;
+
+    .eyebrow::after {
+      content: '';
+      width: 56px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--color-gold), transparent);
+    }
+  }
+}

@@ -30,6 +30,7 @@
 
 // En pantallas angostas las pestañas se deslizan de lado en vez de partirse en varias filas.
 .tabs {
+  position: relative; // referencia de offsetLeft para centrar la pestaña
   display: flex;
   gap: var(--space-2);
   margin-top: var(--space-2);
@@ -43,6 +44,12 @@
 
   @media (min-width: 1000px) {
     justify-content: space-between;
+  }
+
+  // Bordes que se desvanecen: se nota que hay más pestañas a los lados.
+  @media (max-width: 999px) {
+    mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+    scroll-padding-inline: 24px;
   }
 }
 

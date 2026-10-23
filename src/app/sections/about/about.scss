@@ -87,3 +87,18 @@ h3 {
   display: inline-flex;
   color: var(--color-gold-text);
 }
+
+// Celular y tablet: texto y botón centrados.
+@media (max-width: 899px) {
+  .about__intro {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+// Una columna de tarjetas: icono, título y texto centrados.
+@media (max-width: 639px) {
+  .about__card {
+    text-align: center;
+  }
+}

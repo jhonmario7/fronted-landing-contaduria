@@ -21,7 +21,7 @@
           [attr.aria-controls]="'compromiso-' + pillar.id"
           [attr.aria-selected]="i === active()"
           [attr.tabindex]="i === active() ? 0 : -1"
-          (click)="active.set(i)"
+          (click)="select(i, $event)"
         >
           <span class="tabs__label">{{ pillar.title }}</span>
         </button>
