@@ -80,15 +80,9 @@ h3 {
   }
 }
 
-// Icono en círculo navy con aro dorado, como los del portafolio.
+// Icono grande y suelto, sin fondo (como la referencia). Dorado oscuro: el dorado de marca no
+// alcanza contraste sobre blanco.
 .about__icon {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: var(--color-navy);
-  color: var(--color-gold-light);
-  box-shadow: 0 0 0 2px var(--color-gold);
+  color: var(--color-gold-text);
 }
