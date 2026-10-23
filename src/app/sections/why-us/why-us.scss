@@ -27,29 +27,36 @@
 }
 
 .why__pillars {
+  --ring: 88px;
+
   list-style: none;
-  margin: 0;
+  margin: var(--space-2) 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-5) var(--space-3);
 
   @media (min-width: 700px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   @media (min-width: 1000px) {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--space-4);
   }
 
   li {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-4);
     text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    line-height: 1.2;
   }
 
   // En 2 columnas, el quinto pilar queda centrado.
@@ -60,20 +67,58 @@
   }
 }
 
-// Icono en aro dorado, como los del portafolio.
+// Icono en círculo dorado con degradado (navy sobre dorado: 7,4:1), como en Servicios.
 .why__ring {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 76px;
-  height: 76px;
+  width: var(--ring);
+  height: var(--ring);
   border-radius: 50%;
-  border: 1px solid var(--color-gold);
-  background: rgba(6, 31, 59, 0.6);
-  color: var(--color-gold-light);
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 70%);
+  color: var(--color-navy);
   box-shadow:
-    0 0 0 6px rgba(217, 165, 44, 0.08),
-    0 0 30px -6px rgba(217, 165, 44, 0.35);
+    0 0 0 6px rgba(217, 165, 44, 0.12),
+    0 14px 30px -12px rgba(217, 165, 44, 0.7);
+  transition: transform 0.4s ease;
+
+  li:hover & {
+    transform: translateY(-4px);
+  }
+}
+
+// Guiones con un circulito en cada punta entre un icono y el siguiente (solo en una fila).
+.why__link {
+  display: none;
+
+  @media (min-width: 1000px) {
+    display: block;
+    position: absolute;
+    top: calc(var(--ring) / 2);
+    left: calc(50% + var(--ring) / 2 + 14px);
+    width: calc(100% + var(--space-4) - var(--ring) - 28px);
+    border-top: 1px dashed rgba(242, 204, 112, 0.55);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 1px solid var(--color-gold-light);
+      background: var(--color-navy);
+    }
+
+    &::before {
+      left: -9px;
+    }
+
+    &::after {
+      right: -9px;
+    }
+  }
 }
 
 .why__closing {
@@ -83,41 +128,4 @@
   font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.2rem);
   line-height: 1.3;
   color: var(--color-gold-light);
-}
-
-.why__promises {
-  list-style: none;
-  margin: var(--space-6) 0 0;
-  padding: var(--space-4) 0 0;
-  border-top: 1px solid;
-  border-image: var(--gold-fade) 1;
-  display: grid;
-  gap: var(--space-4);
-
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1000px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-3);
-    color: var(--color-text-soft-on-dark);
-  }
-
-  app-icon {
-    flex: none;
-    margin-top: 2px;
-    color: var(--color-gold);
-  }
-
-  strong {
-    display: block;
-    color: #fff;
-    font-weight: 600;
-  }
 }
