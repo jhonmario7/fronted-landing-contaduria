@@ -8,8 +8,8 @@ h3 {
   align-items: center;
 
   @media (min-width: 900px) {
-    grid-template-columns: 0.85fr 1.25fr;
-    gap: var(--space-5);
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: var(--space-6);
   }
 }
 
@@ -23,16 +23,6 @@ h3 {
     color: var(--color-text-soft);
     font-size: 1.05rem;
   }
-}
-
-.about__photo {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  margin-top: var(--space-3);
-  border-radius: var(--radius-card);
-  box-shadow: 0 0 0 1px var(--color-border-gold);
-  object-fit: cover;
 }
 
 // Misión, visión, propuesta de valor y experiencia: tarjetas en dos columnas; la derecha baja
@@ -63,64 +53,22 @@ h3 {
 
   h3 {
     font-size: 1.5rem;
-    margin-bottom: var(--space-3);
+    margin: var(--space-3) 0;
   }
 
   p {
     color: var(--color-text-soft);
     font-size: 0.98rem;
     hyphens: auto;
-  }
-}
 
-.about__values-title {
-  margin-top: var(--space-6);
-  margin-bottom: var(--space-4);
-  text-align: center;
-  font-size: clamp(1.8rem, 1.4rem + 1.5vw, 2.4rem);
-}
-
-.about__values {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: var(--space-4);
-
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 960px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-4);
-    text-align: center;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-  }
-
-  h4 {
-    margin: var(--space-2) 0 0;
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 700;
-  }
-
-  p {
-    color: var(--color-text-soft);
-    font-size: 0.95rem;
+    @media (min-width: 600px) {
+      text-align: justify;
+    }
   }
 }
 
 // Icono en círculo navy con aro dorado, como los del portafolio.
-.about__value-icon {
+.about__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;

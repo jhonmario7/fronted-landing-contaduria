@@ -76,7 +76,6 @@ export interface AboutContent {
     vision: string;
     values: string;
   };
-  photo: MediaAsset;
   intro: string[];
   experience: string;
   valueProposition: string;
