@@ -9,7 +9,7 @@
 
     <ul class="services__grid">
       @for (service of services; track service.id) {
-        <li class="card">
+        <li class="card" data-icon-hover>
           <div class="card__media">
             <img
               [ngSrc]="service.image.src"

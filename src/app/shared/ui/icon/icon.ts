@@ -1,51 +1,104 @@
-import { Component, input } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  ElementRef,
+  afterNextRender,
+  computed,
+  inject,
+  input,
+  viewChild,
+} from '@angular/core';
+import { AnimateIcons } from '@animateicons/angular';
+import type { IconData } from '@animateicons/angular';
+import {
+  ArrowRight,
+  Banknote,
+  Briefcase,
+  Building2,
+  Calculator,
+  Calendar,
+  ChartColumn,
+  Check,
+  ChevronDown,
+  Clock,
+  Coins,
+  Eye,
+  Facebook,
+  FileSearch,
+  FileText,
+  GraduationCap,
+  Handshake,
+  Heart,
+  Info,
+  Instagram,
+  Landmark,
+  Laptop,
+  Lightbulb,
+  Linkedin,
+  Mail,
+  Medal,
+  Menu,
+  MessageCircle,
+  Receipt,
+  Settings,
+  ShieldCheck,
+  Sprout,
+  Store,
+  Target,
+  Users,
+  X,
+} from '@animateicons/angular/lucide';
+import { Whatsapp } from '@animateicons/angular/huge';
 
-export const ICON_NAMES = [
+// Iconos animados de animateicons.in (MIT; formas de Lucide, ISC, y Hugeicons). Aviso de
+// licencias en node_modules/@animateicons/angular/THIRD_PARTY_NOTICES.md.
+const ICONS = {
   // Servicios
-  'calculator',
-  'receipt',
-  'scale',
-  'search',
-  'building',
-  'heart',
-  'briefcase',
-  'laptop',
-  'store',
-  'money',
-  'graduation',
+  calculator: Calculator,
+  receipt: Receipt,
+  scale: Landmark, // animateicons no trae balanza; Landmark = institución / legal
+  search: FileSearch,
+  building: Building2,
+  heart: Heart,
+  briefcase: Briefcase,
+  laptop: Laptop,
+  store: Store,
+  money: Coins,
+  graduation: GraduationCap,
   // Valores, modalidades y pilares
-  'handshake',
-  'shield-check',
-  'users',
-  'lightbulb',
-  'award',
-  'sprout',
-  'eye',
-  'chat',
-  'calendar',
-  'gear',
-  'info',
-  'chart',
-  'target',
-  'document',
+  handshake: Handshake,
+  'shield-check': ShieldCheck,
+  users: Users,
+  lightbulb: Lightbulb,
+  award: Medal,
+  sprout: Sprout,
+  eye: Eye,
+  chat: MessageCircle,
+  calendar: Calendar,
+  gear: Settings,
+  info: Info,
+  chart: ChartColumn,
+  target: Target,
+  document: FileText,
   // Interfaz y contacto
-  'whatsapp',
-  'mail',
-  'clock',
-  'check',
-  'arrow-right',
-  'chevron-down',
-  'menu',
-  'close',
-  'instagram',
-  'facebook',
-  'linkedin',
-] as const;
+  whatsapp: Whatsapp,
+  mail: Mail,
+  clock: Clock,
+  check: Check,
+  'arrow-right': ArrowRight,
+  'chevron-down': ChevronDown,
+  menu: Menu,
+  close: X,
+  instagram: Instagram,
+  facebook: Facebook,
+  linkedin: Linkedin,
+} as const satisfies Record<string, IconData>;
 
-export type IconName = (typeof ICON_NAMES)[number];
+export type IconName = keyof typeof ICONS;
+export const ICON_NAMES = Object.keys(ICONS) as IconName[];
 
 @Component({
-  imports: [],
+  imports: [AnimateIcons],
   selector: 'app-icon',
   styleUrl: './icon.scss',
   templateUrl: './icon.html',
@@ -53,4 +106,30 @@ export type IconName = (typeof ICON_NAMES)[number];
 export class Icon {
   readonly name = input.required<IconName>();
   readonly size = input(24);
+
+  protected readonly data = computed(() => ICONS[this.name()]);
+  private readonly animation = viewChild.required(AnimateIcons);
+
+  constructor() {
+    const host: HTMLElement = inject(ElementRef).nativeElement;
+    const destroyRef = inject(DestroyRef);
+
+    // La animación se dispara al pasar el cursor (o enfocar) por el elemento interactivo que
+    // contiene al icono (enlace, botón o tarjeta con data-icon-hover), no solo por el trazo del icono.
+    afterNextRender(() => {
+      const trigger = host.closest('a, button, summary, [data-icon-hover]') ?? host;
+      const start = () => this.animation().startAnimation();
+      const stop = () => this.animation().stopAnimation();
+      trigger.addEventListener('mouseenter', start);
+      trigger.addEventListener('mouseleave', stop);
+      trigger.addEventListener('focusin', start);
+      trigger.addEventListener('focusout', stop);
+      destroyRef.onDestroy(() => {
+        trigger.removeEventListener('mouseenter', start);
+        trigger.removeEventListener('mouseleave', stop);
+        trigger.removeEventListener('focusin', start);
+        trigger.removeEventListener('focusout', stop);
+      });
+    });
+  }
 }
