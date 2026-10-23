@@ -36,7 +36,7 @@ export const SITE_CONTENT: SiteContent = {
     slogans: [
       'Tu aliado en el crecimiento de tu empresa',
       'Comprometidos con tu tranquilidad y tu crecimiento',
-      'Más que asesoría, somos tu apoyo',
+      'Más que asesoría, somos tu apoyo.',
       'Tu negocio en manos de expertos',
       'Tu aliado estratégico en cada paso',
       'Asesoría que impulsa tu futuro',
