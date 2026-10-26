@@ -32,7 +32,7 @@ export class Contact {
     SITE_CONTENT.contact.form.otherServiceLabel,
   ];
 
-  // [PENDIENTE: línea principal de WhatsApp] — mientras tanto, la primera del portafolio.
+  // Línea de WhatsApp empresarial (única).
   private readonly phoneE164 = SITE_CONTENT.contact.whatsapp[0].phoneE164;
 
   // Selector de servicio propio (el nativo se abría hacia arriba y sin estilo).

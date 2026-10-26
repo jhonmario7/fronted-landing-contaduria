@@ -849,8 +849,8 @@ export const SITE_CONTENT: SiteContent = {
     closing: '¡Tu tranquilidad también es nuestro compromiso!',
     // [PENDIENTE: cuál es la línea principal para el botón flotante y el formulario]
     whatsapp: [
-      { phoneE164: '573178224883', display: '317 822 4883' },
-      { phoneE164: '573194975125', display: '319 497 5125' },
+      // Línea empresarial única confirmada por la cliente (26 oct 2026); reemplaza las dos del portafolio.
+      { phoneE164: '573124040164', display: '312 404 0164' },
     ],
     email: 'iuscounter2026@gmail.com',
     whatsappMessage: 'Hola, quisiera recibir asesoría de IUS COUNTER CONSULTING.', // BORRADOR
@@ -923,7 +923,7 @@ export const SITE_CONTENT: SiteContent = {
         heading: '1. Responsable del tratamiento',
         paragraphs: [
           'IUS COUNTER CONSULTING SAS, identificada con NIT 902102537-3, con domicilio en Neiva, Huila (Colombia), es responsable del tratamiento de los datos personales que recolecta a través de este sitio web y de sus canales de atención.',
-          'Canales de contacto para temas de datos personales: correo electrónico iuscounter2026@gmail.com y líneas de WhatsApp 317 822 4883 y 319 497 5125.',
+          'Canales de contacto para temas de datos personales: correo electrónico iuscounter2026@gmail.com y línea de WhatsApp 312 404 0164.',
         ],
       },
       {

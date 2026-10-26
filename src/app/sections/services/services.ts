@@ -23,7 +23,7 @@ import { SectionHeader } from '../../shared/ui/section-header/section-header';
 export class Services {
   protected readonly section = SITE_CONTENT.servicesSection;
 
-  // [PENDIENTE: línea principal de WhatsApp] — mientras tanto, la primera del portafolio.
+  // Línea de WhatsApp empresarial (única).
   protected readonly services = SITE_CONTENT.services.map((service) => ({
     ...service,
     whatsappHref: buildWhatsAppUrl(

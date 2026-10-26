@@ -16,7 +16,7 @@ import { WhatsappFab } from './shared/ui/whatsapp-fab/whatsapp-fab';
 export class App {
   protected readonly nav = SITE_CONTENT.navigation;
   protected readonly contact = SITE_CONTENT.contact;
-  // [PENDIENTE: línea principal de WhatsApp] — mientras tanto, la primera del portafolio.
+  // Línea de WhatsApp empresarial (única).
   protected readonly whatsapp = SITE_CONTENT.contact.whatsapp[0];
 
   constructor() {

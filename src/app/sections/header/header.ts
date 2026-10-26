@@ -48,7 +48,7 @@ export class Header {
     () => this.overlay() && !this.scrolled() && !this.isMenuOpen(),
   );
 
-  // [PENDIENTE: línea principal de WhatsApp] — mientras tanto, la primera del portafolio.
+  // Línea de WhatsApp empresarial (única).
   protected readonly whatsappHref = buildWhatsAppUrl(
     SITE_CONTENT.contact.whatsapp[0].phoneE164,
     SITE_CONTENT.contact.whatsappMessage,

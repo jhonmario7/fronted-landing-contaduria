@@ -15,7 +15,7 @@ export class Hero {
   protected readonly identity = SITE_CONTENT.identity;
   protected readonly hero = SITE_CONTENT.hero;
 
-  // [PENDIENTE: línea principal de WhatsApp] — mientras tanto, la primera del portafolio.
+  // Línea de WhatsApp empresarial (única).
   protected readonly whatsappHref = buildWhatsAppUrl(
     SITE_CONTENT.contact.whatsapp[0].phoneE164,
     SITE_CONTENT.contact.whatsappMessage,
