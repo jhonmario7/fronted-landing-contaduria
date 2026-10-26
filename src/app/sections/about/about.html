@@ -1,6 +1,6 @@
 <section id="quienes-somos" class="section">
   <div class="wrap about__grid">
-    <div class="about__intro" data-reveal="left">
+    <div class="about__intro">
       <app-section-header [eyebrow]="about.eyebrow" [title]="about.title" />
       @for (paragraph of about.intro; track $index) {
         <p class="justify">{{ paragraph }}</p>
@@ -10,24 +10,24 @@
 
     <div class="about__cards">
       <div class="about__col">
-        <article class="about__card" data-icon-hover data-reveal="up" [style.--reveal-delay]="'0ms'">
+        <article class="about__card" data-icon-hover>
           <span class="about__icon"><app-icon name="target" [size]="48" /></span>
           <h3>{{ about.labels.mission }}</h3>
           <p>{{ about.mission }}</p>
         </article>
-        <article class="about__card" data-icon-hover data-reveal="up" [style.--reveal-delay]="'250ms'">
+        <article class="about__card" data-icon-hover>
           <span class="about__icon"><app-icon name="eye" [size]="48" /></span>
           <h3>{{ about.labels.vision }}</h3>
           <p>{{ about.vision }}</p>
         </article>
       </div>
       <div class="about__col">
-        <article class="about__card" data-icon-hover data-reveal="up" [style.--reveal-delay]="'120ms'">
+        <article class="about__card" data-icon-hover>
           <span class="about__icon"><app-icon name="handshake" [size]="48" /></span>
           <h3>{{ about.labels.valueProposition }}</h3>
           <p>{{ about.valueProposition }}</p>
         </article>
-        <article class="about__card" data-icon-hover data-reveal="up" [style.--reveal-delay]="'370ms'">
+        <article class="about__card" data-icon-hover>
           <span class="about__icon"><app-icon name="award" [size]="48" /></span>
           <h3>{{ about.labels.experience }}</h3>
           <p>{{ about.experience }}</p>

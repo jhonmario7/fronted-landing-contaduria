@@ -378,6 +378,8 @@ export const SITE_CONTENT: SiteContent = {
             'Reglamentos y documentos laborales.',
             'Reclamaciones y controversias laborales.',
             'Fiscalización de aportes y UGPP.',
+            'Manifestación de inconformidad y controversias frente a dictámenes de pérdida de capacidad laboral.',
+            'Demandas laborales por culpa patronal y reclamación de indemnización de perjuicios.',
           ],
         },
         {
@@ -452,6 +454,7 @@ export const SITE_CONTENT: SiteContent = {
             'Selección y evaluación del régimen tributario.',
             'Organización contable y administrativa de nuevas empresas.',
             'Implementación de procesos de facturación y nómina.',
+            'Implementación del Sistema de Gestión de Seguridad y Salud en el Trabajo (SG-SST).',
             'Acompañamiento en el inicio de operaciones.',
             'Asesoría para comerciantes que desean expandir sus negocios.',
           ],
