@@ -724,10 +724,9 @@ export const SITE_CONTENT: SiteContent = {
         ],
         image: {
           src: '/images/compromiso/procesos-organizados.webp',
-          alt: 'Carpetas archivadoras, calendario de escritorio y agenda abierta',
-          width: 800,
-          height: 600,
-          aiGenerated: true,
+          alt: 'Integrante del equipo tomando notas en su escritorio',
+          width: 640,
+          height: 480,
         },
       },
       {
@@ -778,10 +777,9 @@ export const SITE_CONTENT: SiteContent = {
         ],
         image: {
           src: '/images/compromiso/acompanamiento-permanente.webp',
-          alt: 'Apretón de manos sobre un escritorio con libreta, café y una planta',
-          width: 800,
-          height: 600,
-          aiGenerated: true,
+          alt: 'Dos integrantes del equipo revisando un documento',
+          width: 1200,
+          height: 900,
         },
       },
     ],
