@@ -8,6 +8,7 @@ export interface SiteContent {
   team: TeamContent;
   servicesSection: ServicesSectionContent;
   services: Service[];
+  specializedServices: SpecializedServicesContent;
   processSection: ProcessSectionContent;
   modalities: Modality[];
   whyUs: WhyUsContent;
@@ -127,13 +128,20 @@ export interface ServicesSectionContent {
 export interface Service {
   id: string;
   icon: IconName;
-  image: MediaAsset;
+  image?: MediaAsset; // cabecera del detalle; sin imagen queda en navy
   name: string; // nombre corto de la tarjeta
   title: string; // título completo del detalle
   summary: string; // línea de la tarjeta (y entrada del detalle)
   groups: ServiceGroup[];
   note?: string;
   closingLine?: string;
+}
+
+/** Servicios complementarios que la firma presta con profesionales aliados. */
+export interface SpecializedServicesContent {
+  title: string;
+  intro: string;
+  services: Service[];
 }
 
 export interface ProcessSectionContent {

@@ -1,4 +1,4 @@
-import { NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
 import {
   Component,
   DestroyRef,
@@ -10,12 +10,13 @@ import {
 } from '@angular/core';
 import { buildWhatsAppUrl } from '../../core/whatsapp-link.util';
 import { SITE_CONTENT } from '../../data/site-content';
+import type { Service } from '../../data/site-content.model';
 import { Button } from '../../shared/ui/button/button';
 import { Icon } from '../../shared/ui/icon/icon';
 import { SectionHeader } from '../../shared/ui/section-header/section-header';
 
 @Component({
-  imports: [NgOptimizedImage, Button, Icon, SectionHeader],
+  imports: [NgOptimizedImage, NgTemplateOutlet, Button, Icon, SectionHeader],
   selector: 'app-services',
   styleUrl: './services.scss',
   templateUrl: './services.html',
@@ -24,13 +25,18 @@ export class Services {
   protected readonly section = SITE_CONTENT.servicesSection;
 
   // Línea de WhatsApp empresarial (única).
-  protected readonly services = SITE_CONTENT.services.map((service) => ({
+  private readonly withWhatsApp = (service: Service) => ({
     ...service,
     whatsappHref: buildWhatsAppUrl(
       SITE_CONTENT.contact.whatsapp[0].phoneE164,
       this.section.whatsappMessage.replace('{servicio}', service.name),
     ),
-  }));
+  });
+  protected readonly services = SITE_CONTENT.services.map(this.withWhatsApp);
+  protected readonly specialized = {
+    ...SITE_CONTENT.specializedServices,
+    services: SITE_CONTENT.specializedServices.services.map(this.withWhatsApp),
+  };
 
   // ---------- Carrusel ----------
   // Pista con scroll-snap nativo (se desliza con el dedo o el trackpad) que avanza sola de a una

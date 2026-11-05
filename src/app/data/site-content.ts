@@ -632,15 +632,98 @@ export const SITE_CONTENT: SiteContent = {
 
   // Diapositiva 18. La cliente confirmó (22 oct 2026) que el contenido sale del portafolio:
   // estas modalidades son la sección "Proceso de trabajo".
+  // Ronda 2 (5 nov 2026): textos entregados por la cliente en una imagen, adaptados al tuteo del sitio.
+  specializedServices: {
+    title: 'Soluciones empresariales especializadas',
+    intro:
+      'Acompañamos a tu empresa con servicios complementarios, a través de profesionales aliados especializados, para su cumplimiento, protección y crecimiento.',
+    services: [
+      {
+        id: 'sst',
+        icon: 'clipboard-list',
+        name: 'Seguridad y Salud en el Trabajo (SG-SST)',
+        title: 'Seguridad y Salud en el Trabajo (SG-SST)',
+        summary:
+          'Diseño, implementación, actualización y acompañamiento del Sistema de Gestión de Seguridad y Salud en el Trabajo, con apoyo de profesional competente en el área.',
+        groups: [
+          {
+            items: [
+              'Diagnóstico y plan de trabajo.',
+              'Implementación del SG-SST.',
+              'Capacitación y sensibilización.',
+              'Acompañamiento y seguimiento.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'reglamento-interno',
+        icon: 'scroll-text',
+        name: 'Reglamento Interno de Trabajo',
+        title: 'Reglamento Interno de Trabajo',
+        summary:
+          'Elaboración o actualización del Reglamento Interno de Trabajo, con acompañamiento técnico y jurídico por abogado laboral, de acuerdo con la normatividad vigente.',
+        groups: [
+          {
+            items: [
+              'Elaboración o actualización.',
+              'Revisión jurídica y normativa.',
+              'Ajuste a la realidad de la empresa.',
+              'Asesoría en su implementación.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'seguros',
+        icon: 'umbrella',
+        name: 'Seguros y Protección Patrimonial',
+        title: 'Seguros y Protección Patrimonial',
+        summary:
+          'Te facilitamos el contacto con especialistas en seguros para que encuentres alternativas de protección acordes con tus necesidades personales, familiares y empresariales.',
+        groups: [
+          {
+            items: [
+              'Seguros de vida.',
+              'Seguros de salud.',
+              'Seguros de vivienda.',
+              'Seguros de automóviles.',
+              'Seguros empresariales y pólizas de cumplimiento.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'consultoria-especializada',
+        icon: 'trending-up',
+        name: 'Consultoría Empresarial Especializada',
+        title: 'Consultoría Empresarial Especializada',
+        summary:
+          'Diagnóstico, reorganización y fortalecimiento de tu negocio, con un enfoque estratégico que mejora la productividad, la rentabilidad y la competitividad.',
+        groups: [
+          {
+            items: [
+              'Diagnóstico y reorganización empresarial.',
+              'Estructuración de áreas, cargos y funciones.',
+              'Análisis de competencia y mercado.',
+              'Estrategias comerciales y de crecimiento.',
+              'Optimización de procesos y rentabilidad.',
+              'Acompañamiento estratégico a la gerencia.',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
   processSection: {
     eyebrow: 'Cómo trabajamos',
     title: 'Modalidades de servicio',
     photo: {
-      src: '/images/ia/como-trabajamos.webp',
-      alt: 'Persona de espaldas en una videollamada de trabajo desde un escritorio en casa',
-      width: 1024,
-      height: 687,
-      aiGenerated: true,
+      src: '/images/team/equipo-trabajando.webp',
+      alt: 'Dos integrantes del equipo revisando un documento en la oficina',
+      width: 1200,
+      height: 900,
     },
   },
   modalities: [
@@ -777,9 +860,10 @@ export const SITE_CONTENT: SiteContent = {
         ],
         image: {
           src: '/images/compromiso/acompanamiento-permanente.webp',
-          alt: 'Dos integrantes del equipo revisando un documento',
-          width: 1200,
-          height: 900,
+          alt: 'Apretón de manos sobre un escritorio con libreta, café y una planta',
+          width: 800,
+          height: 600,
+          aiGenerated: true,
         },
       },
     ],
