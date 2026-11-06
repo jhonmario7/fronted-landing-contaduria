@@ -48,8 +48,8 @@
           }
 
           <!-- Siempre al fondo de la tarjeta: los tres acordeones quedan a la misma altura. -->
-          <details class="member__areas">
-            <summary>
+          <details class="member__areas" (toggle)="release($event)">
+            <summary (click)="freeze($event)">
               {{ team.labels.leadershipAreas }}
               <app-icon name="chevron-down" [size]="18" />
             </summary>

@@ -4,7 +4,11 @@
   padding: 0;
   display: grid;
   gap: var(--space-4);
-  // Tarjetas del mismo alto aunque el contenido varíe (stretch por defecto del grid).
+  // Tarjetas del mismo alto aunque el contenido varíe (stretch por defecto del grid). Con un
+  // acordeón abierto solo crece esa tarjeta: las demás conservan su alto (min-height desde team.ts).
+  &:has(details[open]) {
+    align-items: start;
+  }
 
   @media (min-width: 960px) {
     grid-template-columns: repeat(3, 1fr);
