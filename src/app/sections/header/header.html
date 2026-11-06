@@ -5,7 +5,7 @@
   [class.is-dropped]="dropped()"
 >
   <div class="wrap site-header__row">
-    <a class="brand" href="/#inicio" (click)="closeMenu()" [attr.aria-label]="nav.homeLabel">
+    <a class="brand" href="/#inicio" (click)="closeMenu()">
       @if (logo) {
         <img
           class="brand__monogram"
@@ -16,7 +16,7 @@
           priority
         />
       }
-      <span class="brand__wordmark" aria-hidden="true">
+      <span class="brand__wordmark">
         <span class="brand__name">IUS COUNTER</span>
         <span class="brand__sub">CONSULTING</span>
       </span>

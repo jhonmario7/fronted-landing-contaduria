@@ -49,6 +49,7 @@ export class Services {
   protected readonly active = signal(0);
   protected readonly paused = signal(false);
   private holding = false;
+  private onScreen = false;
   private frame = 0;
 
   constructor() {
@@ -87,8 +88,12 @@ export class Services {
       );
       el.querySelectorAll('.card').forEach((card) => seen.observe(card));
 
+      // Solo avanza mientras el carrusel está en pantalla (fuera de vista no gasta CPU).
+      const inView = new IntersectionObserver(([entry]) => (this.onScreen = entry.isIntersecting));
+      inView.observe(el);
+
       const timer = setInterval(() => {
-        if (this.paused() || this.holding || document.hidden || el.querySelector('dialog[open]')) {
+        if (!this.onScreen || this.paused() || this.holding || document.hidden || el.querySelector('dialog[open]')) {
           return;
         }
         this.goTo((this.active() + 1) % this.positions().length);
@@ -98,6 +103,7 @@ export class Services {
         clearInterval(timer);
         resize.disconnect();
         seen.disconnect();
+        inView.disconnect();
         this.cancelSlide();
         for (const type of ['wheel', 'touchstart', 'pointerdown']) el.removeEventListener(type, stop);
         el.removeEventListener('scroll', measure);

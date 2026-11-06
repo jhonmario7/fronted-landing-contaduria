@@ -26,7 +26,6 @@ export interface NavLink {
 export interface NavigationContent {
   links: NavLink[];
   ctaLabel: string;
-  homeLabel: string; // aria-label del logo
   openMenuLabel: string;
   closeMenuLabel: string;
   backToTopLabel: string; // aria-label del botón volver arriba
@@ -240,6 +239,7 @@ export interface SeoConfig {
   siteUrl: string;
   defaultTitle: string;
   defaultDescription: string;
+  policyDescription: string; // meta description de la página de política
   ogImage: MediaAsset | null;
 }
 

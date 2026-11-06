@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, afterNextRender, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map, startWith } from 'rxjs';
@@ -55,10 +55,9 @@ export class Header {
   );
 
   constructor() {
-    // Recarga a mitad de página (o ancla): el header debe nacer sólido.
-    if (typeof window !== 'undefined') {
-      this.onScroll();
-    }
+    // Recarga a mitad de página (o ancla): el header debe nacer sólido. Tras el primer render, para
+    // no forzar un cálculo de layout en plena hidratación (Lighthouse: ~250 ms de reflow).
+    afterNextRender(() => this.onScroll());
   }
 
   onScroll(): void {

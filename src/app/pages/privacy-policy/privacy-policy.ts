@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Seo } from '../../core/seo';
 import { SITE_CONTENT } from '../../data/site-content';
 import { Icon } from '../../shared/ui/icon/icon';
 
@@ -14,6 +14,10 @@ export class PrivacyPolicy {
   protected readonly page = SITE_CONTENT.legal.policyPage;
 
   constructor() {
-    inject(Title).setTitle(`${this.page.title} | ${SITE_CONTENT.identity.businessName}`);
+    inject(Seo).setPageMeta({
+      title: `${this.page.title} | ${SITE_CONTENT.identity.businessName}`,
+      description: SITE_CONTENT.seo.policyDescription,
+      path: this.legal.dataPolicyPath,
+    });
   }
 }

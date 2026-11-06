@@ -61,7 +61,6 @@ export const SITE_CONTENT: SiteContent = {
       { label: 'Contacto', fragment: 'contacto' },
     ],
     ctaLabel: 'Escríbenos',
-    homeLabel: 'IUS COUNTER CONSULTING, ir al inicio',
     openMenuLabel: 'Abrir menú',
     closeMenuLabel: 'Cerrar menú',
     backToTopLabel: 'Volver arriba',
@@ -953,6 +952,8 @@ export const SITE_CONTENT: SiteContent = {
     // BORRADOR
     defaultDescription:
       'Firma de asesoría contable, tributaria y legal en Neiva. Contadores públicos y abogados que acompañan a personas, comerciantes, emprendedores, fundaciones y empresas.',
+    policyDescription:
+      'Política de tratamiento de datos personales de IUS COUNTER CONSULTING SAS, conforme a la Ley 1581 de 2012.',
     ogImage: {
       src: '/images/og-image.jpg',
       alt: 'Emblema de IUS COUNTER CONSULTING: monograma IC dorado y el lema Tu tranquilidad, nuestra prioridad',
