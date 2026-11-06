@@ -43,6 +43,11 @@
             </ul>
           }
 
+          @if (member.note) {
+            <p class="member__note justify">{{ member.note }}</p>
+          }
+
+          <!-- Siempre al fondo de la tarjeta: los tres acordeones quedan a la misma altura. -->
           <details class="member__areas">
             <summary>
               {{ team.labels.leadershipAreas }}
@@ -58,9 +63,6 @@
             </ul>
           </details>
 
-          @if (member.note) {
-            <p class="member__note justify">{{ member.note }}</p>
-          }
         </li>
       }
     </ul>

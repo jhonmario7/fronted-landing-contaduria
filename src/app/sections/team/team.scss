@@ -4,7 +4,7 @@
   padding: 0;
   display: grid;
   gap: var(--space-4);
-  align-items: start;
+  // Tarjetas del mismo alto aunque el contenido varíe (stretch por defecto del grid).
 
   @media (min-width: 960px) {
     grid-template-columns: repeat(3, 1fr);
@@ -120,6 +120,7 @@
 
 // <details> nativo: accesible por teclado y el contenido ya viene en el HTML prerenderizado.
 .member__areas {
+  margin-top: auto;
   border-top: 1px solid var(--color-border);
   padding-top: var(--space-3);
 
