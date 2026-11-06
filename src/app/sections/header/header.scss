@@ -154,7 +154,9 @@
   cursor: pointer;
 }
 
-@media (max-width: 1023px) {
+// El menú completo necesita ~1160px (logo + 5 enlaces + botón); por debajo se monta sobre el logo,
+// así que desde 1199px pasa a hamburguesa.
+@media (max-width: 1199px) {
   .site-header__row {
     grid-template-columns: 1fr auto auto;
     gap: var(--space-3);
