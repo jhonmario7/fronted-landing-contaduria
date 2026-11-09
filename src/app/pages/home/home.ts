@@ -20,8 +20,8 @@ export class Home {
     const seoService = inject(Seo);
     seoService.setPageMeta({ title: seo.defaultTitle, description: seo.defaultDescription, path: '/' });
 
-    // Ficha de negocio para Google (schema.org). Sin dirección física ni horario: la firma trabaja
-    // en remoto y el horario sigue [PENDIENTE]; se agregan cuando la cliente los confirme.
+    // Ficha de negocio para Google (schema.org). Sin dirección física ni horario:
+    // la firma trabaja en remoto y no publica horario (cliente, 9 nov 2026).
     seoService.setJsonLd({
       '@context': 'https://schema.org',
       '@type': 'AccountingService',

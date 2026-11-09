@@ -25,8 +25,7 @@ export class Footer {
   protected readonly serviceNames = SITE_CONTENT.services.map((s) => s.name);
   protected readonly year = new Date().getFullYear();
 
-  // Redes: se muestran siempre; solo son enlace cuando la cliente confirma la URL
-  // ([PENDIENTE: redes sociales] en site-content.ts).
+  // Redes: se muestran siempre; solo son enlace si tienen URL en site-content.ts.
   protected readonly socials: { icon: IconName; label: string; url: string }[] = [
     { icon: 'instagram', label: 'Instagram', url: SITE_CONTENT.social.instagramUrl ?? '' },
     { icon: 'tiktok', label: 'TikTok', url: SITE_CONTENT.social.tiktokUrl ?? '' },

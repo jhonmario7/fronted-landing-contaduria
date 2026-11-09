@@ -224,7 +224,6 @@ export interface ContactContent {
   email: string;
   whatsappMessage: string; // mensaje prellenado del botón flotante y CTA generales
   whatsappLabel: string; // aria-label del botón flotante
-  hours: string;
 }
 
 export interface SocialChannels {

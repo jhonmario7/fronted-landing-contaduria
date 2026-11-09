@@ -1,9 +1,8 @@
 import { MediaAsset, SiteContent } from './site-content.model';
 
 // Fuente: portafolio de la cliente (public/portafolio/, diapositivas 01–19), transcrito literal.
-// Todo lo marcado [PENDIENTE] espera el material del Anexo 1 del contrato (ver documentacion/PLAN.md).
-// Nunca reemplazar un [PENDIENTE] con un valor inventado. Lo marcado BORRADOR es copy nuestro
-// para que la cliente lo apruebe en las rondas de ajustes.
+// Textos, imágenes con IA y política de datos aprobados por la cliente (9 nov 2026).
+// Nunca agregar datos que la firma no haya confirmado.
 
 const SITE_URL = 'https://iuscounterconsulting.com';
 
@@ -51,7 +50,7 @@ export const SITE_CONTENT: SiteContent = {
   },
 
   // Anclas a las secciones del contrato (cláusula 2: inicio, quiénes somos, servicios, por qué
-  // elegirnos, proceso de trabajo, contacto). Etiquetas BORRADOR.
+  // elegirnos, proceso de trabajo, contacto).
   navigation: {
     links: [
       { label: 'Quiénes somos', fragment: 'quienes-somos' },
@@ -66,7 +65,6 @@ export const SITE_CONTENT: SiteContent = {
     backToTopLabel: 'Volver arriba',
   },
 
-  // BORRADOR (etiquetas de botones).
   hero: {
     primaryCtaLabel: 'Agenda tu asesoría',
     secondaryCtaLabel: 'Conoce nuestros servicios',
@@ -85,7 +83,6 @@ export const SITE_CONTENT: SiteContent = {
       values: 'Nuestros valores',
     },
     // Textos resumidos a partir del portafolio (diapositivas 02 y 03) para las tarjetas: sin datos nuevos.
-    // PENDIENTE: que la cliente apruebe la versión corta.
     intro: [
       'Somos una firma de consultoría y asesoría integral que combina conocimientos contables, tributarios, jurídicos, financieros y administrativos para brindar soluciones a personas y empresas de diferentes sectores.',
     ],
@@ -237,10 +234,10 @@ export const SITE_CONTENT: SiteContent = {
     eyebrow: 'Servicios',
     title: 'Soluciones integrales para tus necesidades',
     subtitle: 'Tu negocio en manos de expertos',
-    viewMoreLabel: 'Ver detalle', // BORRADOR
+    viewMoreLabel: 'Ver detalle',
     closeLabel: 'Cerrar',
-    ctaLabel: 'Consultar por WhatsApp', // BORRADOR
-    whatsappMessage: 'Hola, quisiera información sobre el servicio: {servicio}.', // BORRADOR
+    ctaLabel: 'Consultar por WhatsApp',
+    whatsappMessage: 'Hola, quisiera información sobre el servicio: {servicio}.',
     carouselLabel: 'Carrusel de servicios',
     pauseLabel: 'Pausar el carrusel',
     playLabel: 'Reanudar el carrusel',
@@ -285,7 +282,6 @@ export const SITE_CONTENT: SiteContent = {
       image: img('tributario'),
       name: 'Tributario',
       title: 'Asesoría, consultoría, defensa y representación tributaria',
-      // BORRADOR: el portafolio no trae una línea de resumen para este servicio.
       summary:
         'Cumplimiento de tus obligaciones tributarias nacionales y territoriales, y defensa ante la DIAN y demás autoridades.',
       groups: [
@@ -348,7 +344,6 @@ export const SITE_CONTENT: SiteContent = {
       image: img('juridico'),
       name: 'Jurídico',
       title: 'Servicios jurídicos',
-      // BORRADOR: el portafolio no trae una línea de resumen para este servicio.
       summary:
         'Asesoría y representación en derecho empresarial y comercial, laboral y de seguridad social, de familia y administrativo.',
       groups: [
@@ -412,7 +407,6 @@ export const SITE_CONTENT: SiteContent = {
       image: img('auditoria-y-revision-fiscal'),
       name: 'Auditoría y revisoría fiscal',
       title: 'Auditoría y revisoría fiscal',
-      // BORRADOR: el portafolio no trae una línea de resumen para este servicio.
       summary:
         'Revisoría fiscal y auditorías financieras, tributarias y de cumplimiento para dar confianza a tus decisiones.',
       groups: [
@@ -773,8 +767,8 @@ export const SITE_CONTENT: SiteContent = {
     intro:
       'En IUS COUNTER CONSULTING entendemos que una empresa necesita más que cumplir sus obligaciones tributarias.',
     tabsLabel: 'Pilares de nuestro compromiso',
-    // Títulos del portafolio (diapositiva 18). BORRADOR: descripciones y puntos redactados a partir
-    // de los servicios del portafolio, pendientes de aprobación de la cliente.
+    // Títulos del portafolio (diapositiva 18). Descripciones y puntos redactados a partir
+    // de los servicios del portafolio; aprobados por la cliente.
     pillars: [
       {
         id: 'informacion-confiable',
@@ -925,19 +919,16 @@ export const SITE_CONTENT: SiteContent = {
         height: 1023,
         aiGenerated: true,
       },
-    }, // textos del formulario: BORRADOR
+    },
     lead: 'Estaremos encantados de brindarte la asesoría que necesitas y resolver todas tus dudas.',
     closing: '¡Tu tranquilidad también es nuestro compromiso!',
-    // [PENDIENTE: cuál es la línea principal para el botón flotante y el formulario]
     whatsapp: [
       // Línea empresarial única confirmada por la cliente (26 oct 2026); reemplaza las dos del portafolio.
       { phoneE164: '573124040164', display: '312 404 0164' },
     ],
     email: 'iuscounter2026@gmail.com',
-    whatsappMessage: 'Hola, quisiera recibir asesoría de IUS COUNTER CONSULTING.', // BORRADOR
+    whatsappMessage: 'Hola, quisiera recibir asesoría de IUS COUNTER CONSULTING.',
     whatsappLabel: 'Escríbenos por WhatsApp',
-    // Sin oficina física: la firma trabaja de forma remota (cliente, 22 oct 2026).
-    hours: '[PENDIENTE: horarios de atención]',
   },
 
   // Redes confirmadas por el usuario (23 oct 2026), sin parámetros de rastreo. No tiene Facebook ni LinkedIn.
@@ -949,7 +940,6 @@ export const SITE_CONTENT: SiteContent = {
   seo: {
     siteUrl: SITE_URL,
     defaultTitle: 'IUS COUNTER CONSULTING | Asesoría contable, tributaria y legal en Neiva',
-    // BORRADOR
     defaultDescription:
       'Firma de asesoría contable, tributaria y legal en Neiva. Contadores públicos y abogados que acompañan a personas, comerciantes, emprendedores, fundaciones y empresas.',
     policyDescription:
@@ -968,7 +958,7 @@ export const SITE_CONTENT: SiteContent = {
       servicesTitle: 'Servicios',
       contactTitle: 'Contacto',
       socialLabel: 'Redes sociales',
-      // Suscripción a novedades PLANTEADA (BORRADOR, fuera del alcance del contrato): no hay servidor,
+      // Suscripción a novedades PLANTEADA (fuera del alcance del contrato, aprobada por la cliente): no hay servidor,
       // al enviar se abre el correo del visitante con el mensaje listo para la firma.
       newsletter: {
         title: 'Suscríbete a nuestras novedades',
@@ -998,9 +988,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     dataPolicyPath: '/politica-de-tratamiento-de-datos',
     dataPolicyLastUpdated: '23 de octubre de 2026',
-    // BORRADOR (23 oct 2026) basado en la Ley 1581 de 2012 y el Decreto 1377 de 2013, con los datos
-    // conocidos de la firma. PENDIENTE: revisión y aprobación de la cliente (dirección física, si la
-    // quieren publicar, y canal oficial para datos personales).
+    // Basada en la Ley 1581 de 2012 y el Decreto 1377 de 2013; aprobada por la cliente (9 nov 2026).
     dataPolicySections: [
       {
         heading: '1. Responsable del tratamiento',
