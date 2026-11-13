@@ -58,6 +58,8 @@
   align-items: center;
   gap: var(--space-5);
   min-height: calc(var(--header-height) - 1px); // + 1px del borde inferior
+  // Más ancho que el contenido: el logo grande + el menú completo no caben en 1160px.
+  max-width: 1320px;
 }
 
 .brand {
@@ -68,7 +70,7 @@
 }
 
 .brand__monogram {
-  height: 52px;
+  height: 72px;
   width: auto;
 }
 
@@ -83,16 +85,16 @@
   white-space: nowrap;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.95rem;
   letter-spacing: 0.04em;
 }
 
 .brand__sub {
-  margin-top: 4px;
+  margin-top: 5px;
   margin-right: -0.42em; // compensa el tracking del último carácter
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   letter-spacing: 0.42em;
   color: var(--color-gold);
 }
@@ -154,9 +156,17 @@
   cursor: pointer;
 }
 
-// El menú completo necesita ~1160px (logo + 5 enlaces + botón); por debajo se monta sobre el logo,
-// así que desde 1199px pasa a hamburguesa.
-@media (max-width: 1199px) {
+// El menú completo (logo grande + 5 enlaces + botón) necesita ~1280px; por debajo se monta sobre el
+// logo, así que pasa a hamburguesa.
+@media (max-width: 1319px) {
+  .brand__monogram {
+    height: 56px;
+  }
+
+  .brand__name {
+    font-size: 1.6rem;
+  }
+
   .site-header__row {
     grid-template-columns: 1fr auto auto;
     gap: var(--space-3);

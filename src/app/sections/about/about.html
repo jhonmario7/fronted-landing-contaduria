@@ -35,4 +35,16 @@
       </div>
     </div>
   </div>
+
+  <div class="wrap about__name">
+    <dl class="about__meaning">
+      @for (item of about.meaning; track item.term) {
+        <div class="about__term">
+          <dt>{{ item.term }}</dt>
+          <dd>{{ item.text }}</dd>
+        </div>
+      }
+    </dl>
+    <p class="about__closing">{{ about.closing }}</p>
+  </div>
 </section>

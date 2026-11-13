@@ -82,10 +82,17 @@ export const SITE_CONTENT: SiteContent = {
       vision: 'Nuestra visión',
       values: 'Nuestros valores',
     },
-    // Textos resumidos a partir del portafolio (diapositivas 02 y 03) para las tarjetas: sin datos nuevos.
+    // Texto de la cliente (13 nov 2026): el nombre como unión de respaldo jurídico y precisión financiera.
     intro: [
-      'Somos una firma de consultoría y asesoría integral que combina conocimientos contables, tributarios, jurídicos, financieros y administrativos para brindar soluciones a personas y empresas de diferentes sectores.',
+      'IUS COUNTER CONSULTING SAS representa la unión estratégica entre el respaldo jurídico y la precisión financiera, dos pilares fundamentales para el crecimiento y la sostenibilidad empresarial.',
     ],
+    meaning: [
+      { term: 'IUS', text: 'Seguridad jurídica, cumplimiento normativo y protección del patrimonio.' },
+      { term: 'COUNTER', text: 'Control contable, precisión financiera y decisiones estratégicas.' },
+      { term: 'CONSULTING', text: 'Asesoría integral y acompañamiento especializado.' },
+    ],
+    closing:
+      'En conjunto, somos el equilibrio entre el derecho que protege y las finanzas que impulsan tu empresa, ofreciendo soluciones integrales para un crecimiento seguro y sostenible.',
     ctaLabel: 'Contáctanos',
     mission:
       'Brindar asesoría contable, tributaria y legal oportuna, confiable y personalizada, con un equipo comprometido con la excelencia y la ética.',

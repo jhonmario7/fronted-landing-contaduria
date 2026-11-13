@@ -77,6 +77,9 @@ export interface AboutContent {
     values: string;
   };
   intro: string[];
+  // Significado del nombre (IUS / COUNTER / CONSULTING) y frase de cierre.
+  meaning: { term: string; text: string }[];
+  closing: string;
   ctaLabel: string;
   experience: string;
   valueProposition: string;
